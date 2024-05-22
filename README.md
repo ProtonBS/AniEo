@@ -1,25 +1,8 @@
-## ⚠️ **Note: This Project Is Stopped**
-
-The **AnimeDexLite Project** has been discontinued. I have made this decision to avoid potential copyright claims in the future. As a result, all public domains and APIs hosted by me are now inactive.
-
-The code for the website and API will remain accessible for anyone who wishes to experiment with it or make modifications. However, please be aware that there will be no further updates or releases from my side.
-
-Thank you for your understanding and support during the project's active phase! 🙌🌟
-
-### Project Links :
-
-<p>Telegram Support Group : <a href=https://telegram.me/TechZBots_Support>@TechZBots_Support</a>
-<p>AnimeDexLite Repository : <a href=https://github.com/TechShreyash/AnimeDexLite>TechShreyash/AnimeDexLite</a>
-<p>AnimeDex Api Repository : <a href=https://github.com/TechShreyash/AnimeDexApi>TechShreyash/AnimeDexApi</a>
-<p>AnimeDex Proxy Repository : <a href=https://github.com/TechShreyash/CloudflareWorker/tree/main/animedexproxy>TechShreyash/animedexproxy</a>
-<p>ThumbGen Api Repository : <a href=https://github.com/TechShreyash/ThumbApi>TechShreyash/ThumbApi</a>
-<p>Stats Api Repository : <a href=https://github.com/TechShreyash/StatsApi>TechShreyash/StatsApi</a>
-
 [![image](https://github.com/TechShreyash/AnimeDexLite/assets/82265247/98c27bb6-c4a8-4224-983e-2bb21386032a)](https://animedex.pages.dev)
 
 <h1 align="center"><b>AnimeDexLite v3.0</b></h1>
 
-AnimeDexLite is a pure HTML, CSS, and JS version of AnimeDex. It is lightweight, fast, ad-free, open-source, and easy to deploy. The design is responsive, and it uses Gogoanime and Anilist to get content. Powered by the blazing-fast [AnimeDexApi](https://api.anime-dex.workers.dev).
+AnimeDex[Fork of original] is a pure HTML, CSS, and JS version of AnimeDex. It is lightweight, fast, ad-free, open-source, and easy to deploy. The design is responsive, and it uses Gogoanime and Anilist to get content. Powered by the blazing-fast [AnimeDexApi](https://api.anime-dex.workers.dev).
 
 <p align="center">
 <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FTechShreyash%2FAnimeDexLite&count_bg=%2379C83D&title_bg=%23555555&icon=github.svg&icon_color=%23E7E7E7&title=Page+Views&edge_flat=false"/>

@@ -1,45 +1,12 @@
-#load {
-  text-align: center;
-  padding: 20px;
-}
-
-#load img {
-  width: 5%;
-  min-width: 40px;
-  border: none;
-}
-
-html,
-body {
-  width: 100%;
-  max-width: 100%;
-  overflow-x: hidden;
-  background-color: #131314;
-  scroll-behavior: smooth;
-  user-select: none;
-}
-
-header {
-  width: 100%;
-}
-
-#head-div {
-  background: linear-gradient(to right, #eb3349 40%, #f45c43);
-  width: 100%;
-  text-align: center;
-  height: 86px;
-  margin: auto;
-  font-family: "Roboto", sans-serif;
-  font-weight: 500;
-  font-size: x-large;
-  color: white;
-}
-
 h1 {
-  color: #eb3349;
-  font-family: "Poppins", sans-serif;
+  color: #9833eb;
+  font-weight: 700;
+  margin: 0px;
+  width: 100%;
+  text-align: center;
+  font-size: 24px;
+  line-height: 1.2em;
 }
-
 i {
   margin: auto;
   margin-right: 10px;
@@ -55,36 +22,11 @@ a {
   padding: 0px;
 }
 
-body,
-html {
-  height: 100%;
-  width: 100%;
-  padding: 0px;
-  margin: 0px;
-  background-color: #14151a;
-  background-image: none;
-  display: block;
-  height: fit-content;
-  width: 100vw;
-}
-
-html {
-  position: relative;
-}
-
-body {
-  overflow-x: hidden;
-}
-
 section {
   position: relative;
   width: 100%;
   margin: 0px;
   height: fit-content;
-}
-
-header {
-  position: relative;
 }
 
 div {
@@ -181,19 +123,6 @@ section img {
   border: 5px solid white;
   border-radius: 5px;
   margin: auto;
-}
-
-h1 {
-  font-family: "Montserrat", sans-serif;
-  font-size: 40px;
-  color: white;
-  font-weight: 700;
-  margin: 0px;
-  width: 100%;
-  text-align: center;
-  font-size: 24px;
-  text-align: center;
-  line-height: 1.2em;
 }
 
 .mid {
@@ -363,12 +292,6 @@ h1 {
   .item-head,
   .genre a {
     font-size: 15px;
-  }
-
-  h1 {
-    text-align: left;
-    font-weight: 700;
-    font-size: 30px;
   }
 
   .details {
