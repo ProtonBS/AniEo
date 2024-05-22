@@ -37,10 +37,6 @@ section {
   height: fit-content;
 }
 
-header {
-  position: relative;
-}
-
 div {
   box-sizing: border-box;
   display: block;
@@ -87,40 +83,25 @@ section img {
 
 .year {
   color: #dfdfdf;
-  font-family: "Montserrat", sans-serif;
-  font-size: 14px;
   font-weight: 400;
   padding: 2px 4px;
+  font-size: 14px;
+  padding: 8px 12px;
 }
 
 .watch-btn {
+  font-size: 14px;
+  padding: 6px 12px;
   background: #ae18cc;
   color: black;
   border-radius: 4px;
   font-weight: 400;
   font-family: "Montserrat", sans-serif;
-  padding: 10px 20px;
   text-decoration: none;
 }
 
 #watchh {
   margin: 30px 0px 20px 0px;
-}
-
-::-webkit-scrollbar {
-  width: 5px;
-}
-
-::-webkit-scrollbar-track {
-  background: #f1f1f100;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #888;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #555;
 }
 
 @media only screen and (min-width: 600px) {
@@ -603,11 +584,6 @@ h2 {
   overflow: hidden;
 }
 
-.watch-btn {
-  font-size: 14px;
-  padding: 8px 12px;
-}
-
 .spotlight {
   color: #9932ed;
   font-family: "Montserrat", sans-serif;
@@ -628,7 +604,7 @@ h2 {
 .watch-btn2 {
   background-color: #4a4b51;
   color: white;
-  margin-left: 15px;
+  margin-left: 10px;
 }
 
 .year2 {
@@ -727,15 +703,6 @@ h2 {
     text-align: left;
   }
 
-  .watch-btn {
-    font-size: 12px;
-    padding: 6px 12px;
-  }
-
-  .watch-btn2 {
-    margin-left: 10px;
-  }
-
   #watchh {
     margin: 20px 0px;
   }
@@ -776,15 +743,6 @@ h2 {
   .data-slider {
     max-width: 80%;
     text-align: left;
-  }
-
-  .watch-btn {
-    font-size: 14px;
-    padding: 6px 12px;
-  }
-
-  .watch-btn2 {
-    margin-left: 10px;
   }
 
   #watchh {

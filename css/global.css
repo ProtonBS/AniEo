@@ -6,9 +6,17 @@ body {
   overflow-x: hidden;
   scroll-behavior: smooth;
   user-select: none;
-  height: 100%;
   width: 100%;
   background-color: #14151a;
+}
+
+h2 {
+  font-family: "Montserrat", sans-serif;
+  color: #a832ed;
+  font-weight: 500;
+  width: 100%;
+  font-size: 20px;
+  margin: 10px;
 }
 
 header {
@@ -70,4 +78,45 @@ footer a {
   width: 5%;
   min-width: 40px;
   border: none;
+}
+
+.container {
+  display: none;
+  max-width: 600px;
+  margin: 50px auto;
+  border: 1px solid #f0c6f5;
+  border-radius: 5px;
+  background-color: #fff;
+}
+.container h6 {
+  color: #501c72;
+  font-size: x-large;
+}
+.container p {
+  margin-top: 20px;
+  font-size: 18px;
+}
+.container a {
+  color: #4b1c72;
+  text-decoration: underline;
+}
+
+.container h1 {
+  color: #611c72;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f100;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }

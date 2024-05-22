@@ -20,10 +20,6 @@ section {
   height: fit-content;
 }
 
-header {
-  position: relative;
-}
-
 div {
   box-sizing: border-box;
   display: block;
@@ -46,22 +42,6 @@ section img {
   border: 5px solid white;
   border-radius: 5px;
   margin: auto;
-}
-
-::-webkit-scrollbar {
-  width: 5px;
-}
-
-::-webkit-scrollbar-track {
-  background: #f1f1f100;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #888;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #555;
 }
 
 @media only screen and (min-width: 600px) {
@@ -105,15 +85,6 @@ section img {
 
 .divox {
   padding: 0px;
-}
-
-h2 {
-  font-family: "Montserrat", sans-serif;
-  color: #ed3832;
-  font-weight: 500;
-  width: 100%;
-  font-size: 20px;
-  margin: 10px;
 }
 
 #latest {
@@ -190,7 +161,7 @@ h2 {
 
 .dubb {
   color: white;
-  background-color: red;
+  background-color: rgb(183, 0, 255);
   position: absolute;
   bottom: 10px;
   left: 10px;
@@ -255,11 +226,6 @@ h2 {
   font-family: "Montserrat", sans-serif;
   font-size: 12px;
 }
-
-#head-div {
-  width: 100%;
-}
-
 #title1 {
   height: fit-content;
   width: 70%;
@@ -315,31 +281,6 @@ h2 {
 
 #query:focus {
   border: none;
-}
-
-.container {
-  display: none;
-  max-width: 600px;
-  margin: 50px auto;
-  padding: 20px;
-  border: 1px solid #f5c6cb;
-  border-radius: 5px;
-  background-color: #fff;
-  font-family: "Roboto";
-}
-
-.container h1 {
-  color: #721c24;
-}
-
-.container p {
-  margin-top: 20px;
-  font-size: 18px;
-}
-
-.container a {
-  color: #721c24;
-  text-decoration: underline;
 }
 
 #title1 {

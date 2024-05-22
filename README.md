@@ -1,4 +1,4 @@
-[![image](https://github.com/TechShreyash/AnimeDexLite/assets/82265247/98c27bb6-c4a8-4224-983e-2bb21386032a)](https://animedex.pages.dev)
+[![image](https://github.com/TechShreyash/AnimeDexLite/assets/82265247/98c27bb6-c4a8-4224-983e-2bb21386032a)](https://anime.semant.localplayer.dev)
 
 <h1 align="center"><b>AnimeDexLite v3.0</b></h1>
 
