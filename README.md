@@ -1,29 +1,18 @@
-[![image](https://github.com/TechShreyash/AnimeDexLite/assets/82265247/98c27bb6-c4a8-4224-983e-2bb21386032a)](https://anime.semant.localplayer.dev)
+[![image](https://i.imgur.com/qHgBoTu.png)](https://anime.semant.localplayer.dev)
 
-<h1 align="center"><b>AnimeDexLite v3.0</b></h1>
+<h1 align="center"><b>Anime Dex</b></h1>
 
-AnimeDex[Fork of original] is a pure HTML, CSS, and JS version of AnimeDex. It is lightweight, fast, ad-free, open-source, and easy to deploy. The design is responsive, and it uses Gogoanime and Anilist to get content. Powered by the blazing-fast [AnimeDexApi](https://api.anime-dex.workers.dev).
+AnimeDex[Fork of original] is a pure HTML, CSS, and JS version of AnimeDex. It is lightweight, fast, ad-free, open-source, and easy to deploy. The design is responsive, and it uses Gogoanime and Anilist to get content. Powered by the blazing-fast [AnimeDexApi](https://anidexapi.semant.workers.dev).
 
 <p align="center">
-<img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FTechShreyash%2FAnimeDexLite&count_bg=%2379C83D&title_bg=%23555555&icon=github.svg&icon_color=%23E7E7E7&title=Page+Views&edge_flat=false"/>
+<img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%s3mant%2FAnimeDexLite&count_bg=%2379C83D&title_bg=%23555555&icon=github.svg&icon_color=%23E7E7E7&title=Page+Views&edge_flat=false"/>
 </p>
 
 ## 🌐 Demo
 
-- Run On Your PC : https://github.com/TechShreyash/AnimeDexLite?tab=readme-ov-file#-run-on-your-pc
+- Run On Your PC : https://github.com/s3mant/AnimeDex?tab=readme-ov-file#-run-on-your-pc
 
 ## 🔥 Host Your Own
-
-### 🆓 Free Hostings
-
-You have several options for free hosting services:
-
-- Cloudflare, Netlify, Github Pages, Vercel, Render
-- And Many More! Search On Google For `Free Static Website Hostings`
-
-### 💰 Paid Hostings
-
-If you prefer paid hosting, look for services that allow using HTML files. Search on Google for `Static Website Hostings`
 
 ### 🏠 Run On Your PC
 

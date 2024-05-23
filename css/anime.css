@@ -1,7 +1,7 @@
 h1 {
   color: #9833eb;
   font-weight: 700;
-  margin: 0px;
+  margin: 0;
   width: 100%;
   text-align: center;
   font-size: 24px;
@@ -11,58 +11,49 @@ i {
   margin: auto;
   margin-right: 10px;
 }
-
 a {
   text-decoration: none;
 }
-
 * {
   box-sizing: border-box;
-  margin: 0px;
-  padding: 0px;
+  margin: 0;
+  padding: 0;
 }
-
 section {
   position: relative;
   width: 100%;
-  margin: 0px;
+  margin: 0;
   height: fit-content;
 }
-
 div {
   box-sizing: border-box;
   display: block;
 }
-
 #background {
   box-sizing: border-box;
   position: absolute;
-  top: 0px;
-  left: 0px;
-  right: 0px;
-  bottom: 0px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   overflow: hidden;
   height: 100%;
   display: block;
 }
-
 #overview1 {
   max-height: 150px;
   overflow: auto;
   display: block;
 }
-
 #overview3 {
   max-height: 150px;
   overflow: auto;
   display: none;
 }
-
 #overview2 {
   margin-bottom: 4px;
   display: block;
 }
-
 #cover {
   box-sizing: border-box;
   position: absolute;
@@ -77,59 +68,52 @@ div {
   opacity: 0.35;
   background-attachment: scroll;
 }
-
 .poster {
   box-sizing: border-box;
   text-align: center;
   display: inline;
   padding: 20px;
-  margin: 0px;
+  margin: 0;
   overflow: visible;
   margin-top: 20px;
 }
-
 .poster img {
   width: 100%;
   height: 100%;
 }
-
 .details {
   width: auto;
   text-align: left;
   box-sizing: border-box;
   display: inline;
-  margin: 0px;
+  margin: 0;
   overflow: visible;
   padding-bottom: 20px;
 }
-
 .anime {
   position: relative;
-  top: 0px;
-  left: 0px;
-  right: 0px;
-  bottom: 0px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   text-align: center;
   box-sizing: border-box;
   width: 100%;
   overflow: visible;
   height: fit-content;
 }
-
 section img {
   box-sizing: border-box;
   height: fit-content;
   max-width: 200px;
-  border: 5px solid white;
+  border: 5px solid #fff;
   border-radius: 5px;
   margin: auto;
 }
-
 .mid {
   width: 100%;
   text-align: center;
 }
-
 .cbox {
   border: 1px #6d6d6d solid;
   color: #dfdfdf;
@@ -139,17 +123,15 @@ section img {
   padding: 2px 4px;
   border-radius: 4px;
 }
-
 .dot {
   box-sizing: border-box;
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.3);
+  background: rgb(255 255 255 / 0.3);
   display: inline-block;
   margin: 3px 6px;
 }
-
 .year {
   color: #dfdfdf;
   font-family: "Montserrat", sans-serif;
@@ -157,19 +139,17 @@ section img {
   font-weight: 400;
   padding: 2px 4px;
 }
-
 .watch-btn {
   background: #ed3832;
-  color: black;
+  color: #000;
   border-radius: 4px;
   font-weight: 400;
   font-family: "Montserrat", sans-serif;
   padding: 10px 20px;
   text-decoration: none;
 }
-
 .synopsis {
-  color: white;
+  color: #fff;
   line-height: 1.5em;
   font-family: "Montserrat", sans-serif;
   font-size: 13px;
@@ -177,17 +157,15 @@ section img {
   text-align: left;
   display: none;
 }
-
 #info {
   display: inline;
-  margin: 0px;
+  margin: 0;
   text-align: left;
   vertical-align: middle;
-  background: rgba(0, 0, 0, 0.2);
+  background: rgb(0 0 0 / 0.2);
   height: 100%;
   padding: 20px 10px;
 }
-
 .item-head {
   text-align: left;
   font-family: "Montserrat", sans-serif;
@@ -200,7 +178,6 @@ section img {
   margin-bottom: 10px;
   margin-right: 5px;
 }
-
 .item-des {
   text-align: left;
   font-family: "Montserrat", sans-serif;
@@ -211,22 +188,19 @@ section img {
   font-size: 13px;
   box-sizing: border-box;
 }
-
 .info-items {
   margin: 10px;
 }
-
 .genre {
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 10px 0px;
+  border-top: 1px solid rgb(255 255 255 / 0.1);
+  border-bottom: 1px solid rgb(255 255 255 / 0.1);
+  padding: 10px 0;
 }
-
 .genre a {
-  border: 1px solid rgba(255, 255, 255, 0.4);
+  border: 1px solid rgb(255 255 255 / 0.4);
   box-sizing: border-box;
   border-radius: 20px;
-  color: white;
+  color: #fff;
   font-family: "Montserrat", sans-serif;
   font-size: 13px;
   font-weight: 300;
@@ -236,138 +210,111 @@ section img {
   display: inline-block;
   width: fit-content;
 }
-
 .col-3 {
   width: 25%;
 }
-
 .col-6 {
   width: 50%;
 }
-
 [class*="col-"] {
   float: left;
 }
-
 .row::after {
   content: "";
   clear: both;
   display: table;
 }
-
 #watchh {
-  margin: 30px 0px 20px 0px;
+  margin: 30px 0 20px 0;
 }
-
 [class*="col-"] {
   width: 100%;
 }
-
 @media only screen and (min-width: 600px) {
   .details {
     width: calc(100% - 250px);
   }
-
   h1 {
     font-size: 28px;
   }
-
   .item-des,
   .item-head,
   .genre a {
     font-size: 15px;
   }
-
   .details {
     padding-top: 20px;
   }
-
   .mid {
     text-align: left;
   }
-
   #watchh {
-    margin: 50px 0px;
+    margin: 50px 0;
   }
-
   .overview {
     display: none;
   }
-
   .synopsis,
   #overview3 {
     display: block;
   }
-
   .item-des,
   .item-head,
   .genre a {
     font-size: 13px;
   }
-
   section img {
     box-sizing: border-box;
     height: fit-content;
     max-width: 300px;
     width: 100%;
-    border: 5px solid white;
+    border: 5px solid #fff;
     border-radius: 5px;
     margin: auto;
   }
-
   .poster {
     box-sizing: border-box;
     text-align: center;
     display: inline;
-    margin: 0px;
+    margin: 0;
     overflow: visible;
     margin-top: 20px;
     width: 250px;
   }
 }
-
 @media only screen and (min-width: 1200px) {
   .col-3 {
     width: 25%;
   }
-
   .col-6 {
     width: 50%;
   }
-
   h1 {
     text-align: left;
     font-weight: 700;
     font-size: 30px;
   }
-
   .details {
     padding-top: 40px;
   }
-
   .mid {
     text-align: left;
   }
-
   #watchh {
-    margin: 50px 0px;
+    margin: 50px 0;
   }
-
   .overview {
     display: none;
   }
-
   .synopsis,
   #overview3 {
     display: block;
   }
-
   .item-des,
   .item-head,
   .genre a {
     font-size: 13px;
   }
-
   #info {
     display: block;
     height: 100%;
@@ -375,119 +322,104 @@ section img {
     top: 0;
     right: 0;
     bottom: 0;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgb(255 255 255 / 0.1);
     padding-top: 30px;
     overflow: hidden;
   }
-
   .poster {
     box-sizing: border-box;
     text-align: center;
     display: inline;
-    margin: 0px;
+    margin: 0;
     overflow: visible;
     margin-top: 20px;
     width: 300px;
   }
-
   section img {
     height: 100%;
     width: 100%;
   }
 }
-
 #watch {
   margin-top: 20px;
 }
-
 .divo {
   padding: 10px;
 }
-
 .divox {
-  padding: 0px;
+  padding: 0;
 }
-
 .divo2 {
-  background-color: rgb(32, 33, 37);
+  background-color: #202125;
   padding: 20px 10px;
   padding-bottom: 10px;
   border-radius: 4px;
 }
-
 #latest {
   margin-left: 20px;
   margin-top: 20px;
   margin-bottom: 15px;
 }
-
 #latest2 a {
-  color: white;
+  color: #fff;
   text-decoration: none;
 }
-
 #latest2 {
-  padding: 0px;
+  padding: 0;
   box-sizing: border-box;
   display: inline-block;
   text-align: center;
   width: 100%;
   height: fit-content;
 }
-
 .ep-btn {
   padding: 10px 20px;
-  background-color: rgb(53, 55, 61);
+  background-color: #35373d;
   color: #999;
   text-decoration: none;
   border-radius: 4px;
   font-weight: 400;
   font-family: "Montserrat", sans-serif;
   font-size: 14px;
-  margin: 0px 2px;
+  margin: 0 2px;
   margin-bottom: 10px;
   display: inline-block;
   width: 70px;
   text-align: center;
 }
-
 .la-anime {
   display: inline-block;
-  padding: 0px;
-  margin: 0px 3px;
+  padding: 0;
+  margin: 0 3px;
   margin-bottom: 6px;
   position: relative;
   width: calc(50% - 20px);
   max-width: 200px;
 }
-
 .shadow {
-  box-shadow: inset 0px -100px 50px -50px rgba(32, 33, 37, 1);
+  box-shadow: inset 0 -100px 50px -50px rgb(32 33 37);
   position: relative;
   height: 200px;
   z-index: 1;
 }
-
 #shadow1 {
-  box-shadow: inset 0px -100px 50px -50px rgba(32, 33, 37, 1);
+  box-shadow: inset 0 -100px 50px -50px rgb(32 33 37);
   position: absolute;
-  top: 0px;
-  left: 0px;
-  right: 0px;
+  top: 0;
+  left: 0;
+  right: 0;
   z-index: 3;
 }
-
 #shadow2 {
   position: relative;
-  top: 0px;
-  left: 0px;
-  right: 0px;
+  top: 0;
+  left: 0;
+  right: 0;
   z-index: 1;
 }
-
 .shadow img {
   border: none;
-  border-radius: 0px;
+  border-radius: 0;
   height: 100%;
   width: 100%;
   object-fit: cover;
@@ -495,16 +427,15 @@ section img {
   vertical-align: middle;
   overflow: hidden;
   position: relative;
-  top: 0px;
-  bottom: 0px;
-  left: 0px;
-  right: 0px;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
   max-width: unset;
   z-index: 1;
 }
-
 .dubb {
-  color: white;
+  color: #fff;
   background-color: red;
   position: absolute;
   bottom: 10px;
@@ -518,36 +449,33 @@ section img {
   padding: 2px 4px;
   z-index: 5;
 }
-
 .dubb2 {
   left: unset;
   right: 10px;
-  background-color: white;
-  color: black;
+  background-color: #fff;
+  color: #000;
 }
-
 .la-details {
-  background-color: rgb(32, 33, 37);
+  background-color: #202125;
   width: 100%;
   height: 85px;
   box-sizing: border-box;
   padding: 10px;
   overflow: hidden;
 }
-
 .la-details h3 {
-  margin: 0px;
+  margin: 0;
   font-family: "Montserrat", sans-serif;
   font-size: 14px;
   text-align: left;
   width: 100%;
-  color: white;
+  color: #fff;
   font-weight: 500;
   margin-bottom: 8px;
   height: fit-content;
   overflow: hidden;
   box-sizing: border-box;
-  -webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: #fff0;
   -webkit-text-size-adjust: none;
   list-style: none;
   box-sizing: border-box;
@@ -557,13 +485,12 @@ section img {
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
-
 #extra {
   text-align: left;
   overflow: hidden;
   width: 100%;
   box-sizing: border-box;
-  -webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: #fff0;
   -webkit-text-size-adjust: none;
   list-style: none;
   display: -webkit-box;
@@ -571,16 +498,14 @@ section img {
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
-
 .la-details span {
-  color: rgba(255, 255, 255, 0.3);
+  color: rgb(255 255 255 / 0.3);
   font-family: "Montserrat", sans-serif;
   font-size: 12px;
 }
-
 #search-div {
   height: fit-content;
-  background-color: white;
+  background-color: #fff;
   border-radius: 5px;
   height: 40px;
   width: 30%;
@@ -588,174 +513,146 @@ section img {
   top: 25px;
   right: 10px;
 }
-
 #search-div input {
   height: 28px;
-  background-color: rgba(255, 255, 255, 0);
+  background-color: #fff0;
   border: none;
   padding-left: 5px;
   font-size: 14px;
   font-weight: 400;
-  color: black;
+  color: #000;
   overflow: visible;
   font-family: "Montserrat", sans-serif;
   width: calc(100% - 27px);
 }
-
 #search-div button {
-  background-color: rgba(255, 255, 255, 0);
+  background-color: #fff0;
   border: none;
   height: 40px;
   width: 20px;
 }
-
 #search-div button i {
   width: 16px;
   height: 16px;
-  margin: 0px;
+  margin: 0;
 }
-
 #search-div form {
   vertical-align: middle;
   height: 100%;
   width: 100%;
 }
-
 #query {
   width: calc(100% - 55px);
   height: 40px;
 }
-
 #query:focus {
   border: none;
 }
-
 #title1 {
   height: fit-content;
   width: 70%;
 }
-
 @media only screen and (min-width: 420px) {
   .shadow {
     height: 240px;
   }
 }
-
 @media only screen and (min-width: 580px) {
   #search-div input {
     width: calc(100% - 55px);
   }
-
   .la-anime {
     max-width: 220px;
   }
-
   #title1 {
     height: fit-content;
     width: calc(100% - 50px);
     text-align: center;
   }
-
   #search-div {
     height: fit-content;
-    background-color: white;
+    background-color: #fff;
     margin-right: 20px;
     border-radius: 5px;
     height: 40px;
   }
-
   #search-div input {
     height: 28px;
-    background-color: rgba(255, 255, 255, 0);
+    background-color: #fff0;
     border: none;
     padding-left: 15px;
     font-size: 14px;
     font-weight: 400;
-    color: black;
+    color: #000;
     overflow: visible;
     font-family: "Montserrat", sans-serif;
   }
-
   #search-div button {
-    background-color: rgba(255, 255, 255, 0);
+    background-color: #fff0;
     border: none;
     height: 40px;
     width: 40px;
   }
-
   #search-div button i {
     width: 16px;
     height: 16px;
-    margin: 0px;
+    margin: 0;
   }
-
   #search-div form {
     vertical-align: middle;
     height: 100%;
     width: 100%;
   }
-
   #query {
     width: 200px;
     height: 40px;
   }
-
   #query:focus {
     border: none;
   }
-
   #title1 {
     height: fit-content;
     width: calc(100% - 247px);
     text-align: center;
   }
-
   #search-div {
     position: absolute;
-    right: 0px;
+    right: 0;
     top: 25px;
   }
 }
-
 @media only screen and (min-width: 1200px) {
   .la-anime {
     max-width: 220px;
   }
-
   #title1 {
     height: fit-content;
     width: 100%;
     text-align: center;
   }
-
   #search-div {
     position: absolute;
-    right: 0px;
+    right: 0;
     top: 25px;
   }
 }
-
 #cover {
   background-image: url(https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx131516-kLB37ISBeOX0.jpg);
 }
-
 #comment_section {
   width: 100%;
-  margin: 20px 0px;
-  padding: 0px 20px;
+  margin: 20px 0;
+  padding: 0 20px;
   text-align: center;
 }
-
 #disqus_thread {
   margin: auto;
   max-width: 700px;
 }
-
 #hr01 {
   width: 100%;
-  margin: 20px 0px;
+  margin: 20px 0;
 }
-
 .ep-slide img {
   width: 100%;
   height: 100%;
@@ -764,36 +661,32 @@ section img {
   transition: all 0.5s;
   border: none;
 }
-
 .ep-title {
   font-size: 16px;
-  font-weight: bold;
+  font-weight: 700;
   text-align: left;
   position: relative;
   bottom: 33px;
-  color: rgba(237, 241, 245, 0.91);
-  background-color: rgba(31, 38, 49, 0.7);
+  color: rgb(237 241 245 / 0.91);
+  background-color: rgb(31 38 49 / 0.7);
   padding: 5px 10px;
   font-family: "Montserrat", sans-serif;
 }
-
 .ep-slide {
   height: 100px;
   width: 175px;
   margin: 0 10px;
   display: block;
   border-radius: 5px;
-  border: 2px solid #ffffff;
+  border: 2px solid #fff;
   overflow: hidden;
 }
-
 .ep-slider {
   height: 100px;
   width: max-content;
   display: flex;
   flex-wrap: nowrap;
 }
-
 .slider-carousel {
   overflow-x: auto;
   width: 100%;
@@ -802,12 +695,10 @@ section img {
   scroll-behavior: smooth;
   user-select: none;
 }
-
 .prev,
 .next {
   z-index: 5;
 }
-
 .prev,
 .next {
   cursor: pointer;
@@ -815,50 +706,42 @@ section img {
   top: 20px;
   width: auto;
   padding: 16px;
-  color: white;
-  font-weight: bold;
+  color: #fff;
+  font-weight: 700;
   font-size: 18px;
   transition: 0.6s ease;
   border-radius: 0 3px 3px 0;
   user-select: none;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgb(0 0 0 / 0.7);
 }
-
 .next {
   right: 0;
   border-radius: 3px 0 0 3px;
 }
-
 .prev:hover,
 .next:hover {
-  background-color: rgba(0, 0, 0, 1);
+  background-color: rgb(0 0 0);
 }
-
 .slider-main {
   position: relative;
 }
-
 .ep-divo-upper {
   border: none;
   background-color: orange;
   margin: 5px 10px 10px 10px;
   padding: 10px 15px;
 }
-
 .ep-divo-upper option {
   width: 120px;
 }
-
 @keyframes fadeIn {
   0% {
     opacity: 0;
   }
-
   100% {
     opacity: 1;
   }
 }
-
 .ep-divo-lower {
   max-height: 320px;
   overflow-y: auto;
@@ -869,7 +752,6 @@ section img {
   grid-gap: 10px;
   transition: all 0.5s linear;
 }
-
 .ep-divo-outer {
   background-color: #27272c;
   width: 90%;
@@ -878,39 +760,32 @@ section img {
   border-radius: 5px;
   padding-top: 5px;
 }
-
 .ep-divo-outer section {
   display: flex;
   flex-direction: row;
 }
-
 .ep-btn {
   background-color: #454444;
-  color: white;
+  color: #fff;
   display: block;
 }
-
 .ep-divo-outer h2 {
-  color: white;
+  color: #fff;
   margin-left: 15px;
 }
-
 .ep-btn:hover {
   background-color: #7900eb;
 }
-
 #title1 {
   width: 70%;
   height: 86px;
 }
-
 #title1 a {
   height: 86px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-
 @media screen and (max-width: 520px) {
   #title1 img {
     height: 55px;
