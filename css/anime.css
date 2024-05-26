@@ -786,7 +786,7 @@ section img {
   align-items: center;
   justify-content: center;
 }
-@media screen and (max-width: 520px) {
+@media screen and (max-width: 200px) {
   #title1 img {
     height: 55px;
   }
