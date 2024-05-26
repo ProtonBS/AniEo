@@ -331,31 +331,27 @@ h2 {
 }
 #title1 {
   width: 70%;
-  height: 86px;
+  height: 60px; /* Adjusted height */
 }
-#title1 a {
-  height: 86px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+#title1 img {
+  height: 60px; /* Adjusted height */
 }
 @media screen and (max-width: 580px) {
   #title1 img {
-    height: 55px;
-  }
-}
-.extra1 {
-  line-height: 25px;
-}
-@media only screen and (min-width: 420px) {
-  .shadow {
-    height: 240px;
+    height: 40px; /* Adjusted height for small screens */
   }
 }
 @media only screen and (min-width: 580px) {
-  #search-div input {
-    width: calc(100% - 55px);
+  #title1 {
+    width: 100%;
   }
+}
+@media only screen and (min-width: 1200px) {
+  #title1 {
+    width: calc(100% - 50px);
+  }
+}
+
   .la-anime {
     max-width: 220px;
   }
