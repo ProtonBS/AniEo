@@ -1,4 +1,4 @@
-h1 {
+h1{
   color: #34eb43;
   font-size: 40px;
   color: #fff;
@@ -329,45 +329,33 @@ h2 {
 #query:focus {
   border: none;
 }
-
-
 #title1 {
-  display: flex; /* Use flexbox */
-  align-items: center; /* Center vertically */
-  height: 60px; /* Adjusted height */
-  top: 10px; /* Move the logo 10px */
+  width: 70%;
+  height: 86px;
 }
-
-#title1 img {
-  height: 100%; /* Make the image fit the container's height */
-  max-height: 60px; /* Adjust the height */
+#title1 a {
+  height: 86px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-
 @media screen and (max-width: 580px) {
-  #title1 {
-    height: 40px; /* Adjusted height for small screens */
- top: 10px; /* Move the logo 10px up */
-  }
-
   #title1 img {
-    max-height: 40px; /* Adjust the height for small screens */
+    height: 55px;
   }
 }
-
+.extra1 {
+  line-height: 25px;
+}
+@media only screen and (min-width: 420px) {
+  .shadow {
+    height: 240px;
+  }
+}
 @media only screen and (min-width: 580px) {
-  #title1 {
-    width: auto; /* Adjust as necessary */
+  #search-div input {
+    width: calc(100% - 55px);
   }
-}
-
-@media only screen and (min-width: 1200px) {
-  #title1 {
-    width: auto; /* Adjust as necessary */
-  }
-}
-
-
-
   .la-anime {
     max-width: 220px;
   }
