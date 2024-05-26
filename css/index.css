@@ -339,9 +339,9 @@ h2 {
   align-items: center;
   justify-content: center;
 }
-@media screen and (max-width: 200px) {
+@media screen and (max-width: 454px) {
   #title1 img {
-    height: 55px;
+    height: 109px;
   }
 }
 .extra1 {
