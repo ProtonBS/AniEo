@@ -10,7 +10,7 @@ body {
 }
 h2 {
   font-family: "Montserrat", sans-serif;
-  color: #a832ed;
+  color: #34eb43;
   font-weight: 500;
   width: 100%;
   font-size: 20px;
@@ -20,7 +20,7 @@ header {
   width: 100%;
 }
 #head-div {
-  background: linear-gradient(to right, #6008a8 40%, #9216e6);
+  background: linear-gradient(to right, #6008a8 40%, #34eb43);
   width: 100%;
   text-align: center;
   height: 86px;
@@ -32,7 +32,7 @@ header {
 }
 footer {
   color: #fff;
-  background: #881fc5;
+  background: #34eb43;
   display: flex;
   flex-wrap: nowrap;
   align-content: center;
