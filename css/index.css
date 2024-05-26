@@ -332,12 +332,9 @@ h2 {
 
 
 #title1 {
-  width: 70%;
   display: flex; /* Use flexbox */
   align-items: center; /* Center vertically */
-  justify-content: center; /* Center horizontally */
   height: 60px; /* Adjusted height */
-  margin: 0 auto; /* Center horizontally if the width is not 100% */
 }
 
 #title1 img {
@@ -357,13 +354,13 @@ h2 {
 
 @media only screen and (min-width: 580px) {
   #title1 {
-    width: 100%;
+    width: auto; /* Adjust as necessary */
   }
 }
 
 @media only screen and (min-width: 1200px) {
   #title1 {
-    width: calc(100% - 50px);
+    width: auto; /* Adjust as necessary */
   }
 }
 
