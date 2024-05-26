@@ -218,7 +218,7 @@ h2 {
 }
 .dubb {
   color: #fff;
-  background-color: #d400ff;
+  background-color: #34eb43;
   position: absolute;
   bottom: 10px;
   left: 10px;
@@ -509,7 +509,7 @@ h2 {
   overflow: hidden;
 }
 .spotlight {
-  color: #9932ed;
+  color: #34eb43;
   font-family: "Montserrat", sans-serif;
   font-size: 14px;
   margin-bottom: 20px;
@@ -538,7 +538,7 @@ h2 {
   z-index: 5;
 }
 .cbox1 {
-  background-color: #9332ed;
+  background-color: #34eb43;
   color: #000;
   font-family: "Montserrat", sans-serif;
   border: none;
