@@ -335,6 +335,7 @@ h2 {
   display: flex; /* Use flexbox */
   align-items: center; /* Center vertically */
   height: 60px; /* Adjusted height */
+  top: 10px; /* Move the logo 10px */
 }
 
 #title1 img {
@@ -345,6 +346,7 @@ h2 {
 @media screen and (max-width: 580px) {
   #title1 {
     height: 40px; /* Adjusted height for small screens */
+ top: 10px; /* Move the logo 10px up */
   }
 
   #title1 img {
