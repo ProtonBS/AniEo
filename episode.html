@@ -45,7 +45,9 @@
 </head>
 
 <body>
-	
+	<div class="header" id="myHeader">
+  <div class="sharethis-inline-share-buttons">
+	</div>
     <header id="head-div">
         <div id="title1">
             <a href="/"><img src="https://res.cloudinary.com/cczbcczbs/image/upload/w_332,h_88/v1716741063/kc8aie379dbgijbk7jdx.png" alt="AnimeDex"></a>
@@ -184,6 +186,23 @@
         }
         gtag("js", new Date());
         gtag("config", "G-BHQX4066ZV");
+    
+    
+    
+window.onscroll = function() {myFunction()};
+
+var header = document.getElementById("myHeader");
+var sticky = header.offsetTop;
+
+function myFunction() {
+  if (window.pageYOffset > sticky) {
+    header.classList.add("sticky");
+  } else {
+    header.classList.remove("sticky");
+  }
+}
+
+    
     </script>
 </body>
 
