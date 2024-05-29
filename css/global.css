@@ -65,7 +65,7 @@ footer a {
 }
 #load img {
   width: 25%;
-  min-width: 200px;
+  min-width: 100px;
   border: none;
 }
 .container {
