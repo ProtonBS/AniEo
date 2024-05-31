@@ -59,7 +59,7 @@ footer a {
     font-size: 15px;
   }
 }
-#load {
+/*#load {
   text-align: center;
   padding: 20px;
 }
@@ -67,7 +67,11 @@ footer a {
   width: 25%;
   min-width: 100px;
   border: none;
-}
+}*/
+
+
+
+
 .container {
   display: none;
   max-width: 600px;
