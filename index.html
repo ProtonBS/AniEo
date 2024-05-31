@@ -114,12 +114,17 @@
 	  
     <div id="load">	    
 <!-- 𝗽𝗿𝗲𝗹𝗼𝗮𝗱𝗲𝗿 -->
-<div style="display: grid; place-items: center; height: 100vh;">
+<div style="display: flex; justify-content: center; align-items: flex-start; height: 100vh;">
     <l-quantum
       size="195"
       speed="1.75"
-      color="#9dfc03"
-      style="width: 195px; height: 195px;"
+      color="currentColor"
+      style="
+        width: 195px; 
+        height: 195px; 
+        margin-top: 20px; 
+        animation: rainbow 5s infinite linear;
+      "
     ></l-quantum>
   </div>
 	    
@@ -141,6 +146,17 @@
       crossorigin="anonymous"
     ></script>
 	  <script type="module" src="https://cdn.jsdelivr.net/npm/ldrs/dist/auto/quantum.js"></script>
-    
+
+  <style>
+    @keyframes rainbow {
+      0% { color: red; }
+      16.67% { color: orange; }
+      33.33% { color: yellow; }
+      50% { color: green; }
+      66.67% { color: blue; }
+      83.33% { color: indigo; }
+      100% { color: violet; }
+    }
+  </style>
   </body>
 </html>
