@@ -47,6 +47,17 @@
 <meta name="surfe.pro" content="f11762cbc58845d0136250f73cd5cfa5">
 
 <div class="sharethis-inline-share-buttons"></div>
+	<style>
+    @keyframes rainbow {
+      0% { color: red; }
+      16.67% { color: orange; }
+      33.33% { color: yellow; }
+      50% { color: green; }
+      66.67% { color: blue; }
+      83.33% { color: indigo; }
+      100% { color: violet; }
+    }
+  </style>
 </head>
 
 <body>
@@ -65,8 +76,19 @@
 
     <div id="load">
 	   
-        <img src="./static/loading2.gif" alt="Loading..." />
-    </div>
+        <div style="display: flex; justify-content: center; align-items: flex-start; height: 100vh;">
+    <l-quantum
+      size="195"
+      speed="1.75"
+      color="currentColor"
+      style="
+        width: 195px; 
+        height: 195px; 
+        margin-top: 20px; 
+        animation: rainbow 5s infinite linear;
+      "
+    ></l-quantum>
+  </div></div>
 
 
     <!-- Error Page -->
@@ -217,7 +239,8 @@ function myFunction() {
 }
 </script>
 
-    
+    <script type="module" src="https://cdn.jsdelivr.net/npm/ldrs/dist/auto/quantum.js"></script>
+
     </script>
 </body>
 
