@@ -11,4 +11,5 @@ Disallow: /
 User-agent: *
 Disallow: /embed.html
 Disallow: /embed
+Disallow: /ads.txt
 Allow: /
