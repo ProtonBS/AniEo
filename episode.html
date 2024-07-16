@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- (Your existing head content) -->
+    <link rel="icon" type="image/x-icon" href="./favicon.ico" />
+    <title>Watch {{ title }} - AniEo</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="title" content="Watch {{ title }} - AniEo" />
+    <meta name="description"
+        content="Watch {{ title }} - AniEo free anime online and it's latest episodes on AniEo. We provide free anime online experience without ads, signing up or downloading." />
+    <meta name="keywords"
+        content="{{ title }}, AniEo, hindi dub, hindi sub, english dub, watch anime online, free anime, anime stream, anime hd, english sub, kissanime, gogoanime, animeultima, 9anime, 123animes, animefreak, vidstreaming, gogo-stream, animekisa, zoro.to, gogoanime.run, animefrenzy, animekisa" />
+    <meta name="charset" content="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=5" />
+    <meta name="robots" content="index, follow" />
+    <meta name="googlebot" content="index, follow" />
+    <meta name="revisit-after" content="1 days" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="Content-Language" content="en" />
+    <meta property="og:title" content="Watch {{ title }} - AniEo" />
+    <meta property="og:description"
+        content="Watch {{ title }} - AniEo free anime online and it's latest episodes on AniEo. We provide free anime online experience without ads, signing up or downloading." />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="AniEo" />
+    <meta property="og:url" content="https://anime.semant.localplayer.dev" />
+    <meta itemprop="image" content="https://i.imgur.com/qHgBoTu.png" />
+    <meta property="og:image" content="https://i.imgur.com/qHgBoTu.png" />
+    <meta property="og:image:secure_url"
+        content="https://i.imgur.com/qHgBoTu.png" />
+    <meta property="og:image:width" content="650" />
+    <meta property="og:image:height" content="350" />
+    <meta property="twitter:title" content="Watch {{ title }} - AniEo" />
+    <meta property="twitter:description"
+        content="Watch {{ title }} - AniEo free anime online and it's latest episodes on AniEo. We provide free anime online experience without ads, signing up or downloading." />
+    <meta property="twitter:url" content="/anime/" />
+    <meta property="twitter:card" content="summary" />
+    <meta name="apple-mobile-web-app-status-bar" content="#202125" />
+    <meta name="theme-color" content="#202125" />
+    <link href="./css/episode.css" rel="stylesheet" />
+    <link href="./css/global.css" rel="stylesheet" />
+    
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/vaakash/socializer@f4c4e9/css/socializer.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.4.2/css/all.css">
+
+    <!-- Plausible -->
+    <script defer data-domain="anieo.vercel.app" src="https://plausible.io/js/script.js"></script>
+
+    <meta name="google-site-verification" content="-xMMXXGSnOzFmcbydWI4FOaV6MBf3oWDKanMpvCju94" />
+
+    <!-- Umami -->
+    <script defer src="https://umami-vfg4.onrender.com/script.js" data-website-id="4724ad76-be62-4357-bfdc-d27f8faaac22"></script>
+    <!-- Umami -->
+
+    <!-- SocialShare -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/vaakash/socializer@f4c4e9/css/socializer.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.4.2/css/all.css">
+    <!-- SocialShare -->
+
+    <style>
+        h1 {
+            font-size: 55px;
+            color: #a9fc03;
+            font-family: 'Nunito', sans-serif;
+        }
+        .next-episode-button {
+            background-color: #00ffae;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 10px 0;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <header id="head-div">
+        <div id="title1">
+            <a href="/"><img src="./logo.png" alt="AniEo"></a>
+        </div>
+        <div id="search-div">
+            <form action="./search.html" method="GET">
+                <input type="text" name="query" id="query" placeholder="Search Anime..." required />
+                <button name="search" type="submit"><i class="fa fa-search"></i></button>
+            </form>
+        </div>
+    </header>
+
+    <div id="load">
+       <div style="display: grid; place-items: center; height: 70vh;">
+           <l-trefoil size="195" speed="1.75" color="#9dfc03" style="width: 195px; height: 195px;"></l-trefoil>
+       </div> 
+    </div>
+
+    <!-- Error Page -->
+    <div class="container" id="error-page" style="display: none;">
+        <h1>Oops! Something Went Wrong</h1>
+        <p>If You Are Seeing This Page, Please Close This Tab & Open <b>AniEo</b> Page On A New Tab
+        <p>If the issue persists, you can contact our <a href="https://telegram.me/ZoroNewEra">support team</a>.
+        <p id="error-desc"></p>
+    </div>
+    <!-- Error Page -->
+
+    <div class="header" id="myHeader">
+        <!-- SocialShare -->
+        <div class="socializer" data-features="32px,squircle,fade-black,fluid,font-lg,icon-white,sw-1,pad" data-sites="whatsapp,telegram,facebook,reddit,discord,instagram,sms,twitter,email"></div>
+        <!-- SocialShare -->
+    </div>
+
+    <center>
+        <!-- Adsterra 320x50 -->
+        <!-- <div id="ad-container"></div> -->
+        <!-- <div id="ad-container2"></div> -->
+        <!-- Adsterra 320x50 -->
+    </center>
+
+    <div id="main-section" style="opacity: 0; display: none;">
+        <section id="vid-sec">
+            <div id="vid-div">
+                <div id="video">
+                    <iframe id="AnimeDexFrame" src="" style="border: 0px #ffffff none" scrolling="no" frameborder="0" marginheight="0px" marginwidth="0px" allowfullscreen></iframe>
+                </div>
+            </div>
+
+            <div id="server_main">
+                <div class="status">
+                    <!-- Next Episode Button -->
+                    <button class="next-episode-button" onclick="goToNextEpisode()">Next Episode</button>
+                    <!-- End of Next Episode Button -->
+                    <div class="scontent">
+                        You are watching <b id="ep-name"><h1>{{ title }}</h1></b>
+                        If current server doesn't work please try other servers beside.
+                    </div>
+                </div>
+
+                <div class="server">
+                    <div class="stitle">
+                        <i class="fa fa-microphone"></i>
+                        Servers:
+                    </div>
+                    <div id="serversbtn" class="slist"></div>
+                </div>
+
+                <center>
+                    <!-- Adsterra 320x50 -->
+                    <!-- <div id="ad-container"></div> -->
+                    <div id="ad-container2"></div>
+                    <!-- Adsterra 320x50 -->
+                </center>
+
+                <a id="showdl" onclick="showDownload()"><i class="fa fa-download"></i>Download</a>
+                <div id="dldiv" class="dldiv">
+                    <h4 id="download">Download Links:</h4>
+                    <div class="server">
+                        <div class="stitle">
+                            <i class="fa fa-closed-captioning"></i> Multi Download:
+                        </div>
+                        <div id="link-list">
+                            <div id="showlist"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="desc-sec">
+            <div class="desc">
+                <div class="anime-info">
+                    <div class="anime-thumb">
+                        <img id="anime-thumbnail" src="{{ thumbnail }}" alt="{{ title }}">
+                    </div>
+                    <div class="anime-details">
+                        <h2>{{ title }}</h2>
+                        <p>{{ description }}</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div class="footer">
+        <footer>
+            <div>
+                Copyright © 2023 AniEo. All Rights Reserved.
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        window.onscroll = function() {myFunction()};
+
+        var header = document.getElementById("myHeader");
+        var sticky = header.offsetTop;
+
+        function myFunction() {
+            if (window.pageYOffset > sticky) {
+                header.classList.add("sticky");
+            } else {
+                header.classList.remove("sticky");
+            }
+        }
+
+        // Adsterra
+        var atOptions = {
+            'key' : '62917282db37e1460841ffb992c316b8',
+            'format' : 'iframe',
+            'height' : 50,
+            'width' : 320,
+            'params' : {}
+        };
+        document.write('<scr' + 'ipt type="text/javascript" src="https://www.profitabledisplaynetwork.com/62917282db37e1460841ffb992c316b8/invoke.js"></scr' + 'ipt>');
+
+        var atOptions = {
+            'key' : '8f7eb93e7e30539f08042a3d9d591b40',
+            'format' : 'iframe',
+            'height' : 50,
+            'width' : 320,
+            'params' : {}
+        };
+        document.write('<scr' + 'ipt type="text/javascript" src="https://www.profitabledisplaynetwork.com/8f7eb93e7e30539f08042a3d9d591b40/invoke.js"></scr' + 'ipt>');
+
+        // Preloader
+        var script = document.createElement('script');
+        script.src = 'https://cdn.jsdelivr.net/gh/vaakash/socializer@f4c4e9/js/socializer.min.js';
+        document.head.appendChild(script);
+
+        script.onload = function() {
+            socializer( {
+                'container': '.socializer',
+                'network': [ 'whatsapp', 'telegram', 'facebook', 'reddit', 'discord', 'instagram', 'sms', 'twitter', 'email' ]
+            } );
+        }
+
+        // Function to go to the next episode
+        function goToNextEpisode() {
+            var currentUrl = window.location.href;
+            var url = new URL(currentUrl);
+            var episodeParam = url.searchParams.get("episode_id");
+
+            if (episodeParam) {
+                var episodeParts = episodeParam.split('-');
+                var episodeNumber = parseInt(episodeParts[episodeParts.length - 1]);
+                var nextEpisodeNumber = episodeNumber + 1;
+                episodeParts[episodeParts.length - 1] = nextEpisodeNumber;
+                var nextEpisodeParam = episodeParts.join('-');
+                url.searchParams.set("episode_id", nextEpisodeParam);
+                window.location.href = url.toString();
+            }
+        }
+    </script>
+</body>
+</html>
