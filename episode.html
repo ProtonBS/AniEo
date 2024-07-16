@@ -67,16 +67,13 @@
             font-family: 'Nunito', sans-serif;
         }
     
-       @keyframes neonFlow {
-      0% {
-        background-position: 0% 0%;
-      }
-      100% {
-        background-position: 100% 100%;
-      }
+       /* Scoped button container */
+    .button-container {
+      text-align: center; /* Centers the buttons within the container */
+      padding: 20px; /* Adds padding around the container */
     }
 
-    .previous-episode-button, .next-episode-button {
+    .button-container .neon-button {
       background: linear-gradient(45deg, 
         #FFFF00, /* Yellow */
         #000000, /* Black */
@@ -87,22 +84,34 @@
         #00FFFF, /* Neon Blue */
         #FFFF00  /* Yellow */
       );
-      background-size: 400% 400%;
+      background-size: 400% 400%; /* Larger background area for smooth animation */
       border: none;
       color: #ffffff;
       padding: 8px 16px; /* Reduced padding for smaller buttons */
-      text-align: center;
-      text-decoration: none;
-      display: inline-block; /* Keeps buttons inline with each other */
       font-size: 14px; /* Slightly smaller font size */
-      margin: 5px; /* Reduced margin for closer spacing */
+      margin: 8px; /* Reduced margin between buttons */
       cursor: pointer;
-      border-radius: 5px; /* Optional: Adds rounded corners */
-      animation: neonFlow 8s linear infinite; /* Applies the seamless rainbow flow animation */
+      border-radius: 8px; /* Rounded corners for a modern look */
+      box-shadow: 0 0 8px rgba(255, 255, 0, 0.5); /* Softer shadow for a glowing effect */
+      transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition effects */
+      animation: neonFlow 8s linear infinite; /* Applies the neon flow animation */
     }
 
-    .buttons-container {
-      text-align: center; /* Center-aligns the buttons */
+    .button-container .neon-button:hover {
+      transform: scale(1.05); /* Slightly enlarge button on hover */
+      box-shadow: 0 0 15px rgba(255, 255, 0, 0.7); /* Enhanced shadow on hover */
+    }
+
+    @keyframes neonFlow {
+      0% {
+        background-position: 0% 0%;
+      }
+      50% {
+        background-position: 100% 0%;
+      }
+      100% {
+        background-position: 0% 100%;
+      }
     }
 
   </style>
