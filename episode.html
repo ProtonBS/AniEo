@@ -67,29 +67,22 @@
             font-family: 'Nunito', sans-serif;
         }
     
-	.button-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 20px 0; /* Optional: adjust margin as needed */
-}
-
-.button-container {
-      display: flex;
-      justify-content: center; /* Centers buttons horizontally */
-      margin: 20px 0; /* Optional: Add some vertical margin for spacing */
+	body {
+      text-align: center; /* Center-aligns all inline elements (including buttons) */
+      margin: 0; /* Optional: Removes default margin */
+      padding: 20px; /* Optional: Adds padding around the content */
     }
 
     .previous-episode-button, .next-episode-button {
       background-color: #00ffae;
       border: none;
       color: #000000;
-      padding: 5px 15px; /* Increased padding for a better button size */
+      padding: 5px 15px; /* Adjusted padding for better button size */
       text-align: center;
       text-decoration: none;
-      display: inline-block;
+      display: inline-block; /* Ensures the buttons align as inline elements */
       font-size: 12px;
-      margin: 0 10px; /* Adjusted margin to space buttons evenly */
+      margin: 0 10px; /* Space between buttons */
       cursor: pointer;
     }
 
@@ -158,10 +151,10 @@
             </div>
 
       <!-- Previous Episode Button -->
-	<div class="button-container">
-    <button class="previous-episode-button" onclick="goToPreviousEpisode()">ᐊ Previous Episode</button>
-    <button class="next-episode-button" onclick="goToNextEpisode()">Next Episode ᐅ</button>	
-<!-- End of Next Episode Button -->
+  <button class="previous-episode-button" onclick="goToPreviousEpisode()">ᐊ Previous Episode</button>
+  <!-- Next Episode Button -->
+  <button class="next-episode-button" onclick="goToNextEpisode()">Next Episode ᐅ</button>
+
  
 		
             <div id="server_main">
