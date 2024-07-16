@@ -67,18 +67,19 @@
             font-family: 'Nunito', sans-serif;
         }
     
-		.next-episode-button {
-            background-color: #00ffae;
-            border: none;
-            color: #000000;
-            padding: 10px 20px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            margin: 10px 0;
-            cursor: pointer;
-        }
+	.previous-episode-button, .next-episode-button {
+    background-color: #00ffae;
+    border: none;
+    color: #000000;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px 5px;  /* Adjusted margin to space buttons evenly */
+    cursor: pointer;
+}
+
   </style>
 </head>
 
@@ -143,9 +144,14 @@
              </div>
             </div>
 
-       <!-- Next Episode Button -->
-                    <button class="next-episode-button" onclick="goToNextEpisode()">Next Episode ᐅ</button>
-       <!-- End of Next Episode Button -->
+      <!-- Previous Episode Button -->
+<button class="previous-episode-button" onclick="goToPreviousEpisode()">ᐊ Previous Episode</button>
+<!-- End of Previous Episode Button -->
+
+<!-- Next Episode Button -->
+<button class="next-episode-button" onclick="goToNextEpisode()">Next Episode ᐅ</button>
+<!-- End of Next Episode Button -->
+ 
 		
             <div id="server_main">
                 <div class="status">
