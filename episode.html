@@ -67,12 +67,7 @@
             font-family: 'Nunito', sans-serif;
         }
     
-       /* Scoped button container */
-    .button-container {
-      text-align: center; /* Centers the buttons within the container */
-      padding: 20px; /* Adds padding around the container */
-    }
-
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
   </style>
 </head>
 
@@ -130,13 +125,19 @@
              </div>
             </div>
 
-	<div class="button-container">	
-      <!-- Previous Episode Button -->
-		<center>
-  <button class="previous-episode-button" onclick="goToPreviousEpisode()">ᐊ Previous Episode</button>
-  <!-- Next Episode Button -->
-  <button class="next-episode-button" onclick="goToNextEpisode()">Next Episode ᐅ</button>
-		</center>
+	<body class="d-flex justify-content-center align-items-center vh-100 m-0">
+  <!-- Button Container with Bootstrap classes -->
+  <div>
+    <!-- Previous Episode Button -->
+    <button class="btn btn-primary mr-2" onclick="goToPreviousEpisode()">ᐊ Previous Episode</button>
+    <!-- Next Episode Button -->
+    <button class="btn btn-primary" onclick="goToNextEpisode()">Next Episode ᐅ</button>
+  </div>
+
+  <!-- Bootstrap JS and dependencies (optional) -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
  
 		
             <div id="server_main">
