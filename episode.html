@@ -132,6 +132,10 @@
              </div>
             </div>
 
+       <!-- Next Episode Button -->
+                    <button class="next-episode-button" onclick="goToNextEpisode()">Next Episode</button>
+       <!-- End of Next Episode Button -->
+		
             <div id="server_main">
                 <div class="status">
                     <div class="scontent">
@@ -320,6 +324,25 @@ function myFunction() {
 }());
 </script>
 	<!--====𝙎𝙤𝙘𝙞𝙖𝙡𝙎𝙝𝙖𝙧𝙚===-->
+
+
+// Function to go to the next episode
+     <script>   function goToNextEpisode() {
+            var currentUrl = window.location.href;
+            var url = new URL(currentUrl);
+            var episodeParam = url.searchParams.get("episode_id");
+
+            if (episodeParam) {
+                var episodeParts = episodeParam.split('-');
+                var episodeNumber = parseInt(episodeParts[episodeParts.length - 1]);
+                var nextEpisodeNumber = episodeNumber + 1;
+                episodeParts[episodeParts.length - 1] = nextEpisodeNumber;
+                var nextEpisodeParam = episodeParts.join('-');
+                url.searchParams.set("episode_id", nextEpisodeParam);
+                window.location.href = url.toString();
+            }
+        }
+     </script>
 	
 </script>
 </body>
