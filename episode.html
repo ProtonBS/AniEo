@@ -67,22 +67,42 @@
             font-family: 'Nunito', sans-serif;
         }
     
-       .previous-episode-button, .next-episode-button {
-      background-color: #00ffae;
+       @keyframes neonFlow {
+      0% {
+        background-position: 0% 0%;
+      }
+      100% {
+        background-position: 100% 100%;
+      }
+    }
+
+    .previous-episode-button, .next-episode-button {
+      background: linear-gradient(45deg, 
+        #FFFF00, /* Yellow */
+        #000000, /* Black */
+        #00FF00, /* Green */
+        #0000FF, /* Blue */
+        #FF69B4, /* Pink */
+        #FF0000, /* Red */
+        #00FFFF, /* Neon Blue */
+        #FFFF00  /* Yellow */
+      );
+      background-size: 400% 400%;
       border: none;
-      color: #000000;
-      padding: 5px 15px; /* Increased padding for better button size */
+      color: #ffffff;
+      padding: 8px 16px; /* Reduced padding for smaller buttons */
       text-align: center;
       text-decoration: none;
-      display: inline-block; /* Keep buttons inline with each other */
-      font-size: 12px;
-      margin: 0 10px; /* Space between buttons */
+      display: inline-block; /* Keeps buttons inline with each other */
+      font-size: 14px; /* Slightly smaller font size */
+      margin: 5px; /* Reduced margin for closer spacing */
       cursor: pointer;
+      border-radius: 5px; /* Optional: Adds rounded corners */
+      animation: neonFlow 8s linear infinite; /* Applies the seamless rainbow flow animation */
     }
-    
-    /* Center-align buttons container */
+
     .buttons-container {
-      text-align: center; /* Center-aligns inline and inline-block elements within the container */
+      text-align: center; /* Center-aligns the buttons */
     }
 
   </style>
