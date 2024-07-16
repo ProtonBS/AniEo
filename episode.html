@@ -67,23 +67,22 @@
             font-family: 'Nunito', sans-serif;
         }
     
-      {
-      text-align: center; /* Center-aligns all inline elements (including buttons) */
-      margin: 0; /* Optional: Removes default margin */
-      padding: 20px; /* Optional: Adds padding around the content */
-      }
-
-    .previous-episode-button, .next-episode-button {
+       .previous-episode-button, .next-episode-button {
       background-color: #00ffae;
       border: none;
       color: #000000;
-      padding: 5px 15px; /* Adjusted padding for better button size */
+      padding: 5px 15px; /* Increased padding for better button size */
       text-align: center;
       text-decoration: none;
-      display: inline-block; /* Ensures the buttons align as inline elements */
+      display: inline-block; /* Keep buttons inline with each other */
       font-size: 12px;
       margin: 0 10px; /* Space between buttons */
       cursor: pointer;
+    }
+    
+    /* Center-align buttons container */
+    .buttons-container {
+      text-align: center; /* Center-aligns inline and inline-block elements within the container */
     }
 
   </style>
