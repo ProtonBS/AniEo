@@ -67,7 +67,14 @@
             font-family: 'Nunito', sans-serif;
         }
     
-	.previous-episode-button, .next-episode-button {
+	.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0; /* Optional: adjust margin as needed */
+}
+
+.previous-episode-button, .next-episode-button {
     background-color: #00ffae;
     border: none;
     color: #000000;
@@ -76,9 +83,10 @@
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    margin: 10px 5px;  /* Adjusted margin to space buttons evenly */
+    margin: 0 10px;  /* Adjusted margin to space buttons evenly */
     cursor: pointer;
 }
+
 
   </style>
 </head>
@@ -343,23 +351,42 @@ function myFunction() {
 	<!--====𝙎𝙤𝙘𝙞𝙖𝙡𝙎𝙝𝙖𝙧𝙚===-->
 
 
-// Function to go to the next episode
-     <script>   function goToNextEpisode() {
-            var currentUrl = window.location.href;
-            var url = new URL(currentUrl);
-            var episodeParam = url.searchParams.get("episode_id");
+<script>
+    function goToNextEpisode() {
+        var currentUrl = window.location.href;
+        var url = new URL(currentUrl);
+        var episodeParam = url.searchParams.get("episode_id");
 
-            if (episodeParam) {
-                var episodeParts = episodeParam.split('-');
-                var episodeNumber = parseInt(episodeParts[episodeParts.length - 1]);
-                var nextEpisodeNumber = episodeNumber + 1;
-                episodeParts[episodeParts.length - 1] = nextEpisodeNumber;
-                var nextEpisodeParam = episodeParts.join('-');
-                url.searchParams.set("episode_id", nextEpisodeParam);
+        if (episodeParam) {
+            var episodeParts = episodeParam.split('-');
+            var episodeNumber = parseInt(episodeParts[episodeParts.length - 1]);
+            var nextEpisodeNumber = episodeNumber + 1;
+            episodeParts[episodeParts.length - 1] = nextEpisodeNumber;
+            var nextEpisodeParam = episodeParts.join('-');
+            url.searchParams.set("episode_id", nextEpisodeParam);
+            window.location.href = url.toString();
+        }
+    }
+
+    function goToPreviousEpisode() {
+        var currentUrl = window.location.href;
+        var url = new URL(currentUrl);
+        var episodeParam = url.searchParams.get("episode_id");
+
+        if (episodeParam) {
+            var episodeParts = episodeParam.split('-');
+            var episodeNumber = parseInt(episodeParts[episodeParts.length - 1]);
+            if (episodeNumber > 1) {  // Prevent going to a non-existent episode (e.g., episode number 0)
+                var previousEpisodeNumber = episodeNumber - 1;
+                episodeParts[episodeParts.length - 1] = previousEpisodeNumber;
+                var previousEpisodeParam = episodeParts.join('-');
+                url.searchParams.set("episode_id", previousEpisodeParam);
                 window.location.href = url.toString();
             }
         }
-     </script>
+    }
+</script>
+
 	
 </script>
 </body>
