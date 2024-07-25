@@ -69,6 +69,46 @@
 
 
   </style>
+
+<style>
+    .neon-border-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh; /* Adjust as needed */
+    }
+
+    .neon-border {
+        display: inline-block;
+    }
+
+    .neon-border a {
+        display: block;
+    }
+
+    .neon-border img {
+        display: block;
+        max-width: 100%;
+        height: auto;
+        border-radius: 5px;
+        box-shadow: 0 0 5px #ff6ec4, 0 0 10px #ff6ec4, 0 0 15px #ff6ec4, 0 0 20px #7873f5, 0 0 25px #1fd1f9;
+        animation: neonGlow 2s infinite;
+    }
+
+    @keyframes neonGlow {
+        0% {
+            box-shadow: 0 0 5px #ff6ec4, 0 0 10px #ff6ec4, 0 0 15px #ff6ec4, 0 0 20px #7873f5, 0 0 25px #1fd1f9;
+        }
+        50% {
+            box-shadow: 0 0 10px #ff6ec4, 0 0 20px #ff6ec4, 0 0 30px #ff6ec4, 0 0 40px #7873f5, 0 0 50px #1fd1f9;
+        }
+        100% {
+            box-shadow: 0 0 5px #ff6ec4, 0 0 10px #ff6ec4, 0 0 15px #ff6ec4, 0 0 20px #7873f5, 0 0 25px #1fd1f9;
+        }
+    }
+</style>
+
+	
 </head>
 
 <body>
@@ -148,7 +188,13 @@
                 </div>
 
 
-
+<div class="neon-border-container">
+    <div class="neon-border">
+        <a href="https://www.highrevenuenetwork.com/i63cnze0qd?key=9fed98c988a855d2b9dd857125a43b5f">
+            <img src="https://anieo.vercel.app/js/wfm.jpg" alt="Image">
+        </a>
+    </div>
+</div>
 
                 <a id="showdl" onclick="showDownload()"><i class="fa fa-download"></i>Download</a>
                 <div id="dldiv" class="dldiv">
