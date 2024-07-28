@@ -361,29 +361,31 @@ function myFunction() {
 	
 <!𝗣𝗿𝗲𝘃-𝗡𝗲𝘅𝘁-𝗕𝘂𝘁𝘁𝗼𝗻𝘀 𝗝𝘀 -->
 	<script>
-		document.getElementById('prev-button').addEventListener('click', function() {
-    navigateEpisode(-1);
-});
+		document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('prev-button').addEventListener('click', function() {
+        navigateEpisode(-1);
+    });
 
-document.getElementById('next-button').addEventListener('click', function() {
-    navigateEpisode(1);
-});
+    document.getElementById('next-button').addEventListener('click', function() {
+        navigateEpisode(1);
+    });
 
-function navigateEpisode(offset) {
-    const urlParams = new URLSearchParams(window.location.search);
-    const animeId = urlParams.get('anime_id');
-    const episodeId = urlParams.get('episode_id');
-    const episodeNumberMatch = episodeId.match(/-(\d+)$/);
+    function navigateEpisode(offset) {
+        const urlParams = new URLSearchParams(window.location.search);
+        const animeId = urlParams.get('anime_id');
+        const episodeId = urlParams.get('episode_id');
+        const episodeNumberMatch = episodeId.match(/-(\d+)$/);
 
-    if (episodeNumberMatch) {
-        let episodeNumber = parseInt(episodeNumberMatch[1], 10);
-        episodeNumber += offset;
+        if (episodeNumberMatch) {
+            let episodeNumber = parseInt(episodeNumberMatch[1], 10);
+            episodeNumber += offset;
 
-        const newEpisodeId = episodeId.replace(/-\d+$/, `-${episodeNumber}`);
-        const newUrl = `https://ani.mom/episode.html?anime_id=${animeId}&episode_id=${newEpisodeId}`;
-        window.location.href = newUrl;
+            const newEpisodeId = episodeId.replace(/-\d+$/, `-${episodeNumber}`);
+            const newUrl = `https://ani.mom/episode.html?anime_id=${animeId}&episode_id=${newEpisodeId}`;
+            window.location.href = newUrl;
+        }
     }
-}
+});
 
 	</script>
 
