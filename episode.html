@@ -219,10 +219,35 @@
              </div>
             </div>
 		
+<!-- 𝗣𝗿𝗲𝘃&𝗡𝗲𝘅𝘁 𝗕𝘂𝘁𝘁𝗼𝗻𝘀 -->		
 <div class="episode-navigation">
-    <button class="episode-btn" id="prev-episode">ᐊPrevious Episode</button>
-    <button class="episode-btn" id="next-episode">Next Episodeᐉ</button>
+    <button class="episode-btn" id="prev-episode">Previous Episode</button>
+    <button class="episode-btn" id="next-episode">Next Episode</button>
 </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const prevBtn = document.getElementById('prev-episode');
+    const nextBtn = document.getElementById('next-episode');
+    const urlParams = new URLSearchParams(window.location.search);
+    const animeId = urlParams.get('anime_id');
+    const episodeId = urlParams.get('episode_id');
+    const episodeNumber = parseInt(episodeId.match(/\d+$/)[0]);
+
+    prevBtn.addEventListener('click', function() {
+        const prevEpisodeNumber = episodeNumber - 1;
+        if (prevEpisodeNumber > 0) {
+            window.location.href = `/episode.html?anime_id=${animeId}&episode_id=${animeId}-episode-${prevEpisodeNumber}`;
+        }
+    });
+
+    nextBtn.addEventListener('click', function() {
+        const nextEpisodeNumber = episodeNumber + 1;
+        window.location.href = `/episode.html?anime_id=${animeId}&episode_id=${animeId}-episode-${nextEpisodeNumber}`;
+    });
+});
+</script>
+<!-- 𝗣𝗿𝗲𝘃&𝗡𝗲𝘅𝘁 𝗕𝘂𝘁𝘁𝗼𝗻𝘀 -->
 		
             <div id="server_main">
                 <div class="status">
@@ -354,28 +379,6 @@ function myFunction() {
 </script>
 	<!--====𝙎𝙤𝙘𝙞𝙖𝙡𝙎𝙝𝙖𝙧𝙚===-->
 	
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const prevBtn = document.getElementById('prev-episode');
-    const nextBtn = document.getElementById('next-episode');
-    const urlParams = new URLSearchParams(window.location.search);
-    const animeId = urlParams.get('anime_id');
-    const episodeId = urlParams.get('episode_id');
-    const episodeNumber = parseInt(episodeId.match(/\d+$/)[0]);
-
-    prevBtn.addEventListener('click', function() {
-        const prevEpisodeNumber = episodeNumber - 1;
-        if (prevEpisodeNumber > 0) {
-            window.location.href = `/episode.html?anime_id=${animeId}&episode_id=${animeId}-episode-${prevEpisodeNumber}`;
-        }
-    });
-
-    nextBtn.addEventListener('click', function() {
-        const nextEpisodeNumber = episodeNumber + 1;
-        window.location.href = `/episode.html?anime_id=${animeId}&episode_id=${animeId}-episode-${nextEpisodeNumber}`;
-    });
-});
-</script>
 
 </script>
 </body>
