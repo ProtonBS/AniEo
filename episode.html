@@ -137,30 +137,29 @@
         }
     }
 </style>
-	
 	<style>
-    /* Container to hold the buttons side by side */
-    .button-container {
-        display: flex;
-        gap: 20px;
-    }
-    /* Style the buttons */
-    .episode-button {
-        background-color: #15eddb;
-        color: black;
-        border: none;
-        border-radius: 12px;
-        padding: 10px 20px;
-        font-size: 16px;
-        cursor: pointer;
-        width: 100px; /* Ensures both buttons have the same width */
-        text-align: center;
-    }
-    /* Optional: Add hover effect */
-    .episode-button:hover {
-        opacity: 0.8;
-    }
-</style>
+	.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.nav-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 15px;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.nav-button:hover {
+    background-color: #45a049;
+}
+	
+	</style>
 	
 </head>
 
@@ -224,11 +223,10 @@
 		
 <!-- 𝗣𝗿𝗲𝘃&𝗡𝗲𝘅𝘁 𝗕𝘂𝘁𝘁𝗼𝗻𝘀 -->		
 <div class="button-container">
-    <!-- Button to go to the previous episode -->
-    <button id="previous-button" class="episode-button">Previous</button>
-    <!-- Button to go to the next episode -->
-    <button id="next-button" class="episode-button">Next</button>
+    <button class="nav-button" onclick="navigate('previous')">Previous</button>
+    <button class="nav-button" onclick="navigate('next')">Next</button>
 </div>
+
 <!-- 𝗣𝗿𝗲𝘃&𝗡𝗲𝘅𝘁 𝗕𝘂𝘁𝘁𝗼𝗻𝘀 -->
 		
             <div id="server_main">
@@ -360,33 +358,24 @@ function myFunction() {
 }());
 </script>
 	<!--====𝙎𝙤𝙘𝙞𝙖𝙡𝙎𝙝𝙖𝙧𝙚===-->
-<script>
-    document.getElementById("next-button").onclick = function() {
-        // Get the current URL
-        let currentUrl = window.location.href;
 
-        // Use regex to find the last number in the URL
-        let newUrl = currentUrl.replace(/(\d+)(?!.*\d)/, function(match) {
-            return parseInt(match) + 1;
-        });
+<script>function navigate(direction) {
+    const url = window.location.href;
+    const episodeRegex = /episode-(\d+)/;
+    const match = url.match(episodeRegex);
 
-        // Redirect to the new URL
+    if (match) {
+        const currentEpisode = parseInt(match[1]);
+        let newEpisode = direction === 'next' ? currentEpisode + 1 : currentEpisode - 1;
+
+        // Construct new URL (assuming the episode number is the only variable part in the URL)
+        const newUrl = url.replace(episodeRegex, `episode-${newEpisode}`);
         window.location.href = newUrl;
-    };
-
-    document.getElementById("previous-button").onclick = function() {
-        // Get the current URL
-        let currentUrl = window.location.href;
-
-        // Use regex to find the last number in the URL
-        let newUrl = currentUrl.replace(/(\d+)(?!.*\d)/, function(match) {
-            return Math.max(1, parseInt(match) - 1);
-        });
-
-        // Redirect to the new URL
-        window.location.href = newUrl;
-    };
-</script>	
+    } else {
+        alert('No episode number found in the URL.');
+    }
+}
+</script>
 
 </script>
 </body>
