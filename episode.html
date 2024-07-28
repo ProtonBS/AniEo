@@ -139,24 +139,27 @@
 </style>
 	
 	<style>
-.episode-navigation {
-    text-align: center;
-    margin: 20px 0;
-}
-
-.episode-btn {
-    background-color: #36c9c9;
-    color: black;
-    border: none;
-    border-radius: 12px;
-    padding: 10px 20px;
-    margin: 0 10px;
-    cursor: pointer;
-}
-
-.episode-btn:hover {
-    background-color: #2da7a7;
-}
+    /* Container to hold the buttons side by side */
+    .button-container {
+        display: flex;
+        gap: 20px;
+    }
+    /* Style the buttons */
+    .episode-button {
+        background-color: #15eddb;
+        color: black;
+        border: none;
+        border-radius: 12px;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        width: 100px; /* Ensures both buttons have the same width */
+        text-align: center;
+    }
+    /* Optional: Add hover effect */
+    .episode-button:hover {
+        opacity: 0.8;
+    }
 </style>
 	
 </head>
@@ -220,33 +223,12 @@
             </div>
 		
 <!-- 𝗣𝗿𝗲𝘃&𝗡𝗲𝘅𝘁 𝗕𝘂𝘁𝘁𝗼𝗻𝘀 -->		
-<div class="episode-navigation">
-    <button class="episode-btn" id="prev-episode">Previous Episode</button>
-    <button class="episode-btn" id="next-episode">Next Episode</button>
+<div class="button-container">
+    <!-- Button to go to the previous episode -->
+    <button id="previous-button" class="episode-button">Previous</button>
+    <!-- Button to go to the next episode -->
+    <button id="next-button" class="episode-button">Next</button>
 </div>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const prevBtn = document.getElementById('prev-episode');
-    const nextBtn = document.getElementById('next-episode');
-    const urlParams = new URLSearchParams(window.location.search);
-    const animeId = urlParams.get('anime_id');
-    const episodeId = urlParams.get('episode_id');
-    const episodeNumber = parseInt(episodeId.match(/\d+$/)[0]);
-
-    prevBtn.addEventListener('click', function() {
-        const prevEpisodeNumber = episodeNumber - 1;
-        if (prevEpisodeNumber > 0) {
-            window.location.href = `/episode.html?anime_id=${animeId}&episode_id=${animeId}-episode-${prevEpisodeNumber}`;
-        }
-    });
-
-    nextBtn.addEventListener('click', function() {
-        const nextEpisodeNumber = episodeNumber + 1;
-        window.location.href = `/episode.html?anime_id=${animeId}&episode_id=${animeId}-episode-${nextEpisodeNumber}`;
-    });
-});
-</script>
 <!-- 𝗣𝗿𝗲𝘃&𝗡𝗲𝘅𝘁 𝗕𝘂𝘁𝘁𝗼𝗻𝘀 -->
 		
             <div id="server_main">
@@ -378,7 +360,33 @@ function myFunction() {
 }());
 </script>
 	<!--====𝙎𝙤𝙘𝙞𝙖𝙡𝙎𝙝𝙖𝙧𝙚===-->
-	
+<script>
+    document.getElementById("next-button").onclick = function() {
+        // Get the current URL
+        let currentUrl = window.location.href;
+
+        // Use regex to find the last number in the URL
+        let newUrl = currentUrl.replace(/(\d+)(?!.*\d)/, function(match) {
+            return parseInt(match) + 1;
+        });
+
+        // Redirect to the new URL
+        window.location.href = newUrl;
+    };
+
+    document.getElementById("previous-button").onclick = function() {
+        // Get the current URL
+        let currentUrl = window.location.href;
+
+        // Use regex to find the last number in the URL
+        let newUrl = currentUrl.replace(/(\d+)(?!.*\d)/, function(match) {
+            return Math.max(1, parseInt(match) - 1);
+        });
+
+        // Redirect to the new URL
+        window.location.href = newUrl;
+    };
+</script>	
 
 </script>
 </body>
