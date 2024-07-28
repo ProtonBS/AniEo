@@ -374,18 +374,19 @@ function myFunction() {
         const urlParams = new URLSearchParams(window.location.search);
         const animeId = urlParams.get('anime_id');
         const episodeId = urlParams.get('episode_id');
-        const episodeNumberMatch = episodeId.match(/-(\d+)$/);
+        const episodeNumberMatch = episodeId.match(/episode-(\d+)$/);
 
         if (episodeNumberMatch) {
             let episodeNumber = parseInt(episodeNumberMatch[1], 10);
             episodeNumber += offset;
 
-            const newEpisodeId = episodeId.replace(/-\d+$/, `-${episodeNumber}`);
+            const newEpisodeId = episodeId.replace(/episode-\d+$/, `episode-${episodeNumber}`);
             const newUrl = `https://ani.mom/episode.html?anime_id=${animeId}&episode_id=${newEpisodeId}`;
             window.location.href = newUrl;
         }
     }
 });
+
 
 	</script>
 
