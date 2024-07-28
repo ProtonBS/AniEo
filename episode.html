@@ -137,7 +137,9 @@
         }
     }
 </style>
-	<style>
+	
+<!--𝗣𝗿𝗲𝘃-𝗡𝗲𝘅𝘁-𝗕𝘂𝘁𝘁𝗼𝗻𝘀-𝗖𝗦𝗦-->
+<style>
     .button-container {
         display: flex;
         justify-content: center;
@@ -146,19 +148,20 @@
     }
 
     .nav-button {
-        padding: 10px 20px;
+        padding: 8px 16px; /* Slightly increased padding */
         border: none;
         border-radius: 15px;
         background-color: #15eddb; /* Updated background color */
         color: black; /* Updated text color */
         cursor: pointer;
-        font-size: 16px;
+        font-size: 13px; /* Slightly increased font size */
     }
 
     .nav-button:hover {
         background-color: #12c7b5;
     }
 </style>
+<!--𝗣𝗿𝗲𝘃-𝗡𝗲𝘅𝘁-𝗕𝘂𝘁𝘁𝗼𝗻𝘀-𝗖𝗦𝗦-->
 	
 </head>
 
@@ -225,7 +228,6 @@
     <button class="nav-button" onclick="navigate('previous')">ᐊ Previous Episode</button>
     <button class="nav-button" onclick="navigate('next')">Next Episode ᐉ</button>
 </div>
-
 <!-- 𝗣𝗿𝗲𝘃&𝗡𝗲𝘅𝘁 𝗕𝘂𝘁𝘁𝗼𝗻𝘀 -->
 		
             <div id="server_main">
@@ -358,7 +360,9 @@ function myFunction() {
 </script>
 	<!--====𝙎𝙤𝙘𝙞𝙖𝙡𝙎𝙝𝙖𝙧𝙚===-->
 
-<script>function navigate(direction) {
+<!--𝗣𝗿𝗲𝘃-𝗡𝗲𝘅𝘁-𝗕𝘂𝘁𝘁𝗼𝗻𝘀-𝗝𝗦-->	
+<script>
+	function navigate(direction) {
     const url = window.location.href;
     const episodeRegex = /episode-(\d+)/;
     const match = url.match(episodeRegex);
@@ -375,7 +379,8 @@ function myFunction() {
     }
 }
 </script>
-
+<!--𝗣𝗿𝗲𝘃-𝗡𝗲𝘅𝘁-𝗕𝘂𝘁𝘁𝗼𝗻𝘀-𝗝𝗦-->	
+	
 </script>
 </body>
 
