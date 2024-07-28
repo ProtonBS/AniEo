@@ -138,28 +138,26 @@
     }
 </style>
 	
-<style>
-    .episode-navigation {
-        display: flex;
-        justify-content: space-between;
-        margin-top: 20px;
-    }
+	<style>
+.episode-navigation {
+    text-align: center;
+    margin: 20px 0;
+}
 
-    .nav-button {
-        background-color: #49e3cc;
-        color: black;
-        border: none;
-        border-radius: 15px;
-        padding: 10px 20px;
-        cursor: pointer;
-        font-size: 16px;
-    }
+.episode-btn {
+    background-color: #36c9c9;
+    color: black;
+    border: none;
+    border-radius: 12px;
+    padding: 10px 20px;
+    margin: 0 10px;
+    cursor: pointer;
+}
 
-    .nav-button:hover {
-        background-color: #3bb8a3;
-    }
+.episode-btn:hover {
+    background-color: #2da7a7;
+}
 </style>
-
 	
 </head>
 
@@ -220,13 +218,11 @@
                         marginheight="0px" marginwidth="0px" allowfullscreen></iframe>
              </div>
             </div>
-
-<!-- 𝗣𝗿𝗲𝘃&𝗡𝗲𝘅𝘁 𝗕𝘂𝘁𝘁𝗼𝗻𝘀 --><br>
-		<div class="episode-navigation">
-    <button id="prev-episode" class="nav-button">ᐊ Previous Episode</button>
-    <button id="next-episode" class="nav-button">Next Episode ᐅ</button>
+		
+<div class="episode-navigation">
+    <button class="episode-btn" id="prev-episode">ᐊPrevious Episode</button>
+    <button class="episode-btn" id="next-episode">Next Episodeᐉ</button>
 </div>
-<!-- 𝗣𝗿𝗲𝘃&𝗡𝗲𝘅𝘁 𝗕𝘂𝘁𝘁𝗼𝗻𝘀 -->
 		
             <div id="server_main">
                 <div class="status">
@@ -358,35 +354,27 @@ function myFunction() {
 </script>
 	<!--====𝙎𝙤𝙘𝙞𝙖𝙡𝙎𝙝𝙖𝙧𝙚===-->
 	
-<!𝗣𝗿𝗲𝘃-𝗡𝗲𝘅𝘁-𝗕𝘂𝘁𝘁𝗼𝗻𝘀 𝗝𝘀 -->
-	<script>
-    document.getElementById('prev-episode').onclick = function() {
-        navigateEpisode(-1);
-    };
-    document.getElementById('next-episode').onclick = function() {
-        navigateEpisode(1);
-    };
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const prevBtn = document.getElementById('prev-episode');
+    const nextBtn = document.getElementById('next-episode');
+    const urlParams = new URLSearchParams(window.location.search);
+    const animeId = urlParams.get('anime_id');
+    const episodeId = urlParams.get('episode_id');
+    const episodeNumber = parseInt(episodeId.match(/\d+$/)[0]);
 
-    function navigateEpisode(direction) {
-        const urlParams = new URLSearchParams(window.location.search);
-        const animeId = urlParams.get('anime_id');
-        const episodeId = urlParams.get('episode_id');
-
-        if (animeId && episodeId) {
-            const episodeNumMatch = episodeId.match(/(.*-episode-)(\d+)$/);
-            if (episodeNumMatch) {
-                const base = episodeNumMatch[1];
-                const episodeNum = parseInt(episodeNumMatch[2], 10);
-                const newEpisodeNum = episodeNum + direction;
-
-                if (newEpisodeNum > 0) { // Ensure episode number doesn't go below 1
-                    const newEpisodeId = `${base}${newEpisodeNum}`;
-                    const newUrl = `${window.location.pathname}?anime_id=${animeId}&episode_id=${newEpisodeId}`;
-                    window.location.href = newUrl;
-                }
-            }
+    prevBtn.addEventListener('click', function() {
+        const prevEpisodeNumber = episodeNumber - 1;
+        if (prevEpisodeNumber > 0) {
+            window.location.href = `/episode.html?anime_id=${animeId}&episode_id=${animeId}-episode-${prevEpisodeNumber}`;
         }
-    }
+    });
+
+    nextBtn.addEventListener('click', function() {
+        const nextEpisodeNumber = episodeNumber + 1;
+        window.location.href = `/episode.html?anime_id=${animeId}&episode_id=${animeId}-episode-${nextEpisodeNumber}`;
+    });
+});
 </script>
 
 </script>
