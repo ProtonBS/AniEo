@@ -137,7 +137,30 @@
         }
     }
 </style>
+	
+<style>
+	#button-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
 
+.nav-button {
+    background-color: #49e3cc;
+    color: black;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.nav-button:hover {
+    opacity: 0.8;
+}
+
+</style>
 	
 </head>
 
@@ -198,6 +221,13 @@
                         marginheight="0px" marginwidth="0px" allowfullscreen></iframe>
              </div>
             </div>
+
+<!-- 𝗣𝗿𝗲𝘃&𝗡𝗲𝘅𝘁 𝗕𝘂𝘁𝘁𝗼𝗻𝘀 --><br>
+		<div id="button-container">
+    <button id="prev-button" class="nav-button">ᐊ Previous Episode</button>
+    <button id="next-button" class="nav-button">Next Episode ᐅ</button>
+</div>
+<!-- 𝗣𝗿𝗲𝘃&𝗡𝗲𝘅𝘁 𝗕𝘂𝘁𝘁𝗼𝗻𝘀 -->
 		
             <div id="server_main">
                 <div class="status">
@@ -328,7 +358,34 @@ function myFunction() {
 }());
 </script>
 	<!--====𝙎𝙤𝙘𝙞𝙖𝙡𝙎𝙝𝙖𝙧𝙚===-->
+	
+<!𝗣𝗿𝗲𝘃-𝗡𝗲𝘅𝘁-𝗕𝘂𝘁𝘁𝗼𝗻𝘀 𝗝𝘀 -->
+	<script>
+		document.getElementById('prev-button').addEventListener('click', function() {
+    navigateEpisode(-1);
+});
 
+document.getElementById('next-button').addEventListener('click', function() {
+    navigateEpisode(1);
+});
+
+function navigateEpisode(offset) {
+    const urlParams = new URLSearchParams(window.location.search);
+    const animeId = urlParams.get('anime_id');
+    const episodeId = urlParams.get('episode_id');
+    const episodeNumberMatch = episodeId.match(/-(\d+)$/);
+
+    if (episodeNumberMatch) {
+        let episodeNumber = parseInt(episodeNumberMatch[1], 10);
+        episodeNumber += offset;
+
+        const newEpisodeId = episodeId.replace(/-\d+$/, `-${episodeNumber}`);
+        const newUrl = `https://ani.mom/episode.html?anime_id=${animeId}&episode_id=${newEpisodeId}`;
+        window.location.href = newUrl;
+    }
+}
+
+	</script>
 
 </script>
 </body>
