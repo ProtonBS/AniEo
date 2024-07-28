@@ -81,6 +81,10 @@
 
   <body>
 	  
+	  <div id="alert-banner" style="background-color: #0f63ff; color: white; padding: 10px; text-align: center; position: relative;">
+    Our Domain Has Officially Changed To <b>Ani.MoM</b>. You Can Simply Type On Your Browser Or Bookmark Our Website With "ctrl+D" :)
+    <span id="close-banner" style="position: absolute; top: 5px; right: 10px; cursor: pointer;">&times;</span>
+	  </div>
 	  
     <header id="head-div">
       <div id="title1">
@@ -203,6 +207,12 @@
     ></script>
 	  <script type="module" src="https://cdn.jsdelivr.net/npm/ldrs/dist/auto/quantum.js"></script>
 
+	  <script>
+    document.getElementById('close-banner').onclick = function() {
+      document.getElementById('alert-banner').style.display = 'none';
+    }
+  </script>
+	  
   <style>
     @keyframes rainbow {
       0% { color: red; }
