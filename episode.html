@@ -213,9 +213,9 @@
 <!--<div class="ad-container-480-60">
     <iframe src="https://ani.mom/adsterra-480-60.html" width="320" height="50"></iframe>
 </div>-->
-<div id="ad-container-320-50"></div>
-<script src="https://ani.mom/js/ad-320-50.js"></script>
-
+<div id="ad-320-50">
+  <!-- The script to load from another URL will be added below -->
+</div>
 
 
 	
@@ -385,6 +385,40 @@ function myFunction() {
 }
 </script>
 <!--𝗣𝗿𝗲𝘃-𝗡𝗲𝘅𝘁-𝗕𝘂𝘁𝘁𝗼𝗻𝘀-𝗝𝗦-->	
+
+
+
+
+<script src="https://ani.mom/js/ad-320-50.js"></script>
+<script>
+(function() {
+  var adOptions = {
+    'key': 'f5944715842e6425397e93e3277a8eab',
+    'format': 'iframe',
+    'height': 50,
+    'width': 320,
+    'params': {}
+  };
+
+  // Function to initialize the ad
+  function initializeAd() {
+    // Assuming the ad script expects a specific method to initialize
+    if (typeof atOptions !== 'undefined') {
+      atOptions = adOptions;
+      var script = document.createElement('script');
+      script.src = "//www.topcreativeformat.com/f5944715842e6425397e93e3277a8eab/invoke.js";
+      document.getElementById('ad-320-50').appendChild(script);
+    }
+  }
+
+  initializeAd();
+})();
+</script>
+
+
+
+
+
 	
 </script>
 </body>
