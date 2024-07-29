@@ -210,9 +210,12 @@
 	<!--====𝙎𝙤𝙘𝙞𝙖𝙡𝙎𝙝𝙖𝙧𝙚===-->
 	
 <!-- 𝗔𝗱𝘀𝘁𝗲𝗿𝗿𝗮 480x60 𝗖𝗼𝗻𝘁𝗮𝗶𝗻𝗲𝗿 -->
-<div class="ad-container-480-60">
+<!--<div class="ad-container-480-60">
     <iframe src="https://ani.mom/adsterra-480-60.html" width="320" height="50"></iframe>
-</div>
+</div>-->
+<div id="ad-container"></div>
+
+
 	
 	<div id="main-section" style="opacity: 0;display: none;">    
         <section id="vid-sec">
@@ -253,9 +256,9 @@
                 </div>
 
 <!-- 𝗔𝗱𝘀𝘁𝗲𝗿𝗿𝗮 320x50 𝗖𝗼𝗻𝘁𝗮𝗶𝗻𝗲𝗿 -->
-<div class="ad-container-320-50">
+<!--<div class="ad-container-320-50">
     <iframe src="https://ani.mom/adsterra-320-50.html" width="320" height="50"></iframe>
-</div>
+</div>-->
 
                 <a id="showdl" onclick="showDownload()"><i class="fa fa-download"></i>Download</a>
                 <div id="dldiv" class="dldiv">
@@ -380,6 +383,42 @@ function myFunction() {
 }
 </script>
 <!--𝗣𝗿𝗲𝘃-𝗡𝗲𝘅𝘁-𝗕𝘂𝘁𝘁𝗼𝗻𝘀-𝗝𝗦-->	
+
+
+
+	
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    // Create and append the advertisement note
+    const adNote = document.createElement("p");
+    adNote.textContent = "Advertisement";
+    
+    // Find the ad container div and append the ad note
+    const adContainer = document.getElementById("ad-container");
+    adContainer.appendChild(adNote);
+
+    // Ad script options
+    const atOptions = {
+      'key': 'f5944715842e6425397e93e3277a8eab',
+      'format': 'iframe',
+      'height': 50,
+      'width': 320,
+      'params': {}
+    };
+
+    // Create and append the ad script
+    const adScript = document.createElement("script");
+    adScript.type = "text/javascript";
+    adScript.src = "//www.topcreativeformat.com/f5944715842e6425397e93e3277a8eab/invoke.js";
+    
+    // Append the ad script to the ad container
+    adContainer.appendChild(adScript);
+  });
+</script>
+
+	
+
+
 	
 </script>
 </body>
