@@ -12,4 +12,9 @@ User-agent: *
 Disallow: /embed.html
 Disallow: /embed
 Disallow: /ads.txt
+Disallow: /adsterra-320-50.html
+Disallow: /adsterra-480-60.html
+Disallow: /sw.js
+Disallow: .gitattributes
+Disallow: .gitignore
 Allow: /
