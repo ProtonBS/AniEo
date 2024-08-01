@@ -22,6 +22,7 @@
             list-style-type: none;
             padding: 0;
             margin: 0;
+            display: none; /* Hide the Top search section */
         }
 
         .top-search-list li {
@@ -38,15 +39,15 @@
         }
 
         .search-container input {
-            transition: opacity 0.5s ease-in-out; /* Transition effect for opacity */
-        }
-
-        .search-container input.show {
-            opacity: 1; /* Fully visible */
-        }
-
-        .search-container input.hide {
-            opacity: 0; /* Invisible */
+            border: none;
+            background: transparent;
+            color: #fff;
+            font-size: 16px;
+            width: 100%;
+            outline: none;
+            white-space: nowrap;
+            overflow: hidden;
+            caret-color: #fff; /* Color of the caret */
         }
     </style>
 </head>
@@ -77,10 +78,6 @@
                 <div class="search-container margin-default">
                     <input type="text" placeholder="Search anime..."/>
                     <a href="#"><i class="fa fa-search"></i></a>
-                </div>
-                <div class="top-search-recommendation margin-default">
-                    <p>Top search:</p>
-                    <ul id="top-search-list" class="top-search-list"></ul>
                 </div>
                 <div class="zoro-side-img">
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzJvGdHt8AqBrQ6K48QifxqZzujCrrBfmW5DHEfav9NRkdULnK1K3HSfFZ&s=10" alt="zoro-image">
@@ -138,16 +135,48 @@
 
             function displayTopSearches(animeList) {
                 const searchInput = document.querySelector('.search-container input');
+                const animeTitles = animeList.map(anime => anime.title.english || anime.title.romaji);
                 let index = 0;
-                let animeTitles = animeList.map(anime => anime.title.english || anime.title.romaji);
+                let typingInterval;
+                let deletingInterval;
+                const typingSpeed = 100; // Speed of typing in milliseconds
+                const deletingSpeed = 50; // Speed of deleting in milliseconds
+                const pauseDuration = 1000; // Duration to pause before starting new title
 
-                function updateSearchInput() {
-                    searchInput.value = animeTitles[index];
-                    index = (index + 1) % animeTitles.length;
+                function typeEffect() {
+                    searchInput.value = '';
+                    const title = animeTitles[index];
+                    let charIndex = 0;
+
+                    typingInterval = setInterval(() => {
+                        searchInput.value += title[charIndex];
+                        charIndex++;
+                        if (charIndex > title.length) {
+                            clearInterval(typingInterval);
+                            setTimeout(() => {
+                                deleteEffect();
+                            }, pauseDuration); // Pause before deleting
+                        }
+                    }, typingSpeed);
                 }
 
-                // Update the search input text every 500 milliseconds
-                setInterval(updateSearchInput, 500);
+                function deleteEffect() {
+                    let charIndex = searchInput.value.length - 1;
+
+                    deletingInterval = setInterval(() => {
+                        searchInput.value = searchInput.value.slice(0, charIndex);
+                        charIndex--;
+                        if (charIndex < 0) {
+                            clearInterval(deletingInterval);
+                            index = (index + 1) % animeTitles.length;
+                            setTimeout(() => {
+                                typeEffect();
+                            }, pauseDuration); // Pause before typing new title
+                        }
+                    }, deletingSpeed);
+                }
+
+                typeEffect();
             }
         });
     </script>
