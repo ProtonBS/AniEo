@@ -75,7 +75,7 @@
             </div>
             <div class="top-container">
                 <div class="search-container margin-default">
-                    <input type="text" placeholder="Search anime..." class="show"/>
+                    <input type="text" placeholder="Search anime..."/>
                     <a href="#"><i class="fa fa-search"></i></a>
                 </div>
                 <div class="top-search-recommendation margin-default">
@@ -137,31 +137,18 @@
             }
 
             function displayTopSearches(animeList) {
-                const topSearchList = document.getElementById('top-search-list');
-                topSearchList.innerHTML = '';
+                const searchInput = document.querySelector('.search-container input');
+                let index = 0;
+                let animeTitles = animeList.map(anime => anime.title.english || anime.title.romaji);
 
-                animeList.forEach(anime => {
-                    const animeTitle = anime.title.english || anime.title.romaji;
-                    const animeLink = document.createElement('a');
-                    animeLink.href = `https://ani.mom/search.html?query=${encodeURIComponent(animeTitle)}`;
-                    animeLink.className = 'item';
-                    animeLink.textContent = animeTitle;
-                    
-                    const listItem = document.createElement('li');
-                    listItem.appendChild(animeLink);
-                    topSearchList.appendChild(listItem);
-                });
+                function updateSearchInput() {
+                    searchInput.value = animeTitles[index];
+                    index = (index + 1) % animeTitles.length;
+                }
+
+                // Update the search input text every 500 milliseconds
+                setInterval(updateSearchInput, 500);
             }
-
-            const searchInput = document.querySelector('.search-container input');
-
-            function toggleSearchInput() {
-                searchInput.classList.toggle('show');
-                searchInput.classList.toggle('hide');
-            }
-
-            // Set an interval to toggle the input visibility quickly
-            setInterval(toggleSearchInput, 1000); // Adjust the interval time as needed
         });
     </script>
 </body>
