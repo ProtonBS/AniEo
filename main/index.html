@@ -48,26 +48,13 @@
                     </div>
                     <div class="top-search-recommendation margin-default">
                         <p>Top search: &nbsp
-                            <a class="item" href="">One Piece,</a>
-                            <a class="item" href="">Black Clover,</a>
-                            <a href="">Fairy Tail,</a>
-                            <a href="">My Hero Academia,</a>
-                            <a href="">Steins;Gate,</a>
-                            <a href="">Is it Wrong to Try to Pick up a Girls in a Dungeon?,</a>
-                            <a href="">Emminence in Shadow,</a>
-                            <a href="">Call of the Night,</a>
-                            <a href="">Sword Art Online,</a>
-                            <a href="">Re:Zero,</a>
-                            <a href="">Kaguya Sama: Love is War,</a>
-                            <a href="">Anohana,</a>
-                            <a href="#">Your Lie in April</a>
+                            <span id="top-search-list"></span>
                         </p>
                     </div>
                     <div class="zoro-side-img">
                         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzJvGdHt8AqBrQ6K48QifxqZzujCrrBfmW5DHEfav9NRkdULnK1K3HSfFZ&s=10" alt="zoro-image">
                     </div>
                 </div>
-                
             </div>
 
             <div class="home-btn margin-default">
@@ -105,14 +92,7 @@
                     </ul>
                     <p>So if you're looking for a trustworthy and safe site for your Anime streaming, let's give kocho a try. And if you like us, please help us to spread the words and do not forget to bookmark our site.</p>
 
-                  
-                    
                     <p>Thank you!</p>
-                </div>
-
-                
-                    
-                        
                 </div>
             </div>
         </main>
@@ -120,10 +100,67 @@
         <footer class="margin-default">
             <div class="footer-container">
                 <p> ©2024| Ani.MoM | All rights reserved.</p>
-                
             </div>
         </footer>
 
-        <script src="script.js"></script>
+        <script>
+          document.addEventListener("DOMContentLoaded", function() {
+    fetchTrendingAnime();
+
+    async function fetchTrendingAnime() {
+        const query = `
+        query {
+            Page(page: 1, perPage: 10) {
+                media(sort: TRENDING_DESC, type: ANIME) {
+                    title {
+                        romaji
+                        english
+                    }
+                }
+            }
+        }`;
+
+        const url = 'https://graphql.anilist.co';
+
+        const options = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+            },
+            body: JSON.stringify({ query: query })
+        };
+
+        try {
+            const response = await fetch(url, options);
+            const data = await response.json();
+            displayTopSearches(data.data.Page.media);
+        } catch (error) {
+            console.error('Error fetching data:', error);
+        }
+    }
+
+    function displayTopSearches(animeList) {
+        const topSearchList = document.getElementById('top-search-list');
+        topSearchList.innerHTML = '';
+
+        animeList.forEach(anime => {
+            const animeTitle = anime.title.english || anime.title.romaji;
+            const animeLink = document.createElement('a');
+            animeLink.href = `https://ani.mom/search.html?query=${encodeURIComponent(animeTitle)}`;
+            animeLink.className = 'item';
+            animeLink.textContent = animeTitle;
+            topSearchList.appendChild(animeLink);
+            topSearchList.innerHTML += ", ";
+        });
+
+        // Remove the trailing comma
+        if (topSearchList.innerHTML.endsWith(", ")) {
+            topSearchList.innerHTML = topSearchList.innerHTML.slice(0, -2);
+        }
+    }
+});
+  
+        </script>
     </body>
 </html>
