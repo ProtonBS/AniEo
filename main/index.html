@@ -1,240 +1,168 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="description" content="kocho is a Free anime streaming website which you can watch English Subbed and Dubbed Anime online with No Account and Daily update. WATCH NOW!">
-        <meta name="keywords" content="anime to watch, watch anime,anime online, free anime online, online anime, anime streaming, stream anime online, english anime, english dubbed anime">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!-- GOOGLE FONT -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-        <!-- FONT AWESOME ICON -->
-        <script src="https://kit.fontawesome.com/2fb83d89d2.js" crossorigin="anonymous"></script>
-        <!-- FAVICON -->
-        <link rel="icon" href="img/zoro-favicon.ico">
-        <style>
-            body {
-                font-family: 'Montserrat', sans-serif;
-                margin: 0;
-                padding: 0;
-            }
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="kocho is a Free anime streaming website which you can watch English Subbed and Dubbed Anime online with No Account and Daily update. WATCH NOW!">
+    <meta name="keywords" content="anime to watch, watch anime,anime online, free anime online, online anime, anime streaming, stream anime online, english anime, english dubbed anime">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- GOOGLE FONT -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- FONT AWESOME ICON -->
+    <script src="https://kit.fontawesome.com/2fb83d89d2.js" crossorigin="anonymous"></script>
+    <!-- FAVICON -->
+    <link rel="icon" href="img/zoro-favicon.ico">
+    <!-- EXTERNAL CSS -->
+    <link rel="stylesheet" href="style.css">
+    <title>Watch Anime Online, Free Anime Streaming Online on kocho Anime Website</title>
+    <style>
+        .top-search-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
 
-            header {
-                background: #333;
-                color: #fff;
-                padding: 10px 0;
-            }
+        .top-search-list li {
+            margin: 5px 0;
+        }
 
-            nav {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                padding: 0 20px;
-            }
+        .top-search-list a {
+            text-decoration: none;
+            color: #fff; /* Change text color to white */
+        }
 
-            nav ul {
-                list-style: none;
-                display: flex;
-                margin: 0;
-                padding: 0;
-            }
+        .top-search-list a:hover {
+            text-decoration: underline;
+        }
 
-            nav li {
-                margin-left: 15px;
-            }
+        .search-container input {
+            transition: opacity 0.5s ease-in-out; /* Transition effect for opacity */
+        }
 
-            nav a {
-                color: #fff;
-                text-decoration: none;
-            }
+        .search-container input.show {
+            opacity: 1; /* Fully visible */
+        }
 
-            .top-content {
-                padding: 20px;
-                background: #f5f5f5;
-                text-align: center;
-            }
-
-            .logo img {
-                max-width: 200px;
-            }
-
-            .top-container {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                gap: 20px;
-            }
-
-            .search-container {
-                display: flex;
-                align-items: center;
-            }
-
-            .search-container input {
-                padding: 10px;
-                font-size: 16px;
-                border: 1px solid #ddd;
-                border-radius: 4px;
-                margin-right: 10px;
-            }
-
-            .search-container a {
-                text-decoration: none;
-                color: #333;
-            }
-
-            .top-search-recommendation {
-                text-align: left;
-            }
-
-            .top-search-list {
-                list-style-type: none;
-                padding: 0;
-                margin: 0;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .top-search-list li {
-                margin: 5px 0;
-            }
-
-            .top-search-list a {
-                text-decoration: none;
-                color: #00FFFF;
-                font-weight: bold;
-                text-shadow: 0 0 5px #00FFFF, 0 0 10px #00FFFF, 0 0 15px #00FFFF, 0 0 20px #00FFFF, 0 0 25px #00FFFF;
-                transition: text-shadow 0.3s ease-in-out;
-            }
-
-            .top-search-list a:hover {
-                text-shadow: 0 0 10px #00FFFF, 0 0 20px #00FFFF, 0 0 30px #00FFFF, 0 0 40px #00FFFF, 0 0 50px #00FFFF;
-            }
-
-            .zoro-side-img img {
-                max-width: 100px;
-            }
-
-            .home-btn, .share-box {
-                text-align: center;
-                padding: 10px;
-            }
-
-            footer {
-                background: #333;
-                color: #fff;
-                text-align: center;
-                padding: 10px;
-            }
-        </style>
-        <title>Watch Anime Online, Free Anime Streaming Online on kocho Anime Website</title>
-    </head>
-    <body>
-        <header>
-            <nav>
-                <!-- MOBILE TOGGLE -->
-                <a href="#" id="mobile-toggle" class="mobile">
-                    <i class="fas fa-bars"></i>
-                    <p>Menu</p>
-                </a>
-                <ul>
-                    <a href="home.html"><li>Home</li></a>
-                    <a href="#"><li>Movies</li></a>
-                    <a href="#"><li>TV Series</li></a>
-                    <a href="#"><li>Most Popular</li></a>
-                    <a href="#"><li>Top Airing</li></a>
-                </ul>
-            </nav>
-        </header>
-        <main>
-            <!-- TOP CONTENT -->
-            <div class="top-content">
-                <div class="logo">
-                    <a href="home.html"><img src="https://ani.mom/logo.png" alt="logo"></a>
+        .search-container input.hide {
+            opacity: 0; /* Invisible */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <!-- MOBILE TOGGLE -->
+            <a href="#" id="mobile-toggle" class="mobile">
+                <i class="fas fa-bars"></i>
+                <p>Menu</p>
+            </a>
+            <ul>
+                <a href="home.html"><li>Home</li></a>
+                <a href="#"><li>Movies</li></a>
+                <a href="#"><li>TV Series</li></a>
+                <a href="#"><li>Most Popular</li></a>
+                <a href="#"><li>Top Airing</li></a>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <!-- TOP CONTENT -->
+        <div class="top-content">
+            <div class="logo">
+                <a href="home.html"><img src="https://ani.mom/logo.png" alt="logo"></a>
+            </div>
+            <div class="top-container">
+                <div class="search-container margin-default">
+                    <input type="text" placeholder="Search anime..." class="show"/>
+                    <a href="#"><i class="fa fa-search"></i></a>
                 </div>
-                <div class="top-container">
-                    <div class="search-container margin-default">
-                        <input type="text" placeholder="Search anime..."/>
-                        <a href="#"><i class="fa fa-search"></i></a>
-                    </div>
-                    <div class="top-search-recommendation margin-default">
-                        <p>Top search:</p>
-                        <ul id="top-search-list" class="top-search-list"></ul>
-                    </div>
-                    <div class="zoro-side-img">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzJvGdHt8AqBrQ6K48QifxqZzujCrrBfmW5DHEfav9NRkdULnK1K3HSfFZ&s=10" alt="zoro-image">
-                    </div>
+                <div class="top-search-recommendation margin-default">
+                    <p>Top search:</p>
+                    <ul id="top-search-list" class="top-search-list"></ul>
+                </div>
+                <div class="zoro-side-img">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzJvGdHt8AqBrQ6K48QifxqZzujCrrBfmW5DHEfav9NRkdULnK1K3HSfFZ&s=10" alt="zoro-image">
                 </div>
             </div>
+        </div>
 
-            <div class="home-btn margin-default">
-                <a href="#">View Full Site<i class="fas fa-arrow-circle-right"></i></a>
-            </div>
+        <div class="home-btn margin-default">
+            <a href="#">View Full Site<i class="fas fa-arrow-circle-right"></i></a>
+        </div>
 
-            <div class="share-box margin-default">
-                <p>Share Ani.MoM With Your Friends :)</p>
-            </div>
-        </main>
+        <div class="share-box margin-default">
+            <p>Share Ani.MoM With Your Friends :)</p>
+        </div>
+    </main>
 
-        <footer class="margin-default">
-            <div class="footer-container">
-                <p> ©2024| Ani.MoM | All rights reserved.</p>
-            </div>
-        </footer>
+    <footer class="margin-default">
+        <div class="footer-container">
+            <p> ©2024| Ani.MoM | All rights reserved.</p>
+        </div>
+    </footer>
 
-        <script>
-            document.addEventListener('DOMContentLoaded', async () => {
-                const query = `
-                {
-                    Page(perPage: 10) {
-                        media(sort: TRENDING_DESC, type: ANIME) {
-                            title {
-                                romaji
-                                english
-                            }
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            const query = `
+            {
+                Page(perPage: 10) {
+                    media(sort: TRENDING_DESC, type: ANIME) {
+                        title {
+                            romaji
+                            english
                         }
                     }
-                }`;
-
-                const url = 'https://graphql.anilist.co';
-
-                const options = {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Accept': 'application/json',
-                    },
-                    body: JSON.stringify({ query: query })
-                };
-
-                try {
-                    const response = await fetch(url, options);
-                    const data = await response.json();
-                    displayTopSearches(data.data.Page.media);
-                } catch (error) {
-                    console.error('Error fetching data:', error);
                 }
+            }`;
 
-                function displayTopSearches(animeList) {
-                    const topSearchList = document.getElementById('top-search-list');
-                    topSearchList.innerHTML = '';
+            const url = 'https://graphql.anilist.co';
 
-                    animeList.forEach(anime => {
-                        const animeTitle = anime.title.english || anime.title.romaji;
-                        const animeLink = document.createElement('a');
-                        animeLink.href = `https://ani.mom/search.html?query=${encodeURIComponent(animeTitle)}`;
-                        animeLink.className = 'item';
-                        animeLink.textContent = animeTitle;
-                        
-                        const listItem = document.createElement('li');
-                        listItem.appendChild(animeLink);
-                        topSearchList.appendChild(listItem);
-                    });
-                }
-            });
-        </script>
-    </body>
+            const options = {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json',
+                },
+                body: JSON.stringify({ query: query })
+            };
+
+            try {
+                const response = await fetch(url, options);
+                const data = await response.json();
+                displayTopSearches(data.data.Page.media);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+
+            function displayTopSearches(animeList) {
+                const topSearchList = document.getElementById('top-search-list');
+                topSearchList.innerHTML = '';
+
+                animeList.forEach(anime => {
+                    const animeTitle = anime.title.english || anime.title.romaji;
+                    const animeLink = document.createElement('a');
+                    animeLink.href = `https://ani.mom/search.html?query=${encodeURIComponent(animeTitle)}`;
+                    animeLink.className = 'item';
+                    animeLink.textContent = animeTitle;
+                    
+                    const listItem = document.createElement('li');
+                    listItem.appendChild(animeLink);
+                    topSearchList.appendChild(listItem);
+                });
+            }
+
+            const searchInput = document.querySelector('.search-container input');
+
+            function toggleSearchInput() {
+                searchInput.classList.toggle('show');
+                searchInput.classList.toggle('hide');
+            }
+
+            // Set an interval to toggle the input visibility quickly
+            setInterval(toggleSearchInput, 1000); // Adjust the interval time as needed
+        });
+    </script>
+</body>
 </html>
