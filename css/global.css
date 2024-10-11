@@ -38,7 +38,7 @@ header {
             100% { background-position: 0% 50%; }
         }
  #title1 img {
-            max-width: 150px; /* Limit the logo size */
+            max-width: 210px; /* Limit the logo size */
             height: auto; /* Maintain aspect ratio of the logo */
         }
 footer {
