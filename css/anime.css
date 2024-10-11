@@ -548,7 +548,7 @@ section img {
 #query:focus {
   border: none;
 }
-#title1 {
+#title1RIP {
   height: fit-content;
   width: 70%;
 }
@@ -564,7 +564,7 @@ section img {
   .la-anime {
     max-width: 220px;
   }
-  #title1 {
+  #title1RIP {
     height: fit-content;
     width: calc(100% - 50px);
     text-align: center;
@@ -610,7 +610,7 @@ section img {
   #query:focus {
     border: none;
   }
-  #title1 {
+  #title1RIP {
     height: fit-content;
     width: calc(100% - 247px);
     text-align: center;
@@ -625,7 +625,7 @@ section img {
   .la-anime {
     max-width: 220px;
   }
-  #title1 {
+  #title1RIP {
     height: fit-content;
     width: 100%;
     text-align: center;
@@ -776,18 +776,18 @@ section img {
 .ep-btn:hover {
   background-color: #7900eb;
 }
-/* #title1 {
+/* #title1RIP {
   width: 70%;
   height: 86px;
 }
-#title1 a {
+#title1RIP a {
   height: 86px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 @media screen and (max-width: 580px) {
-  #title1 img {
+  #title1RIP img {
     height: 55px;
   }
 } */
