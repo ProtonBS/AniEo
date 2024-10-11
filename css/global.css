@@ -20,16 +20,27 @@ header {
   width: 100%;
 }
 #head-div {
-  background: linear-gradient(to right, #000000 1%, #b9e80e);
-  width: 100%;
-  text-align: center;
-  height: 86px;
-  margin: auto;
-  font-family: "Roboto", sans-serif;
-  font-weight: 500;
-  font-size: x-large;
-  color: #fff;
-}
+            display: flex; /* Use flexbox for layout */
+            align-items: center; /* Center items vertically */
+            justify-content: space-between; /* Space between items */
+            padding: 10px 20px; /* Padding around the header */
+            background: linear-gradient(270deg, #000000, #b9e80e, #000000); /* Initial background gradient */
+            background-size: 300% 300%; /* Set background size for smooth transition */
+            animation: gradientAnimation 4s linear infinite; /* Animation for the gradient background */
+        }
+
+        /* Keyframes for gradient animation */
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            25% { background-position: 100% 50%; }
+            50% { background-position: 100% 50%; }
+            75% { background-position: 0% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+ #title1 img {
+            max-width: 150px; /* Limit the logo size */
+            height: auto; /* Maintain aspect ratio of the logo */
+        }
 footer {
   color: #fff;
   background: #343f41;
