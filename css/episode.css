@@ -96,11 +96,11 @@ section {
   height: 100%;
   width: 100%;
 }
-#query {
+#query-RIP-RIP {
   width: calc(100% - 55px);
   height: 40px;
 }
-#query:focus {
+#query-RIP-RIP:focus {
   border: none;
 }
 i {
