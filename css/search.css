@@ -202,7 +202,7 @@ section img {
   font-family: "Montserrat", sans-serif;
   font-size: 12px;
 }
-#title1 {
+#title1RIP {
   height: fit-content;
   width: 70%;
 }
@@ -251,18 +251,18 @@ section img {
 #query:focus {
   border: none;
 }
-#title1 {
+#title1RIP {
   width: 70%;
   height: 86px;
 }
-#title1 a {
+#title1RIP a {
   height: 86px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 @media screen and (max-width: 520px) {
-  #title1 img {
+  #title1RIP img {
     height: 55px;
   }
 }
