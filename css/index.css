@@ -371,10 +371,10 @@ h2 {
   .la-anime {
     max-width: 220px;
   }
-  #title1 {
+ /* #title1 {
     width: 100%;
     text-align: center;
-  }
+  } */
   #search-div {
     height: fit-content;
     background-color: #fff;
