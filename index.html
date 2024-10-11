@@ -56,7 +56,7 @@
     <meta property="twitter:card" content="summary" />
     <meta name="apple-mobile-web-app-status-bar" content="#202125" />
     <link href="./css/index.css" rel="stylesheet" />
-    <link href="./css/global.css" rel="stylesheet" />
+   <link href="./css/global.css" rel="stylesheet" />
 
 <!--===𝙎𝙤𝙘𝙞𝙖𝙡 𝙎𝙝𝙖𝙧𝙚 𝘾𝙙𝙣=====-->
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/vaakash/socializer@f4c4e9/css/socializer.min.css">
@@ -73,6 +73,67 @@
 <!--  -->
 <script type="module" src="https://injectshrslinkblog.com/popup/script.js"> </script>
 <!--  -->	  
+
+<style>
+        body {
+            margin: 0; /* Remove default margin */
+            font-family: Arial, sans-serif; /* Set font family */
+            background-color: #2b2b2b; /* Solid background color for the body */
+            color: #ffffff; /* White text color */
+        }
+
+        #head-div {
+            display: flex; /* Use flexbox for layout */
+            align-items: center; /* Center items vertically */
+            justify-content: space-between; /* Space between items */
+            padding: 10px 20px; /* Padding around the header */
+            background: linear-gradient(270deg, #000000, #b9e80e, #000000); /* Initial background gradient */
+            background-size: 300% 300%; /* Set background size for smooth transition */
+            animation: gradientAnimation 4s linear infinite; /* Animation for the gradient background */
+        }
+
+        /* Keyframes for gradient animation */
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            25% { background-position: 100% 50%; }
+            50% { background-position: 100% 50%; }
+            75% { background-position: 0% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        #title1 img {
+            max-width: 150px; /* Limit the logo size */
+            height: auto; /* Maintain aspect ratio of the logo */
+        }
+
+	 #search-div {
+            position: relative; /* Position relative for search bar */
+        }
+
+        #query {
+            width: 0; /* Start with a collapsed width */
+            opacity: 0; /* Start with hidden opacity */
+            transition: width 0.3s ease, opacity 0.3s ease; /* Smooth transition for width and opacity */
+            padding: 8px; /* Padding inside the search bar */
+            border: none; /* Remove default border */
+            border-radius: 20px; /* Round corners of the search bar */
+            background-color: rgba(0, 0, 0, 0.8); /* Clear black background for visibility */
+            color: #ffffff; /* White text color for contrast */
+        }
+
+        button {
+            background: none; /* No background for button */
+            border: none; /* No border for button */
+            cursor: pointer; /* Pointer cursor on hover */
+            color: #fff; /* Button color */
+            font-size: 24px; /* Icon size */
+        }
+
+        #query.active {
+            width: 200px; /* Expanded width when active */
+            opacity: 1; /* Fully visible when active */
+        }
+    </style>
 	  
   </head>
 
@@ -80,26 +141,19 @@
 	  
 	  
     <header id="head-div">
-      <div id="title1">
-        <a href="/"
-          ><img src="./logo.png
-" alt="AniEo"
-        /></a>
-      </div>
-      <div id="search-div">
-        <form action="./search.html" method="GET">
-          <input
-            type="text"
-            name="query"
-            id="query"
-            placeholder="Search Anime..."
-            required
-          />
-          <button name="search" type="submit">
-            <i class="fa fa-search"></i>
-          </button>
-        </form>
-      </div>
+        <div id="title1">
+            <a href="/">
+                <img src="https://ani.mom/logo.png" alt="Website Logo"> <!-- Website logo -->
+            </a>
+        </div>
+        <div id="search-div">
+            <form action="./search.html" method="GET"> <!-- Form for search functionality -->
+                <input type="text" name="query" id="query" placeholder="Search Anime..." required>
+                <button type="button" onclick="toggleSearchBar()"> <!-- Button to toggle search bar visibility -->
+                    <i class="fas fa-search"></i> <!-- Search icon -->
+                </button>
+            </form>
+        </div>
     </header>
     
 	
@@ -215,6 +269,33 @@
   </script>
        <!--𝗔𝗹𝗲𝗿𝘁 𝗕𝗮𝗻𝗻𝗲𝗿 𝗝𝗮𝘃𝗮𝗦𝗰𝗿𝗶𝗽𝘁 -->
 
+
+<script>
+        // Function to toggle the search bar visibility
+        function toggleSearchBar() {
+            const searchBar = document.getElementById('query');
+            searchBar.classList.toggle('active'); // Toggle active class
+            if (searchBar.classList.contains('active')) {
+                searchBar.style.width = '200px'; // Expanded width when active
+                searchBar.style.opacity = '1'; // Fully visible when active
+                searchBar.focus(); // Focus on the search bar when expanded
+            } else {
+                searchBar.style.width = '0'; // Collapsed width when inactive
+                searchBar.style.opacity = '0'; // Hidden when inactive
+            }
+        }
+
+        // Close the search bar when scrolling
+        window.addEventListener('scroll', function() {
+            const searchBar = document.getElementById('query');
+            if (searchBar.classList.contains('active')) {
+                searchBar.classList.remove('active'); // Remove active class
+                searchBar.style.width = '0'; // Collapse width when scrolling
+                searchBar.style.opacity = '0'; // Hide search bar
+            }
+        });
+    </script>
+	  
 	  
   <style>
     @keyframes rainbow {
