@@ -338,9 +338,7 @@ h2 {
             width: 200px; /* Expanded width when active */
             opacity: 1; /* Fully visible when active */
         }
-#query:focus {
-  border: none;
-}
+
 /* #title1 {
   width: 100%;
   height: 86px;
