@@ -118,18 +118,9 @@
       }
 
       .logo {
-        width: 60px; /* Adjusted size */
+        width: 80px; /* Adjusted size */
         height: auto;
         animation: glitch 1.5s infinite; /* Continuous glitch animation */
-        position: absolute; /* Ensure the logo is positioned absolutely */
-        top: 10px; /* Position from the top */
-        right: 10px; /* Position from the right */
-        z-index: 20; /* Ensure it stays above other elements */
-      }
-
-      /* Fix to ensure the logo stays visible during fullscreen */
-      .plyr--fullscreen .logo {
-        z-index: 100; /* Increase z-index in fullscreen mode */
       }
     </style>
 
@@ -144,8 +135,8 @@
     <video controls crossorigin playsinline></video>
 
     <!-- Logo -->
-    <a href="https://ani.mom/" target="_blank" class="logo">
-        <img src="https://ani.mom/logo.png" alt="Logo" />
+    <a href="https://ani.mom/" target="_blank" style="position: absolute; top: 10px; right: 10px; z-index: 20;">
+        <img src="https://ani.mom/logo.png" alt="Logo" class="logo" />
     </a>
 
     <script>
