@@ -285,15 +285,8 @@ h2 {
   font-size: 12px;
 }
 #search-div {
-  height: fit-content;
-  background-color: #fff;
-  border-radius: 5px;
-  height: 40px;
-  width: 30%;
-  position: absolute;
-  top: 25px;
-  right: 10px;
-}
+            position: relative; /* Position relative for search bar */
+        }
 #search-div input {
   height: 28px;
   background-color: #fff0;
@@ -322,10 +315,29 @@ h2 {
   height: 100%;
   width: 100%;
 }
-#query {
-  width: calc(100% - 55px);
-  height: 40px;
-}
+ #query {
+            width: 0; /* Start with a collapsed width */
+            opacity: 0; /* Start with hidden opacity */
+            transition: width 0.3s ease, opacity 0.3s ease; /* Smooth transition for width and opacity */
+            padding: 8px; /* Padding inside the search bar */
+            border: none; /* Remove default border */
+            border-radius: 20px; /* Round corners of the search bar */
+            background-color: rgba(0, 0, 0, 0.8); /* Clear black background for visibility */
+            color: #ffffff; /* White text color for contrast */
+        }
+
+        button {
+            background: none; /* No background for button */
+            border: none; /* No border for button */
+            cursor: pointer; /* Pointer cursor on hover */
+            color: #fff; /* Button color */
+            font-size: 24px; /* Icon size */
+        }
+
+        #query.active {
+            width: 200px; /* Expanded width when active */
+            opacity: 1; /* Fully visible when active */
+        }
 #query:focus {
   border: none;
 }
