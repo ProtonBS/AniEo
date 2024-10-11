@@ -409,13 +409,13 @@ h2 {
     height: 100%;
     width: 100%;
   }
-  #query {
+/* #query {
     width: 200px;
     height: 40px;
   }
   #query:focus {
     border: none;
-  }
+  } */
   
   #search-div {
     position: absolute;
