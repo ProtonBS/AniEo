@@ -244,11 +244,11 @@ section img {
   height: 100%;
   width: 100%;
 }
-#query {
+#query-RIP {
   width: calc(100% - 55px);
   height: 40px;
 }
-#query:focus {
+#query-RIP:focus {
   border: none;
 }
 #title1RIP {
