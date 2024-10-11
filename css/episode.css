@@ -182,11 +182,11 @@ h2 {
   }
 }
 @media only screen and (min-width: 1200px) {
-  #title1 {
+/*  #title1 {
     height: fit-content;
     width: calc(100% - 50px);
     text-align: center;
-  }
+  } */
   #search-div {
     right: 0;
     top: 25px;
@@ -538,7 +538,7 @@ section {
 .ep-btn:hover {
   background-color: #d3eb00;
 }
-#title1 {
+/* #title1 {
   height: 86px;
   width: 100%;
   height: fit-content;
@@ -546,7 +546,7 @@ section {
 }
 #title1 a {
   height: 86px;
-  display: flex;
+  display: flex; 
   align-items: center;
   justify-content: center;
 }
@@ -554,7 +554,7 @@ section {
   #title1 img {
     height: 55px;
   }
-}
+} */
 .ep-btn,
 a {
   text-decoration: none;
