@@ -215,6 +215,32 @@
   </script>
        <!--𝗔𝗹𝗲𝗿𝘁 𝗕𝗮𝗻𝗻𝗲𝗿 𝗝𝗮𝘃𝗮𝗦𝗰𝗿𝗶𝗽𝘁 -->
 
+<script>
+        // Function to toggle the search bar visibility
+        function toggleSearchBar() {
+            const searchBar = document.getElementById('query');
+            searchBar.classList.toggle('active'); // Toggle active class
+            if (searchBar.classList.contains('active')) {
+                searchBar.style.width = '200px'; // Expanded width when active
+                searchBar.style.opacity = '1'; // Fully visible when active
+                searchBar.focus(); // Focus on the search bar when expanded
+            } else {
+                searchBar.style.width = '0'; // Collapsed width when inactive
+                searchBar.style.opacity = '0'; // Hidden when inactive
+            }
+        }
+
+        // Close the search bar when scrolling
+        window.addEventListener('scroll', function() {
+            const searchBar = document.getElementById('query');
+            if (searchBar.classList.contains('active')) {
+                searchBar.classList.remove('active'); // Remove active class
+                searchBar.style.width = '0'; // Collapse width when scrolling
+                searchBar.style.opacity = '0'; // Hide search bar
+            }
+        });
+    </script>
+
 	  
   <style>
     @keyframes rainbow {
