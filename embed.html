@@ -142,14 +142,6 @@
         height: auto;
         animation: glitch 1.5s infinite; /* Continuous glitch animation */
       }
-
-      /* Keep logo visible in fullscreen */
-      .plyr--full-ui .logo {
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        z-index: 20;
-      }
     </style>
 
     <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
@@ -168,7 +160,7 @@
     </div>
 
     <!-- Logo -->
-    <a href="https://ani.mom/" target="_blank" class="logo-container">
+    <a href="https://ani.mom/" target="_blank" style="position: absolute; top: 10px; right: 10px; z-index: 20;">
         <img src="https://ani.mom/logo.png" alt="Logo" class="logo" />
     </a>
 
@@ -205,9 +197,7 @@
         });
 
         const data = await response.json();
-        const thumbnailUrl = data.data.Media?.coverImage?.extraLarge; // Safely access the thumbnail
-
-        return thumbnailUrl || "https://i.ibb.co/89WDbyr/uwp4520478.jpg"; // Return default image if not found
+        return data.data.Media.coverImage.extraLarge; // Return the thumbnail URL
       }
 
       document.addEventListener("DOMContentLoaded", async () => {
@@ -306,7 +296,81 @@
             });
             root.addEventListener("dblclick", function (event) {
               event.preventDefault();
-              player.fullscreen.toggle();
+            });
+            const poster = root.querySelector(".plyr__poster");
+            const timeSkip = document.createElement("div");
+            const resetState = () => {
+              poster.clickedTimes = 0;
+              poster.lastSideClicked = undefined;
+            };
+
+            timeSkip.className = "plyr__time-skip";
+            poster.parentNode.insertBefore(timeSkip, poster);
+            poster.clickedTimes = 0;
+            poster.addEventListener("click", function (event) {
+              poster.clickedTimes++;
+
+              if (poster.resetTimeout) {
+                clearTimeout(poster.resetTimeout);
+              }
+
+              poster.resetTimeout = setTimeout(resetState, 1000);
+
+              // handle only double click
+              if (poster.clickedTimes < 2) {
+                return;
+              }
+
+              // find click position
+              const percentage =
+                ((event.clientX - event.target.getBoundingClientRect().left) *
+                  100) /
+                event.target.offsetWidth;
+
+              if (percentage < 40) {
+                if (
+                  player.currentTime === 0 ||
+                  (typeof poster.lastSideClicked !== "undefined" &&
+                    poster.lastSideClicked !== "L")
+                ) {
+                  clearTimeout(poster.resetTimeout);
+                  resetState();
+
+                  return;
+                }
+
+                timeSkip.innerText =
+                  "❮❮\n" + (poster.clickedTimes - 1) * 10 + "s";
+                timeSkip.classList.add("is-left");
+                timeSkip.classList.remove("is-right");
+                timeSkip.classList.remove("is-animated");
+                setTimeout(() => timeSkip.classList.add("is-animated"), 1);
+                poster.lastSideClicked = "L";
+                player.rewind();
+              } else if (percentage > 60) {
+                if (
+                  player.currentTime === player.duration ||
+                  (typeof poster.lastSideClicked !== "undefined" &&
+                    poster.lastSideClicked !== "R")
+                ) {
+                  clearTimeout(poster.resetTimeout);
+                  resetState();
+
+                  return;
+                }
+
+                timeSkip.innerText =
+                  "❯❯\n" + (poster.clickedTimes - 1) * 10 + "s";
+                timeSkip.classList.add("is-right");
+                timeSkip.classList.remove("is-left");
+                timeSkip.classList.remove("is-animated");
+                setTimeout(() => timeSkip.classList.add("is-animated"), 1);
+                poster.lastSideClicked = "R";
+                player.forward();
+              } else {
+                poster.lastSideClicked = "C";
+                poster.clickedTimes = 0;
+              }
             });
           });
         }
