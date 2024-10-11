@@ -416,10 +416,7 @@ h2 {
   #query:focus {
     border: none;
   }
-  #title1 {
-    width: calc(100% - 247px);
-    text-align: center;
-  }
+  
   #search-div {
     position: absolute;
     right: 0;
