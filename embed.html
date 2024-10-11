@@ -92,6 +92,36 @@
       :root {
         --plyr-color-main: #00ff8c;
       }
+
+      /* Logo Animation */
+      @keyframes glitch {
+        0% {
+          opacity: 1;
+          transform: scale(1);
+        }
+        25% {
+          opacity: 0.8;
+          transform: scale(1.05);
+        }
+        50% {
+          opacity: 0.6;
+          transform: scale(1.1);
+        }
+        75% {
+          opacity: 0.8;
+          transform: scale(1.05);
+        }
+        100% {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      .logo {
+        width: 60px; /* Adjusted size */
+        height: auto;
+        animation: glitch 1.5s infinite; /* Continuous glitch animation */
+      }
     </style>
 
     <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
@@ -106,7 +136,7 @@
 
     <!-- Logo -->
     <a href="https://ani.mom/" target="_blank" style="position: absolute; top: 10px; right: 10px; z-index: 20;">
-        <img src="https://ani.mom/logo.png" alt="Logo" style="width: 40px; height: auto;" />
+        <img src="https://ani.mom/logo.png" alt="Logo" class="logo" />
     </a>
 
     <script>
