@@ -9,211 +9,267 @@
     <script defer data-domain="ani.mom" src="https://plausible.io/js/script.js"></script>
     <meta name="google-site-verification" content="-xMMXXGSnOzFmcbydWI4FOaV6MBf3oWDKanMpvCju94" />
 
+    
     <style type="text/css">
-        html, body {
-            width: 100%;
-            height: 100%;
-            margin: 0;
-            background: #000;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
+      html {
+        width: 100%;
+        height: 100%;
+        background: #111;
+      }
+
+      body {
+        margin: 0px;
+        background-color: #000;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      body > .plyr {
+        width: 100%;
+        max-height: 100%;
+        aspect-ratio: 16/9;
+      }
+
+      video {
+        aspect-ratio: 16/9;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+
+      @keyframes plyr__time-skip {
+        40% {
+          opacity: 1;
         }
 
-        body > .plyr {
-            width: 100%;
-            max-height: 100%;
-            aspect-ratio: 16/9;
-            padding: 10px; /* Added padding for aesthetics */
+        100% {
+          opacity: 0;
         }
+      }
 
-        video {
-            aspect-ratio: 16/9;
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-        }
+      .plyr__time-skip {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        width: 40%;
+        opacity: 0;
+        pointer-events: none;
+        text-align: center;
+      }
 
-        :root {
-            --plyr-color-main: #ff0000;
-        }
+      .plyr__time-skip.is-left {
+        left: 0;
+        background: linear-gradient(
+          90deg,
+          rgba(0, 0, 0, 0.5) 0%,
+          transparent 100%
+        );
+      }
 
-        /* Full-Width Logo Banner Styles */
-        .logo-banner {
-            position: fixed; /* Fixed position to keep it on top */
-            top: 0; /* Align to the top */
-            left: 0; /* Start at the left edge */
-            width: 100%; /* Full width */
-            white-space: nowrap; /* Prevents the logo from wrapping */
-            overflow: hidden; /* Hides overflow */
-            z-index: 20; /* Ensures it stays above other elements */
-        }
+      .plyr__time-skip.is-right {
+        right: 0;
+        background: linear-gradient(
+          90deg,
+          transparent 0%,
+          rgba(0, 0, 0, 0.5) 100%
+        );
+      }
 
-        .logo-content {
-            display: inline-block; /* Allows for inline-block styling */
-            animation: flow 10s linear infinite; /* Animation for flowing effect */
-            padding-left: 100%; /* Start off screen to the right */
-        }
+      .plyr__time-skip.is-animated {
+        animation: plyr__time-skip ease 1s forwards;
+      }
 
-        @keyframes flow {
-            0% {
-                transform: translateX(0); /* Start at the left edge */
-            }
-            100% {
-                transform: translateX(-100%); /* Move to the left edge */
-            }
-        }
-
-        .logo {
-            width: 250px; /* Increased size for the logo */
-            height: auto;
-            animation: glitch 1.5s infinite; /* Continuous glitch animation */
-        }
-
-        @keyframes glitch {
-            0% { opacity: 1; transform: scale(1); }
-            25% { opacity: 0.8; transform: scale(1.05); }
-            50% { opacity: 0.6; transform: scale(1.1); }
-            75% { opacity: 0.8; transform: scale(1.05); }
-            100% { opacity: 1; transform: scale(1); }
-        }
+      :root {
+        --plyr-color-main: #fc033d;
+      }
     </style>
 
     <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
     <script src="https://cdn.jsdelivr.net/npm/plyr@3/dist/plyr.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/hls.js"></script>
     <script src="https://unpkg.com/plyr@3"></script>
-</head>
 
-<body>
-    <div class="logo-banner">
-        <div class="logo-content">
-            <a href="https://www.google.com/search?q=ani.mom" target="_blank" aria-label="Ani.MoM">
-                <img src="https://i.ibb.co/525YLHN/Ani-Mo-M-on-Google.png" alt="Logo" class="logo" />
-            </a>
-        </div>
-    </div>
+  </head>
 
+  <body>
     <video controls crossorigin playsinline></video>
 
     <script>
-        params = new URLSearchParams(location.search);
-        const source = params.get("url");
-        const id = params.get("episode_id");
+      params = new URLSearchParams(location.search);
+      const source = params.get("url");
+      const id = params.get("episode_id");
 
-        document.addEventListener("DOMContentLoaded", () => {
-            const video = document.querySelector("video");
-            video.setAttribute("data-poster", `https://thumb.techzbots1.workers.dev/get/${id}`);
-            
-            const defaultOptions = {
-                keyboard: { focused: true, global: true },
-                controls: [
-                    "play-large", "play", "progress", "duration", "settings", "fullscreen"
-                ],
-                settings: ["quality", "speed"],
-                tooltips: { controls: true, seek: true },
-                displayDuration: true,
-                fullscreen: { enabled: true, fallback: true, iosNative: true },
-                mediaMetadata: { title: id, artist: "AnimeEo", album: "AnimeEo" }
+      document.addEventListener("DOMContentLoaded", () => {
+        const video = document.querySelector("video");
+
+        // Set poster image
+        video.setAttribute(
+          "data-poster",
+          `https://thumb.techzbots1.workers.dev/get/${id}`
+        );
+
+        const defaultOptions = {
+          keyboard: {
+            focused: true,
+            global: true
+          },
+          controls: [
+            "play-large",
+            "play",
+            "progress",
+            "duration",
+            "settings",
+            "fullscreen"
+          ],
+          settings: ["quality", "speed"],
+          tooltips: {
+            controls: true,
+            seek: true
+          },
+          displayDuration: true,
+          fullscreen: {
+            enabled: true,
+            fallback: true,
+            iosNative: true
+          },
+          mediaMetadata: {
+            title: id,
+            artist: "AnimeEo",
+            album: "AnimeEo"
+          }
+        };
+
+        if (Hls.isSupported()) {
+          const hls = new Hls();
+          hls.loadSource(source);
+          hls.on(Hls.Events.MANIFEST_PARSED, function (event, data) {
+            const availableQualities = hls.levels.map((l) => l.height);
+
+            defaultOptions.quality = {
+              default: availableQualities[0],
+              options: availableQualities,
+              forced: true,
+              onChange: (e) => updateQuality(e)
+            };
+            const player = new Plyr(video, defaultOptions);
+            configPlayer(player);
+          });
+          hls.attachMedia(video);
+          window.hls = hls;
+        } else {
+          const player = new Plyr(video, defaultOptions);
+          configPlayer(player);
+        }
+
+        function updateQuality(newQuality) {
+          window.hls.levels.forEach((level, levelIndex) => {
+            if (level.height === newQuality) {
+              window.hls.currentLevel = levelIndex;
+            }
+          });
+        }
+        function configPlayer(player) {
+          player.on("ready", () => {
+            const root = video.closest(".plyr--video");
+
+            player.eventListeners.forEach(function (eventListener) {
+              if (eventListener.type === "dblclick") {
+                eventListener.element.removeEventListener(
+                  eventListener.type,
+                  eventListener.callback,
+                  eventListener.options
+                );
+              }
+            });
+            root.addEventListener("dblclick", function (event) {
+              event.preventDefault();
+            });
+            const poster = root.querySelector(".plyr__poster");
+            const timeSkip = document.createElement("div");
+            const resetState = () => {
+              poster.clickedTimes = 0;
+              poster.lastSideClicked = undefined;
             };
 
-            if (Hls.isSupported()) {
-                const hls = new Hls();
-                hls.loadSource(source);
-                hls.on(Hls.Events.MANIFEST_PARSED, function () {
-                    const availableQualities = hls.levels.map((l) => l.height);
-                    defaultOptions.quality = {
-                        default: availableQualities[0],
-                        options: availableQualities,
-                        forced: true,
-                        onChange: (e) => updateQuality(e)
-                    };
-                    const player = new Plyr(video, defaultOptions);
-                    configPlayer(player);
-                });
-                hls.attachMedia(video);
-                window.hls = hls;
-            } else {
-                const player = new Plyr(video, defaultOptions);
-                configPlayer(player);
-            }
+            timeSkip.className = "plyr__time-skip";
+            poster.parentNode.insertBefore(timeSkip, poster);
+            poster.clickedTimes = 0;
+            poster.addEventListener("click", function (event) {
+              poster.clickedTimes++;
 
-            function updateQuality(newQuality) {
-                window.hls.levels.forEach((level, levelIndex) => {
-                    if (level.height === newQuality) {
-                        window.hls.currentLevel = levelIndex;
-                    }
-                });
-            }
+              if (poster.resetTimeout) {
+                clearTimeout(poster.resetTimeout);
+              }
 
-            function configPlayer(player) {
-                player.on("ready", () => {
-                    const root = video.closest(".plyr--video");
-                    player.eventListeners.forEach(eventListener => {
-                        if (eventListener.type === "dblclick") {
-                            eventListener.element.removeEventListener(eventListener.type, eventListener.callback, eventListener.options);
-                        }
-                    });
-                    root.addEventListener("dblclick", event => event.preventDefault());
+              poster.resetTimeout = setTimeout(resetState, 1000);
 
-                    const poster = root.querySelector(".plyr__poster");
-                    const timeSkip = document.createElement("div");
-                    const resetState = () => {
-                        poster.clickedTimes = 0;
-                        poster.lastSideClicked = undefined;
-                    };
+              // handle only double click
+              if (poster.clickedTimes < 2) {
+                return;
+              }
 
-                    timeSkip.className = "plyr__time-skip";
-                    poster.parentNode.insertBefore(timeSkip, poster);
-                    poster.clickedTimes = 0;
-                    poster.addEventListener("click", function (event) {
-                        poster.clickedTimes++;
-                        if (poster.resetTimeout) {
-                            clearTimeout(poster.resetTimeout);
-                        }
-                        poster.resetTimeout = setTimeout(resetState, 1000);
+              // find click position
+              const percentage =
+                ((event.clientX - event.target.getBoundingClientRect().left) *
+                  100) /
+                event.target.offsetWidth;
 
-                        if (poster.clickedTimes < 2) {
-                            return;
-                        }
+              if (percentage < 40) {
+                if (
+                  player.currentTime === 0 ||
+                  (typeof poster.lastSideClicked !== "undefined" &&
+                    poster.lastSideClicked !== "L")
+                ) {
+                  clearTimeout(poster.resetTimeout);
+                  resetState();
 
-                        const percentage = ((event.clientX - event.target.getBoundingClientRect().left) * 100) / event.target.offsetWidth;
+                  return;
+                }
 
-                        if (percentage < 40) {
-                            if (player.currentTime === 0 || (typeof poster.lastSideClicked !== "undefined" && poster.lastSideClicked !== "L")) {
-                                clearTimeout(poster.resetTimeout);
-                                resetState();
-                                return;
-                            }
-                            timeSkip.innerText = "❮❮\n" + (poster.clickedTimes - 1) * 10 + "s";
-                            timeSkip.classList.add("is-left");
-                            timeSkip.classList.remove("is-right");
-                            timeSkip.classList.remove("is-animated");
-                            setTimeout(() => timeSkip.classList.add("is-animated"), 1);
-                            poster.lastSideClicked = "L";
-                            player.rewind();
-                        } else if (percentage > 60) {
-                            if (player.currentTime === player.duration || (typeof poster.lastSideClicked !== "undefined" && poster.lastSideClicked !== "R")) {
-                                clearTimeout(poster.resetTimeout);
-                                resetState();
-                                return;
-                            }
-                            timeSkip.innerText = "❯❯\n" + (poster.clickedTimes - 1) * 10 + "s";
-                            timeSkip.classList.add("is-right");
-                            timeSkip.classList.remove("is-left");
-                            timeSkip.classList.remove("is-animated");
-                            setTimeout(() => timeSkip.classList.add("is-animated"), 1);
-                            poster.lastSideClicked = "R";
-                            player.forward();
-                        } else {
-                            poster.lastSideClicked = "C";
-                            poster.clickedTimes = 0;
-                        }
-                    });
-                });
-            }
-        });
+                timeSkip.innerText =
+                  "❮❮\n" + (poster.clickedTimes - 1) * 10 + "s";
+                timeSkip.classList.add("is-left");
+                timeSkip.classList.remove("is-right");
+                timeSkip.classList.remove("is-animated");
+                setTimeout(() => timeSkip.classList.add("is-animated"), 1);
+                poster.lastSideClicked = "L";
+                player.rewind();
+              } else if (percentage > 60) {
+                if (
+                  player.currentTime === player.duration ||
+                  (typeof poster.lastSideClicked !== "undefined" &&
+                    poster.lastSideClicked !== "R")
+                ) {
+                  clearTimeout(poster.resetTimeout);
+                  resetState();
+
+                  return;
+                }
+
+                timeSkip.innerText =
+                  "❯❯\n" + (poster.clickedTimes - 1) * 10 + "s";
+                timeSkip.classList.add("is-right");
+                timeSkip.classList.remove("is-left");
+                timeSkip.classList.remove("is-animated");
+                setTimeout(() => timeSkip.classList.add("is-animated"), 1);
+                poster.lastSideClicked = "R";
+                player.forward();
+              } else {
+                poster.lastSideClicked = "C";
+                poster.clickedTimes = 0;
+              }
+            });
+          });
+        }
+      });
     </script>
-</body>
+  </body>
 </html>
