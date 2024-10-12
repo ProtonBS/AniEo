@@ -169,6 +169,7 @@ h2 {
   width: 100%;
   height: fit-content;
 }
+/* 
 .la-anime {
   display: inline-block;
   padding: 0;
@@ -177,7 +178,27 @@ h2 {
   position: relative;
   width: calc(50% - 20px);
   max-width: 200px;
+} 
+*/
+
+.la-anime {
+  display: inline-block;
+  padding: 0;
+  margin: 0 3px;
+  margin-bottom: 6px;
+  position: relative;
+  width: calc(50% - 20px);
+  max-width: 200px;
+  border-radius: 15px; /* Adjust the value for more or less rounding */
+  border: 3px solid rgba(185, 232, 14, 0.8); /* Neon green border */
+  box-shadow: 0 0 10px rgba(185, 232, 14, 0.8); /* Neon glow effect */
+  transition: box-shadow 0.3s ease; /* Smooth transition for hover effect */
 }
+
+.la-anime:hover {
+  box-shadow: 0 0 20px rgba(185, 232, 14, 1); /* Stronger glow on hover */
+}
+
 .shadow {
   box-shadow: inset 0 -100px 50px -50px rgb(32 33 37);
   position: relative;
