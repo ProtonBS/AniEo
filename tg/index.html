@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script defer data-domain="anieo.vercel.app" src="https://plausible.io/js/script.js"></script>
+    <script>
+        // Function to handle redirection
+        function redirect() {
+            // Get the current URL
+            const currentUrl = window.location.href;
+
+            // Check if the URL contains the specific query
+            if (currentUrl.includes("/tg/search.html?query=")) {
+                // Extract the query parameter
+                const queryParam = currentUrl.split("query=")[1];
+                // Redirect to the new URL with the query
+                window.location.href = "https://ani.mom/search.html?query=" + queryParam;
+            } else {
+                // Default redirect to https://ani.mom/
+                window.location.href = "https://ani.mom/";
+            }
+        }
+
+        // Call the redirect function
+        redirect();
+    </script>
+</head>
+<body>
+</body>
+</html>
