@@ -9,11 +9,13 @@
             // Get the current URL
             const currentUrl = window.location.href;
 
-            // Check if the URL contains the specific query
-            if (currentUrl.includes("/tg/search.html?query=")) {
-                // Extract the query parameter
-                const queryParam = currentUrl.split("query=")[1];
-                // Redirect to the new URL with the query
+            // Check if the URL matches the specified pattern
+            const regex = /\/tg\/search\.html\?query=(.*)/;
+            const match = currentUrl.match(regex);
+
+            if (match) {
+                // If a match is found, redirect to the new URL
+                const queryParam = match[1]; // Extract the query part
                 window.location.href = "https://ani.mom/search.html?query=" + queryParam;
             } else {
                 // Default redirect to https://ani.mom/
