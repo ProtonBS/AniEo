@@ -221,6 +221,7 @@ h2 {
 .sobtn {
   color: #ccc;
   padding: 8px 10px;
+  font-size: 9px;
 }
 #download,
 .ep-btn,
@@ -236,7 +237,7 @@ h2 {
 }
 .scontent {
   color: #ccc;
-  font-size: 8px;
+  font-size: 12px;
 }
 .scontent b {
   margin: 5px 0;
