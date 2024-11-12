@@ -2,12 +2,12 @@
 
 const ProxyApi = "https://proxy.techzbots1.workers.dev/?u=";
 const animeapi = "/anime/";
-const episodeapi = "/episode/";
+const episodeapi = "/watch/";
 const dlapi = "/download/";
 
 // Api Server Manager
 
-const AvailableServers = ["https://api-v2.anispace.workers.dev"];
+const AvailableServers = ["https://animetize-api.vercel.app"];
 
 function getApiServer() {
   return AvailableServers[Math.floor(Math.random() * AvailableServers.length)];
