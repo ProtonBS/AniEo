@@ -7,7 +7,7 @@ const dlapi = "/download/";
 
 // Api Server Manager
 
-const AvailableServers = ["https://api.bhoothihu.workers.dev"];
+const AvailableServers = ["https://animetize-api.vercel.app"];
 
 function getApiServer() {
   return AvailableServers[Math.floor(Math.random() * AvailableServers.length)];
