@@ -122,7 +122,7 @@ async function loadAnimeFromGogo(data) {
     document.getElementById("no-ep-found").style.width = "100%";
   } else {
     document.getElementById("watch-btn").href =
-      "./episode.html?query=" +
+      "./episode.html?anime_id=" +
       AnimeID +
       "&episode_id=" +
       data["episodes"][0][1];
@@ -184,7 +184,7 @@ async function getEpSlider(total) {
       const episodeId = total[i][1];
       const epNum = total[i][0].replaceAll("-", ".");
       if (Number(epNum) > 0) {
-        ephtml += `<div class=ep-slide><a href="./episode.html?query=${AnimeID}&episode_id=${episodeId}"><img onerror="retryImageLoad(this)" class="lzy_img" src="./static/loading1.gif" data-src=https://thumb.techzbots1.workers.dev/thumb/${episodeId}><div class=ep-title><span>Episode ${epNum}</span></div></a></div>`;
+        ephtml += `<div class=ep-slide><a href="./episode.html?anime_id=${AnimeID}&episode_id=${episodeId}"><img onerror="retryImageLoad(this)" class="lzy_img" src="./static/loading1.gif" data-src=https://thumb.techzbots1.workers.dev/thumb/${episodeId}><div class=ep-title><span>Episode ${epNum}</span></div></a></div>`;
       }
     }
     document.getElementById("ep-slider").innerHTML = ephtml;
@@ -271,7 +271,7 @@ async function getEpLowerList(start, end) {
 
     let epLowerBtnText = `${epnum}`;
 
-    html += `<a class="ep-btn" href="./episode.html?query=${AnimeID}&episode_id=${episode_id}">${epLowerBtnText}</a>`;
+    html += `<a class="ep-btn" href="./episode.html?anime_id=${AnimeID}&episode_id=${episode_id}">${epLowerBtnText}</a>`;
   }
   document.getElementById("ep-lower-div").innerHTML = html;
 }
