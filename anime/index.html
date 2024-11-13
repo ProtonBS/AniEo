@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ani.MoM - Anime Details</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* General styles for the page */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        /* Header section */
+        header {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 20px;
+            background-color: #1f1f1f;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 28px;
+            color: #fff;
+        }
+
+        /* Style for animated dot */
+        .dot {
+            color: red; /* Set color to red */
+            display: inline-block;
+            animation: bounce 1s infinite;
+        }
+
+        /* Bouncing animation for the dot */
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* Anime Details Section */
+        .anime-details {
+            padding: 20px;
+            margin-top: 30px;
+            text-align: center;
+            display: none; /* Hidden until data is loaded */
+        }
+
+        .anime-details h1 {
+            font-size: 28px;
+            color: #fff;
+        }
+
+        .anime-details img {
+            width: 60%; /* Adjusted for smaller size */
+            max-width: 350px;
+            display: block;
+            margin: 20px auto;
+            border-radius: 10px;
+        }
+
+        .anime-details table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            color: #fff;
+        }
+
+        .anime-details table, th, td {
+            border: 1px solid #444;
+        }
+
+        .anime-details th, td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        .anime-details th {
+            background-color: #333;
+        }
+
+        .anime-details td {
+            background-color: #222;
+        }
+
+        .anime-details .description {
+            font-size: 16px;
+            color: #bbb;
+            margin-top: 10px;
+            line-height: 1.6;
+        }
+
+        .anime-details .watch-now {
+            background-color: red;
+            color: white;
+            padding: 15px 30px;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            text-transform: uppercase;
+            border-radius: 50px;
+            display: block;
+            width: 200px;
+            margin: 30px auto;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .anime-details .watch-now:hover {
+            background-color: #e50914;
+        }
+
+        /* Preloader styles */
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+        }
+
+        #preloader .spinner {
+            border: 8px solid #f3f3f3;
+            border-top: 8px solid #fff;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Large search bar inside anime content */
+        .search-box-content {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .search-box-content input {
+            padding: 15px;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            outline: none;
+            background-color: #333;
+            color: #fff;
+            width: 60%;
+            max-width: 500px;
+        }
+
+        .search-box-content button {
+            background-color: transparent;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            color: #fff;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+        }
+
+        .search-box-content button i {
+            font-size: 20px;
+        }
+
+        .search-box-content button:hover {
+            background-color: #333;
+        }
+
+        /* Responsiveness for small screens */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .anime-details table {
+                width: 90%;
+            }
+
+            .search-box-content input {
+                width: 80%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Header Section -->
+    <header onclick="window.location='/'">
+    <h1>Ani<span class="dot">.</span>MoM</h1>
+    
+</header>
+
+
+    <!-- Search Box Inside Content -->
+    <div class="search-box-content">
+        <input type="text" placeholder="Search & Press Enter..." id="search-input">
+        
+    </div>
+
+    <!-- Anime Details Section -->
+    <section class="anime-details" id="anime-details">
+        <h1 id="anime-title"></h1>
+        <div class="image-container">
+            <img src="" alt="" id="anime-image">
+            <a href="#" class="watch-now" id="watch-now">Watch Now</a>
+        </div>
+        <table id="anime-table"></table>
+        <div class="description" id="anime-description"></div>
+    </section>
+
+    <script>
+        // Get the query parameter 'id' from the URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const animeId = urlParams.get('id');
+        const animeDetailsSection = document.getElementById('anime-details');
+        const animeImage = document.getElementById('anime-image');
+        const watchNowButton = document.getElementById('watch-now');
+        const animeTable = document.getElementById('anime-table');
+        const animeDescription = document.getElementById('anime-description');
+        const animeTitle = document.getElementById('anime-title');
+        const preloader = document.getElementById('preloader');
+
+        // Fetch anime details from the API
+        fetch(`https://animetize-api.vercel.app/info/${animeId}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data) {
+                    // Display the anime details
+                    animeTitle.textContent = data.title;
+                    animeImage.src = data.image;
+
+                    // Modify the Watch Now button to redirect to the episode page
+                    watchNowButton.href = `/episode/?id=${animeId}-episode-1`;
+
+                    animeTable.innerHTML = `
+                        <tr>
+                            <th>Genres</th>
+                            <td>${data.genres.join(', ')}</td>
+                        </tr>
+                        <tr>
+                            <th>Total Episodes</th>
+                            <td>${data.totalEpisodes}</td>
+                        </tr>
+                        <tr>
+                            <th>Status</th>
+                            <td>${data.status}</td>
+                        </tr>
+                        <tr>
+                            <th>Other Name</th>
+                            <td>${data.otherName.trim()}</td>
+                        </tr>
+                    `;
+
+                    animeDescription.textContent = data.description;
+
+                    // Hide preloader and show the content
+                    preloader.style.display = 'none';
+                    animeDetailsSection.style.display = 'block';
+                } else {
+                    // Handle error if data is not found
+                    animeDetailsSection.innerHTML = `<p>Sorry, we couldn't find the anime details.</p>`;
+                }
+            })
+            .catch(error => {
+                console.error("Error fetching anime details:", error);
+                animeDetailsSection.innerHTML = `<p>Error loading anime details.</p>`;
+                preloader.style.display = 'none';
+            });
+
+        // Function for the search box to redirect to the search page with the query
+        function searchAnime() {
+            const query = document.getElementById('search-input').value;
+            if (query) {
+                // Redirect to the search page with the query parameter
+                window.location.href = `/search/?q=${encodeURIComponent(query)}`;
+            }
+        }
+
+        // Add event listener for 'Enter' key press on the search input
+        document.getElementById('search-input').addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                searchAnime();  // Trigger search when Enter key is pressed
+            }
+        });
+    </script>
+
+</body>
+</html>
