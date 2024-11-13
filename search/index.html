@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results - Ani.MoM</title>
+    <style>
+        /* General styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        /* Header styles */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #1f1f1f;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 28px;
+            color: #fff;
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+            background-color: #333;
+            padding: 5px;
+            border-radius: 20px;
+            width: 220px;
+        }
+
+        .search-bar input {
+            background-color: transparent;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            width: 100%;
+            font-size: 14px;
+            outline: none;
+            border-radius: 20px;
+        }
+
+        .search-bar button {
+            background-color: transparent;
+            border: none;
+            padding: 5px;
+            margin-left: 10px;
+            cursor: pointer;
+            color: #fff;
+        }
+
+        .search-bar button i {
+            font-size: 18px;
+        }
+
+        .search-bar button:hover {
+            color: #d5eb34;
+        }
+
+        /* Search Results Grid */
+        .search-results-container {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+            margin: 20px;
+            padding: 0 20px;
+        }
+
+        .search-item {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+        }
+
+        .search-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .search-item .title {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.6);
+            color: #fff;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        /* Responsiveness for smaller screens */
+        @media (max-width: 1200px) {
+            .search-results-container {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        @media (max-width: 900px) {
+            .search-results-container {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .search-results-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 400px) {
+            .search-results-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Hover effect */
+        .search-item:hover {
+            transform: scale(1.05);
+        }
+
+
+.unique-brand-link {
+    text-decoration: none; /* Removes the underline */
+    color: inherit; /* Inherits the color from the surrounding text */
+}
+
+.unique-dot {
+    color: red; /* Makes the period red */
+    display: inline-block; /* Makes the period inline-block for animation */
+}
+
+/* Bouncing animation */
+.unique-bouncing {
+    animation: unique-bounce 1s infinite;
+}
+
+@keyframes unique-bounce {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px); /* Moves the period up */
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+
+        
+    </style>
+</head>
+<body>
+
+    
+    
+    <!-- Header Section -->
+    
+        <header>
+    <h1><a href="/" class="unique-brand-link">Ani<span class="unique-dot unique-bouncing">.</span>MoM</a></h1>
+    <div class="search-bar">
+        <input type="text" placeholder="Search for anime..." id="search-input">
+    </div>
+</header>
+
+
+
+    <!-- Search Results Section -->
+    <section>
+        <h2 style="text-align:center; color:#fff; margin-top: 30px;">Search Results</h2>
+        <div class="search-results-container" id="search-results-container">
+            <!-- Search result items will be dynamically loaded here -->
+        </div>
+    </section>
+
+    <script>
+        // Function to get search query and fetch results
+        function searchAnime() {
+            const query = document.getElementById('search-input').value;
+            if (query) {
+                window.location.href = `/search/?q=${encodeURIComponent(query)}`;
+            }
+        }
+
+        // Add event listener for 'Enter' key press on the search input
+        document.getElementById('search-input').addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                searchAnime();  // Trigger search when Enter key is pressed
+            }
+        });
+
+        // Fetch search results using the query parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const query = urlParams.get('q');
+        
+        if (query) {
+            fetch(`https://animetize-api.vercel.app/${encodeURIComponent(query)}`)
+                .then(response => response.json())
+                .then(data => {
+                    const searchResultsContainer = document.getElementById('search-results-container');
+                    data.results.forEach(item => {
+                        const searchItem = document.createElement('div');
+                        searchItem.classList.add('search-item');
+                        const searchImage = document.createElement('img');
+                        searchImage.src = item.image;
+                        searchImage.alt = item.title;
+                        const searchTitle = document.createElement('div');
+                        searchTitle.classList.add('title');
+                        searchTitle.innerText = item.title;
+
+                        // Set onclick to redirect to the anime page with the ID
+                        searchItem.onclick = () => {
+                            window.location.href = `/anime/?id=${item.id}`;
+                        };
+
+                        searchItem.appendChild(searchImage);
+                        searchItem.appendChild(searchTitle);
+                        searchResultsContainer.appendChild(searchItem);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error fetching search results:', error);
+                });
+        }
+
+    </script>
+    
+</body>
+</html>
