@@ -5,7 +5,7 @@ const searchapi = "/search/";
 
 // Api Server Manager
 
-const AvailableServers = ["https://anidexapi.semant.workers.dev"];
+const AvailableServers = ["https://api-v2.anispace.workers.dev"];
 
 function getApiServer() {
   return AvailableServers[Math.floor(Math.random() * AvailableServers.length)];
