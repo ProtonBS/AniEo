@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HLS Video Player - Ani.MoM</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    /* Global styles */
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #121212;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      min-height: 100vh;
+      overflow-x: hidden;
+      transition: background-color 0.3s ease;
+    }
+
+    /* Header */
+    header {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      background: linear-gradient(135deg, #0a0a0a, #333);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    header h1 {
+      font-size: 2.5em;
+      color: #00ff99;
+      text-shadow: 0 0 10px rgba(0, 255, 153, 0.8);
+      margin: 0;
+    }
+
+    /* Search Bar */
+    .search-bar {
+      display: flex;
+      align-items: center;
+      background-color: #333;
+      padding: 5px;
+      border-radius: 20px;
+    }
+
+    .search-bar input {
+      background: none;
+      border: none;
+      outline: none;
+      color: white;
+      padding: 5px;
+      font-size: 1em;
+      width: 180px;
+      border-radius: 20px;
+      background-color: #444;
+    }
+
+    .search-bar button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 5px;
+      margin-left: 8px;
+    }
+
+    .search-bar button img {
+      width: 20px;
+      height: 20px;
+    }
+
+    /* Episode Name */
+    .episode-name {
+      font-size: 1.5em;
+      font-weight: bold;
+      margin-top: 20px;
+      text-shadow: 0 0 10px rgba(0, 255, 153, 0.8);
+    }
+
+    /* Hold On! Loading text in neon red */
+    .loading-text {
+      color: #ff0000;
+      text-shadow: 0 0 5px #ff0000, 0 0 10px #ff0000, 0 0 15px #ff0000;
+      animation: neon 1.5s ease-in-out infinite alternate;
+    }
+
+    @keyframes neon {
+      0% {
+        text-shadow: 0 0 5px #ff0000, 0 0 10px #ff0000, 0 0 15px #ff0000;
+      }
+      100% {
+        text-shadow: 0 0 20px #ff0000, 0 0 30px #ff0000, 0 0 40px #ff0000;
+      }
+    }
+
+    /* Video Player */
+    .video-container {
+      width: 90%;
+      max-width: 900px;
+      margin: 40px auto;
+      background-color: black;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    video {
+      width: 100%;
+      height: auto;
+    }
+
+    /* Server and Navigation Buttons */
+    .server-buttons {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+      gap: 15px;
+    }
+
+    .server-buttons button {
+      background-color: #00ff99;
+      border: none;
+      padding: 10px 20px;
+      color: black;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .server-buttons button:hover {
+      background-color: #00cc7a;
+    }
+
+    .server-buttons button:disabled {
+      background-color: #888;
+      cursor: not-allowed;
+    }
+
+    /* Footer */
+    footer {
+      width: 100%;
+      text-align: center;
+      padding: 15px;
+      background-color: #222;
+      color: #777;
+    }
+
+    footer a {
+      color: #00ff99;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    footer a:hover {
+      color: #00cc7a;
+    }
+
+    /* Media Queries for Responsiveness */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2em;
+      }
+
+      .search-bar input {
+        font-size: 1em;
+        width: 150px;
+      }
+
+      .video-container {
+        width: 95%;
+        margin: 20px auto;
+      }
+
+      .server-buttons {
+        gap: 10px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px;
+      }
+
+      header h1 {
+        font-size: 1.5em;
+      }
+
+      .search-bar {
+        width: 150px;
+        margin-top: 10px;
+      }
+
+      .video-container {
+        width: 100%;
+        margin: 10px auto;
+      }
+
+      footer {
+        font-size: 0.8em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header with Logo and Search Bar -->
+  <header>
+    <h1>Ani.MoM</h1>
+    <div class="search-bar">
+      <input type="text" id="searchInput" placeholder="Search...">
+      <button id="searchButton">
+        <img src="https://img.icons8.com/ios-filled/50/ffffff/search.png" alt="search icon">
+      </button>
+    </div>
+  </header>
+
+  <!-- Episode Name -->
+  <div id="episodeName" class="episode-name">Loading...</div>
+
+  <!-- Video Player Section -->
+  <div class="video-container">
+    <video id="videoPlayer" controls>
+      Your browser does not support the video tag.
+    </video>
+  </div>
+
+  <!-- Server and Navigation Buttons -->
+  <div class="server-buttons">
+    <button id="server1Button">Server 1</button>
+    <button id="server2Button">Server 2</button>
+    <button id="previousButton">Previous</button>
+    <button id="nextButton">Next</button>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2024 Ani.MoM | <a href="#">Privacy</a> | <a href="#">Terms</a></p>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const videoPlayer = document.getElementById("videoPlayer");
+      const searchInput = document.getElementById("searchInput");
+      const searchButton = document.getElementById("searchButton");
+      const previousButton = document.getElementById("previousButton");
+      const nextButton = document.getElementById("nextButton");
+      const episodeNameElement = document.getElementById("episodeName");
+
+      let currentEpisode = 1;
+      let currentQuery = new URLSearchParams(window.location.search).get("query");
+
+      // Function to set the video source
+      function setVideoSource(url) {
+        videoPlayer.src = url;
+        videoPlayer.load();
+        videoPlayer.play();
+      }
+
+      // Function to update the episode name
+      function updateEpisodeName(name) {
+        episodeNameElement.textContent = name;
+      }
+
+      // Function to show "Hold On! Loading" message
+      function showLoadingMessage() {
+        episodeNameElement.classList.add("loading-text");
+        episodeNameElement.textContent = "Hold On! Loading...";
+      }
+
+      // Function to hide "Hold On! Loading" message
+      function hideLoadingMessage() {
+        episodeNameElement.classList.remove("loading-text");
+      }
+
+      // Function to fetch episode data from the API
+      function fetchEpisodeData(query, episode) {
+        showLoadingMessage(); // Show loading message while fetching data
+        fetch(`https://api-v2.anispace.workers.dev/episode/${query}-episode-${episode}`)
+          .then(response => response.json())
+          .then(data => {
+            const episodeData = data.results;
+            const videoSources = episodeData.stream.sources;
+            const episodeUrl = videoSources[0].file;
+            const episodeName = episodeData.name;
+
+            updateEpisodeName(episodeName); // Update episode name
+            setVideoSource(episodeUrl); // Set the video source
+            hideLoadingMessage(); // Hide loading message once video is loaded
+          })
+          .catch(error => {
+            console.error("Error fetching data:", error);
+            hideLoadingMessage();
+          });
+      }
+
+      // Event listeners for the Previous and Next buttons
+      previousButton.addEventListener("click", function() {
+        if (currentEpisode > 1) {
+          currentEpisode--;
+          fetchEpisodeData(currentQuery, currentEpisode);
+          window.history.replaceState({}, "", `?query=${currentQuery}&episode=${currentEpisode}`);
+        }
+      });
+
+      nextButton.addEventListener("click", function() {
+        currentEpisode++;
+        fetchEpisodeData(currentQuery, currentEpisode);
+        window.history.replaceState({}, "", `?query=${currentQuery}&episode=${currentEpisode}`);
+      });
+
+      // Event listener for search button
+      searchButton.addEventListener("click", function() {
+        const query = searchInput.value.trim();
+        if (query) {
+          window.location.href = `https://ani.mom/search.html?query=${encodeURIComponent(query)}`;
+        }
+      });
+
+      // Initial fetch of episode data
+      fetchEpisodeData(currentQuery, currentEpisode);
+    });
+  </script>
+
+</body>
+</html>
