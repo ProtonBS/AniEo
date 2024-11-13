@@ -122,7 +122,7 @@ async function loadAnimeFromGogo(data) {
     document.getElementById("no-ep-found").style.width = "100%";
   } else {
     document.getElementById("watch-btn").href =
-      "./episode.html?anime_id=" +
+      "./episode.html?query=" +
       AnimeID +
       "&episode_id=" +
       data["episodes"][0][1];
@@ -184,7 +184,7 @@ async function getEpSlider(total) {
       const episodeId = total[i][1];
       const epNum = total[i][0].replaceAll("-", ".");
       if (Number(epNum) > 0) {
-        ephtml += `<div class=ep-slide><a href="./episode.html?anime_id=${AnimeID}&episode_id=${episodeId}"><img onerror="retryImageLoad(this)" class="lzy_img" src="./static/loading1.gif" data-src=https://thumb.techzbots1.workers.dev/thumb/${episodeId}><div class=ep-title><span>Episode ${epNum}</span></div></a></div>`;
+        ephtml += `<div class=ep-slide><a href="./episode.html?query=${AnimeID}&episode_id=${episodeId}"><img onerror="retryImageLoad(this)" class="lzy_img" src="./static/loading1.gif" data-src=https://thumb.techzbots1.workers.dev/thumb/${episodeId}><div class=ep-title><span>Episode ${epNum}</span></div></a></div>`;
       }
     }
     document.getElementById("ep-slider").innerHTML = ephtml;
@@ -271,7 +271,7 @@ async function getEpLowerList(start, end) {
 
     let epLowerBtnText = `${epnum}`;
 
-    html += `<a class="ep-btn" href="./episode.html?anime_id=${AnimeID}&episode_id=${episode_id}">${epLowerBtnText}</a>`;
+    html += `<a class="ep-btn" href="./episode.html?query=${AnimeID}&episode_id=${episode_id}">${epLowerBtnText}</a>`;
   }
   document.getElementById("ep-lower-div").innerHTML = html;
 }
@@ -304,7 +304,7 @@ async function getRecommendations(anime_title) {
   for (i = 0; i < recommendations.length; i++) {
     let anime = recommendations[i];
     let title = anime["title"]["userPreferred"];
-    rechtml += `<a href="./anime.html?anime_id=${title}"><div class="poster la-anime"> <div id="shadow1" class="shadow"> <div class="dubb">${anime["meanScore"]} / 100</div><div class="dubb dubb2">${anime["format"]}</div></div><div id="shadow2" class="shadow"> <img class="lzy_img" src="./static/loading1.gif" data-src="${anime["coverImage"]["large"]}"> </div><div class="la-details"> <h3>${title}</h3> <div id="extra"> <span>${anime["status"]}</span> <span class="dot"></span> <span>EP ${anime["episodes"]}</span> </div></div></div></a>`;
+    rechtml += `<a href="./anime.html?query=${title}"><div class="poster la-anime"> <div id="shadow1" class="shadow"> <div class="dubb">${anime["meanScore"]} / 100</div><div class="dubb dubb2">${anime["format"]}</div></div><div id="shadow2" class="shadow"> <img class="lzy_img" src="./static/loading1.gif" data-src="${anime["coverImage"]["large"]}"> </div><div class="la-details"> <h3>${title}</h3> <div id="extra"> <span>${anime["status"]}</span> <span class="dot"></span> <span>EP ${anime["episodes"]}</span> </div></div></div></a>`;
   }
   document.getElementById("latest2").innerHTML = rechtml;
   document.getElementsByClassName("sload")[0].style.display = "none";
@@ -328,7 +328,7 @@ function plusSlides(n) {
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 
-const AnimeID = urlParams.get("anime_id");
+const AnimeID = urlParams.get("query");
 if (AnimeID == null) {
   window.location = "./index.html";
 }
