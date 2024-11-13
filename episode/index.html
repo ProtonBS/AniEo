@@ -9,6 +9,8 @@
     <script src="https://cdn.jsdelivr.net/npm/hls.js@1.0.0/dist/hls.min.js"></script>
     <!--ShareThis-->
     <script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=673480d151224300122167a2&product=sop' async='async'></script>
+   <link href="https://fonts.googleapis.com/css2?family=Sour+Gummy&display=swap" rel="stylesheet">
+
     <style>
         /* General styles for the page */
         body {
@@ -218,7 +220,97 @@
             <button id="nextButton">Next</button>
         </div>
     </div>
+<br>
+<div class="neon-banner">
+    New Website Live! Sorry for the inconvenience! <br>
+    Report An Issue On Telegram 
+    <a href="https://telegram.dog/zoronewera" target="_blank">
+        <img class="telegram-icon" src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram">
+    </a>
+</div>
 
+<style>
+    /* Apply the Sour Gummy font */
+    body {
+        font-family: 'Sour Gummy', sans-serif;
+    }
+
+    .neon-banner {
+        background-color: #121212;
+        color: #ffffff;
+        padding: 10px;
+        text-align: center;
+        font-size: 14px; /* Small font size */
+        font-weight: 600;
+        border-radius: 8px;
+        box-shadow: 0 0 20px rgba(0, 255, 0, 0.6), 0 0 30px rgba(255, 255, 255, 0.1);
+        transition: box-shadow 0.3s ease, transform 0.3s ease;
+    }
+
+    .neon-banner:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 0 50px rgba(0, 255, 0, 0.8), 0 0 70px rgba(255, 255, 255, 0.2);
+    }
+
+    .neon-banner a {
+        color: #00f5f5;
+        text-decoration: none;
+        font-weight: 600;
+        transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    .neon-banner a:hover {
+        color: #ff4081;
+        transform: scale(1.1);
+    }
+
+    .telegram-icon {
+        width: 25px; /* Smaller icon */
+        height: 25px;
+        margin-left: 10px;
+        transition: transform 0.5s ease, opacity 0.3s ease;
+    }
+
+    .telegram-icon:hover {
+        transform: rotate(360deg);
+        opacity: 0.8;
+    }
+
+    /* Light Green Neon Border Text */
+    .neon-banner {
+        text-shadow: 
+            0 0 3px rgba(0, 255, 0, 0.5), /* Dim Green glow */
+            0 0 6px rgba(0, 255, 0, 0.6),
+            0 0 9px rgba(0, 255, 0, 0.7),
+            0 1px 8px rgba(255, 255, 255, 0.2), /* Dim White glow */
+            0 1px 10px rgba(255, 255, 0, 0.4); /* Soft Yellow shadow */
+    }
+
+    @keyframes neonGlow {
+        0% {
+            text-shadow: 
+                0 0 3px rgba(0, 255, 0, 0.5),
+                0 0 6px rgba(0, 255, 0, 0.6),
+                0 0 9px rgba(0, 255, 0, 0.7),
+                0 1px 8px rgba(255, 255, 255, 0.2),
+                0 1px 10px rgba(255, 255, 0, 0.4);
+        }
+        100% {
+            text-shadow: 
+                0 0 6px rgba(0, 255, 0, 0.5),
+                0 0 12px rgba(0, 255, 0, 0.6),
+                0 0 15px rgba(0, 255, 0, 0.7),
+                0 1px 12px rgba(255, 255, 255, 0.3),
+                0 1px 15px rgba(255, 255, 0, 0.5);
+        }
+    }
+
+    .neon-banner {
+        animation: neonGlow 1.5s ease-in-out infinite alternate;
+    }
+</style>
+
+    
     <script>
         // Function to search for anime episode
         function searchEpisode() {
