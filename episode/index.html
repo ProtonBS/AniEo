@@ -221,10 +221,82 @@
         </div>
     </div>
 
-
+<!--///////////////-->
+    <center>
+<!--///////////////-->
+<!--///////////////-->
 <!-- Download Section HTML -->
-    
-<br>
+<!--///////////////--> 
+    <div class="download-container">
+    <!-- Download Button -->
+    <button id="download-btn" onclick="redirectToDownload()" class="download-btn">
+        Download
+    </button>
+
+    <!-- Preloader (Ripples) -->
+    <l-ripples id="preloader" class="preloader hidden" size="45" speed="2" color="white"></l-ripples>
+</div>
+
+<script type="module" src="https://cdn.jsdelivr.net/npm/ldrs/dist/auto/ripples.js"></script>
+<script>
+    function redirectToDownload() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const id = urlParams.get('id');
+        const button = document.getElementById('download-btn');
+        const preloader = document.getElementById('preloader');
+        
+        if (id) {
+            // Show preloader and hide button
+            button.classList.add('hidden');
+            preloader.classList.remove('hidden');
+            
+            // Wait for 3 seconds before redirect
+            setTimeout(() => {
+                window.location.href = `#`;
+            }, 3000);
+        } else {
+            alert('ID not found in URL');
+        }
+    }
+</script>
+
+<style>
+    .download-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background-color: #1f2937; /* Dark background */
+    }
+
+    .download-btn {
+        padding: 12px 24px;
+        background-color: #2d3748; /* Dark button color */
+        color: white;
+        font-weight: 600;
+        border-radius: 8px;
+        transition: background-color 0.3s ease;
+    }
+
+    .download-btn:hover {
+        background-color: #4a5568; /* Darker button on hover */
+    }
+
+    .preloader {
+        position: absolute;
+    }
+
+    .hidden {
+        display: none;
+    }
+</style>
+
+<!--///////////////-->
+<!--///////////////-->
+<!--///////////////--></center>  <br>
+
+
+        
 <div class="neon-banner">
     New Website Live! Sorry for the inconvenience! <br>
     Report An Issue On Telegram 
