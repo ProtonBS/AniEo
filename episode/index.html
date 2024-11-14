@@ -230,7 +230,7 @@
 <div class="download-container">
     <!-- Download Button -->
     <button id="download-btn" onclick="redirectToDownload()" class="download-btn">
-        Download
+      ⬇ Download This Episode ⬇
     </button>
 
     <!-- Preloader (Ripples) -->
@@ -252,7 +252,7 @@
             
             // Wait for 3 seconds before redirect
             setTimeout(() => {
-                window.location.href = `/dl/?id=${id}`;
+                window.location.href = `#`;
             }, 3000);
         } else {
             alert('ID not found in URL');
