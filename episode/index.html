@@ -9,6 +9,8 @@
     <script src="https://cdn.jsdelivr.net/npm/hls.js@1.0.0/dist/hls.min.js"></script>
     <!--ShareThis-->
     <script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=673480d151224300122167a2&product=sop' async='async'></script>
+    <!-- Link to External CSS Of Download Button-->
+<link rel="stylesheet" href="/css/download-section.css">
     <style>
         /* General styles for the page */
         body {
@@ -214,10 +216,36 @@
 
         <!-- Navigation buttons -->
         <div class="navigation-buttons">
-            <button id="previousButton">Previous</button>
-            <button id="nextButton">Next</button>
+            <button id="previousButton">⇠Previous</button>
+            <button id="nextButton"><b>Next ➣</b></button>
         </div>
     </div>
+
+
+<!-- Download Section HTML -->
+<div class="download-section text-center">
+  <!-- Download Button -->
+  <button id="download-section-button" class="download-section-btn py-2 px-4 rounded-md w-full max-w-xs mb-4">
+    Download This Episode
+  </button>
+
+  <!-- Preloader -->
+  <div id="download-section-preloader" class="download-section-preloader hidden">
+    <l-helix size="45" speed="2.5" color="white"></l-helix>
+  </div>
+
+  <!-- Quality Options -->
+  <div id="download-section-quality-buttons" class="download-section-quality-buttons hidden">
+    <button id="download-section-btn360p" class="download-section-quality-btn">360p</button>
+    <button id="download-section-btn480p" class="download-section-quality-btn">480p</button>
+    <button id="download-section-btn720p" class="download-section-quality-btn">720p</button>
+    <button id="download-section-btn1080p" class="download-section-quality-btn">1080p</button>
+  </div>
+</div>
+    
+
+
+    
 <br>
 <div class="neon-banner">
     New Website Live! Sorry for the inconvenience! <br>
@@ -381,6 +409,9 @@
             window.location.href = `./?id=${animeTitle}-episode-${episodeNum}`;
         }
     </script>
+
+<!-- Link to External JavaScript Of Download Button-->
+<script src="/js/download-section.js"></script>    
 
 </body>
 </html>
