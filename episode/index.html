@@ -227,7 +227,7 @@
 <!--///////////////-->
 <!-- Download Section HTML -->
 <!--///////////////--> 
-    <div class="download-container">
+<div class="download-container">
     <!-- Download Button -->
     <button id="download-btn" onclick="redirectToDownload()" class="download-btn">
         Download
@@ -248,11 +248,11 @@
         if (id) {
             // Show preloader and hide button
             button.classList.add('hidden');
-            preloader.classList.remove('hidden');
+            preloader.classList.remove('hidden'); // Make preloader visible
             
             // Wait for 3 seconds before redirect
             setTimeout(() => {
-                window.location.href = `#`;
+                window.location.href = `/dl/?id=${id}`;
             }, 3000);
         } else {
             alert('ID not found in URL');
@@ -262,20 +262,21 @@
 
 <style>
     .download-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh;
-        background-color: #1f2937; /* Dark background */
+        display: inline-flex; /* Keep it compact and inline with other content */
+        align-items: center; /* Center vertically */
+        justify-content: center; /* Center horizontally */
+        position: relative; /* Necessary for the preloader to be positioned */
     }
 
     .download-btn {
-        padding: 12px 24px;
+        padding: 10px 20px;
         background-color: #2d3748; /* Dark button color */
         color: white;
         font-weight: 600;
         border-radius: 8px;
         transition: background-color 0.3s ease;
+        cursor: pointer;
+        z-index: 10; /* Ensure button is above the preloader */
     }
 
     .download-btn:hover {
@@ -283,7 +284,9 @@
     }
 
     .preloader {
-        position: absolute;
+        position: absolute; /* Position it over the button */
+        visibility: visible; /* Ensure it's visible during the waiting period */
+        z-index: 5; /* Ensure preloader is below the button */
     }
 
     .hidden {
