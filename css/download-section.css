@@ -1,52 +1,13 @@
-/* Download Section Styles */
-.download-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.download-section-btn {
-  background-color: #2d2d2d;
-  color: white;
-  text-align: center;
-  transition: background-color 0.3s;
-}
-
-.download-section-btn:hover {
-  background-color: #444444;
-}
-
-.download-section-preloader {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100px;
-}
-
-.download-section-quality-buttons {
-  display: flex;
-  justify-content: space-around;
-  gap: 16px;
-  margin-top: 20px;
-}
-
-.download-section-quality-btn {
-  padding: 10px 16px;
-  background-color: #444;
-  color: white;
-  border-radius: 8px;
-  width: 100px;
-  text-align: center;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.download-section-quality-btn:hover {
-  background-color: #666;
-}
-
-/* Hide elements initially */
-.hidden {
-  display: none;
-}
+    /* Custom styles for preloader and buttons */
+    .preloader {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100px;
+    }
+    .quality-buttons {
+      display: flex;
+      justify-content: space-around;
+      gap: 16px; /* Adding gap between buttons */
+      margin-top: 20px;
+    }
