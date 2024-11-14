@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Download Episode - Ani.MoM</title>
+  <script type="module" src="https://cdn.jsdelivr.net/npm/ldrs/dist/auto/helix.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Custom styles for preloader, progress bar, and buttons */
+    .preloader {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100px;
+    }
+
+    .quality-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    /* Circle progress bar container */
+    .progress-container {
+      display: none;
+      width: 150px;
+      height: 150px;
+      position: relative;
+      margin-top: 20px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+    }
+
+    /* SVG circle styles */
+    .circle-background, .circle-progress {
+      fill: none;
+      stroke-width: 10;
+      stroke-linecap: round;
+    }
+
+    .circle-background {
+      stroke: #444;
+    }
+
+    .circle-progress {
+      stroke: #4caf50;
+      stroke-dasharray: 440; /* Circumference of the circle (2 * Math.PI * radius) */
+      stroke-dashoffset: 440; /* Starts with the circle fully empty */
+      transition: stroke-dashoffset 0.01s linear; /* Smooth transition */
+    }
+
+    /* Percentage text inside the circle */
+    .progress-text {
+      font-size: 20px;
+      font-weight: bold;
+      color: white;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    /* Message styles */
+    .message {
+      font-size: 18px;
+      color: white;
+      margin-top: 10px;
+    }
+
+    /* Hide "Go Back" button initially */
+    .go-back-btn {
+      display: none;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #4caf50;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body class="bg-gray-900 text-white flex justify-center items-center min-h-screen">
+  <div class="text-center">
+  
+    
+    
+ <center>   
+ <!--==========-->
+ <!--==========-->
+    <!-- Ad Code (Placed above the download button) -->
+    <div class="mb-4">
+      
+ <!--==========-->
+ <script type="text/javascript">
+	atOptions = {
+		'key' : 'f5944715842e6425397e93e3277a8eab',
+		'format' : 'iframe',
+		'height' : 50,
+		'width' : 320,
+		'params' : {}
+	};
+</script>
+<script type="text/javascript" src="//www.highperformanceformat.com/f5944715842e6425397e93e3277a8eab/invoke.js"></script>
+    
+<!--==========--><br>
+    <script type="text/javascript">
+	atOptions = {
+		'key' : '6523d843931e77ac152bbee5d25c57aa',
+		'format' : 'iframe',
+		'height' : 60,
+		'width' : 468,
+		'params' : {}
+	};
+</script>
+<script type="text/javascript" src="//www.highperformanceformat.com/6523d843931e77ac152bbee5d25c57aa/invoke.js"></script>
+<!--==========-->
+<!--==========-->  <br><center>
+
+    <!-- Download Button -->
+    <button id="downloadButton" class="bg-gray-800 hover:bg-gray-700 text-white py-2 px-4 rounded-md w-full max-w-xs mb-4 border-8 shadow-[0_0_10px_2px_rgba(255,255,255,0.8)]" style="border-color: #07f269;">
+    Download "<span id="queryText"></span>"
+</button>
+
+
+      
+      
+      <center>
+      <script type="text/javascript">
+	atOptions = {
+		'key' : '55fb7b996570735e187885d6a6ac9351',
+		'format' : 'iframe',
+		'height' : 250,
+		'width' : 300,
+		'params' : {}
+	};
+</script>
+<script type="text/javascript" src="//www.highperformanceformat.com/55fb7b996570735e187885d6a6ac9351/invoke.js"></script>
+        
+        
+        <!--==========--><br>
+        
+    <div id="frame" style="width: 320px;"><iframe data-aa='2358407' src='//ad.a-ads.com/2358407?size=320x100' style='width:320px; height:100px; border:0px; padding:0; overflow:hidden; background-color: transparent;'></iframe><a style="display: block; text-align: right; font-size: 12px" id="frame-link" href="https://aads.com/campaigns/new/?source_id=2358407&source_type=ad_unit&partner=2358407">Advertise here</a></div>    
+        
+      </center>
+      <!--==========-->
+      <!--==========-->
+
+    <!-- Preloader (White Color) -->
+    <div id="preloader" class="hidden preloader">
+      <l-helix size="100" speed="2.5" color="white"></l-helix>
+    </div>
+
+    <!-- Quality Download Options (Initially Hidden) -->
+    <div id="qualityButtons" class="hidden quality-buttons">
+  <button id="btn360p" class="py-2 px-4 bg-gray-700 hover:bg-gray-600 rounded-md w-full border-4" style="border-color: #07f269;">360p</button>
+  <button id="btn480p" class="py-2 px-4 bg-gray-700 hover:bg-gray-600 rounded-md w-full border-4" style="border-color: #07f269;">480p</button>
+  <button id="btn720p" class="py-2 px-4 bg-gray-700 hover:bg-gray-600 rounded-md w-full border-4" style="border-color: #07f269;">720p</button>
+  <button id="btn1080p" class="py-2 px-4 bg-gray-700 hover:bg-gray-600 rounded-md w-full border-4" style="border-color: #07f269;">1080p</button>
+</div>
+
+
+  
+      
+      
+    <!-- Progress Bar (Circular) -->
+    <div id="progressContainer" class="progress-container">
+      <svg width="150" height="150" viewBox="0 0 150 150">
+        <circle class="circle-background" cx="75" cy="75" r="70"></circle>
+        <circle class="circle-progress" cx="75" cy="75" r="70"></circle>
+      </svg>
+      <div class="progress-text" id="progressPercentage">0.00%</div>
+      <div class="message" id="progressMessage">Connecting the Fastest Server ⚡</div>
+    </div>
+    
+      
+
+    <!-- Go Back Button -->
+    <button id="goBackButton" class="go-back-btn" onclick="window.location.href='https://ani.mom/'">Go Back To Home Page</button>
+  </div>
+      
+  <center><br>
+   <script async="async" data-cfasync="false" src="//pl24130887.profitablecpmrate.com/657db0b8ba53f63b5fb3ba094fe13923/invoke.js"></script>
+<div id="container-657db0b8ba53f63b5fb3ba094fe13923"></div>
+    <center>    
+
+  <script>
+    const downloadButton = document.getElementById('downloadButton');
+    const preloader = document.getElementById('preloader');
+    const qualityButtons = document.getElementById('qualityButtons');
+    const progressContainer = document.getElementById('progressContainer');
+    const circleProgress = document.querySelector('.circle-progress');
+    const progressMessage = document.getElementById('progressMessage');
+    const progressPercentage = document.getElementById('progressPercentage');
+    const goBackButton = document.getElementById('goBackButton');
+
+    // Get query from the URL (episode ID)
+    const urlParams = new URLSearchParams(window.location.search);
+    const episodeId = urlParams.get('id');
+
+    // Function to format the episode ID
+    function formatEpisodeId(episodeId) {
+      const parts = episodeId.split('-');
+      const title = parts.slice(0, -2).join(' ').toUpperCase();
+      const episodeNumber = parts.slice(-2).join(' ').replace(/\d+/g, match => `Episode ${match}`);
+      return `${title} : ${episodeNumber}`;
+    }
+
+    // Update download button with formatted text
+    if (episodeId) {
+      const formattedText = formatEpisodeId(episodeId);
+      document.getElementById('queryText').textContent = formattedText;
+    }
+
+    // Function to fetch the download links from the API
+    async function fetchDownloadLinks(query) {
+      try {
+        const response = await fetch(`https://api.bhoothihu.workers.dev/download/${query}`);
+        const data = await response.json();
+        return data.results;
+      } catch (error) {
+        console.error('Error fetching data:', error);
+        return null;
+      }
+    }
+
+    // Show download options after preloader
+    downloadButton.addEventListener('click', async () => {
+      if (!episodeId) return;
+
+      // Show preloader
+      preloader.classList.remove('hidden');
+      qualityButtons.classList.add('hidden');
+
+      // Fetch download links after 2 seconds
+      setTimeout(async () => {
+        const links = await fetchDownloadLinks(episodeId);
+        if (links) {
+          preloader.classList.add('hidden');
+          qualityButtons.classList.remove('hidden');
+          document.getElementById('btn360p').addEventListener('click', () => startDownloadProcess(links['640x360']));
+          document.getElementById('btn480p').addEventListener('click', () => startDownloadProcess(links['854x480']));
+          document.getElementById('btn720p').addEventListener('click', () => startDownloadProcess(links['1280x720']));
+          document.getElementById('btn1080p').addEventListener('click', () => startDownloadProcess(links['1920x1080']));
+        }
+      }, 2000);
+    });
+
+    function startDownloadProcess(downloadLink) {
+      qualityButtons.classList.add('hidden');
+      progressContainer.style.display = 'block';
+
+      let progress = 0;
+      const increment = 1;
+      const totalProgress = 100;
+
+      const interval = setInterval(() => {
+        progress += increment;
+        circleProgress.style.strokeDashoffset = 440 - (440 * (progress / totalProgress));
+        progressPercentage.textContent = `${progress.toFixed(2)}%`;
+
+        if (progress >= totalProgress) {
+          clearInterval(interval);
+          window.location.href = downloadLink;
+        }
+      }, 100);
+
+      setTimeout(() => {
+        progressContainer.style.display = 'none';
+        goBackButton.style.display = 'block';
+      }, 10000);
+    }
+  </script>
+</body>
+</html>
