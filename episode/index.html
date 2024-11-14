@@ -223,25 +223,27 @@
 
 
 <!-- Download Section HTML -->
-<div class="download-section text-center">
-  <!-- Download Button -->
-  <button id="download-section-button" class="download-section-btn py-2 px-4 rounded-md w-full max-w-xs mb-4">
-    Download This Episode
-  </button>
+<body class="bg-gray-900 text-white flex justify-center items-center min-h-screen">
 
-  <!-- Preloader -->
-  <div id="download-section-preloader" class="download-section-preloader hidden">
-    <l-helix size="45" speed="2.5" color="white"></l-helix>
-  </div>
+  <div class="text-center">
+    <!-- Download Button -->
+    <button id="downloadButton" class="bg-gray-800 hover:bg-gray-700 text-white py-2 px-4 rounded-md w-full max-w-xs mb-4">
+      Download This Episode
+    </button>
 
-  <!-- Quality Options -->
-  <div id="download-section-quality-buttons" class="download-section-quality-buttons hidden">
-    <button id="download-section-btn360p" class="download-section-quality-btn">360p</button>
-    <button id="download-section-btn480p" class="download-section-quality-btn">480p</button>
-    <button id="download-section-btn720p" class="download-section-quality-btn">720p</button>
-    <button id="download-section-btn1080p" class="download-section-quality-btn">1080p</button>
+    <!-- Preloader (White Color) -->
+    <div id="preloader" class="hidden preloader">
+      <l-helix size="45" speed="2.5" color="white"></l-helix>
+    </div>
+
+    <!-- Quality Download Options (Initially Hidden) -->
+    <div id="qualityButtons" class="hidden quality-buttons">
+      <button id="btn360p" class="py-2 px-4 bg-gray-700 hover:bg-gray-600 rounded-md w-1/4">360p</button>
+      <button id="btn480p" class="py-2 px-4 bg-gray-700 hover:bg-gray-600 rounded-md w-1/4">480p</button>
+      <button id="btn720p" class="py-2 px-4 bg-gray-700 hover:bg-gray-600 rounded-md w-1/4">720p</button>
+      <button id="btn1080p" class="py-2 px-4 bg-gray-700 hover:bg-gray-600 rounded-md w-1/4">1080p</button>
+    </div>
   </div>
-</div>
     
 
 
