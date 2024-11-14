@@ -1,13 +1,14 @@
-    /* Custom styles for preloader and buttons */
-    .preloader {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100px;
-    }
-    .quality-buttons {
-      display: flex;
-      justify-content: space-around;
-      gap: 16px; /* Adding gap between buttons */
-      margin-top: 20px;
-    }
+/* Custom styles for preloader and buttons */
+.preloader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+}
+
+.quality-buttons {
+  display: flex;
+  justify-content: space-around;
+  gap: 16px; /* Adding gap between buttons */
+  margin-top: 20px;
+}
