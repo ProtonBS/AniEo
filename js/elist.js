@@ -47,8 +47,8 @@ function updateCustomEpisodeList(filteredEpisodes) {
         customEpisodeBox.innerHTML = `
             <div class="flex flex-wrap gap-2">
                 ${filteredEpisodes.map(episode => `
-                    <a href="https://original-website-url/episode/?id=${episode.id}" class="bg-gray-700 text-white px-4 py-2 rounded-lg hover:bg-gray-600 transition" target="_blank">
-                        Episode ${episode.number}
+                    <a href="https:/ani.mom/episode/?id=${episode.id}" class="bg-gray-700 text-white px-4 py-2 rounded-lg hover:bg-gray-600 transition" target="_blank">
+                        ${episode.number}
                     </a>
                 `).join('')}
             </div>
