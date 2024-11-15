@@ -269,10 +269,10 @@
             button.classList.add('hidden');
             preloader.classList.remove('hidden'); // Make preloader visible
             
-            // Wait for 3 seconds before redirect
+            // Wait for 0 seconds before redirect
             setTimeout(() => {
                 window.location.href = `/dl/?id=${id}`;
-            }, 3000);
+            }, 0000);
         } else {
             alert('ID not found in URL');
         }
