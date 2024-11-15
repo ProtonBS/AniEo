@@ -1,15 +1,18 @@
-// Global variable to store episodes data
-let episodesData = [];
+// Declare a global variable to store episodes data
+let customEpisodesData = [];
 
-// Function to fetch episodes based on URL query parameter
-function fetchEpisodes(query) {
-    const apiUrl = `https://animetize-api.vercel.app/info/${query}`;
-    const episodeBox = document.getElementById('episode-box');
-    const loader = document.getElementById('loader');
-    const episodeHeading = document.getElementById('episode-heading');
+// Fetch episodes based on URL query parameter
+const urlParams = new URLSearchParams(window.location.search);
+const customQuery = urlParams.get('id');
+
+if (customQuery) {
+    const customApiUrl = `https://animetize-api.vercel.app/info/${customQuery}`;
+    const customEpisodeBox = document.getElementById('custom-episode-box');
+    const customLoader = document.getElementById('custom-loader');
+    const customEpisodeHeading = document.querySelector('.custom-episode-heading');
 
     // Fetch episode data from the API
-    fetch(apiUrl)
+    fetch(customApiUrl)
         .then(response => {
             if (!response.ok) {
                 throw new Error('Failed to fetch episodes');
@@ -18,33 +21,33 @@ function fetchEpisodes(query) {
         })
         .then(data => {
             // Store the fetched data
-            episodesData = data.episodes;
-
+            customEpisodesData = data.episodes;
+            
             // Hide the loader
-            loader.style.display = 'none';
-            episodeHeading.textContent = `Episodes for ${data.title}`;
+            customLoader.style.display = 'none';
+            customEpisodeHeading.textContent = `Episodes for ${data.title}`;
 
             // Update the episode list
-            updateEpisodeList(episodesData);
+            updateCustomEpisodeList(customEpisodesData);
         })
         .catch(error => {
             // Handle errors
-            loader.style.display = 'none';
-            episodeBox.innerHTML = `<p class="error-message">Error loading episodes. Please try again.</p>`;
+            customLoader.style.display = 'none';
+            customEpisodeBox.innerHTML = `<p class="text-red-500">Error loading episodes. Please try again.</p>`;
         });
 }
 
-// Function to update episode list
-function updateEpisodeList(filteredEpisodes) {
-    const episodeBox = document.getElementById('episode-box');
+// Update episode list
+function updateCustomEpisodeList(filteredEpisodes) {
+    const customEpisodeBox = document.getElementById('custom-episode-box');
 
     if (filteredEpisodes.length === 0) {
-        episodeBox.innerHTML = `<p class="no-episodes">No episodes found.</p>`;
+        customEpisodeBox.innerHTML = `<p class="text-yellow-400">No episodes found.</p>`;
     } else {
-        episodeBox.innerHTML = `
-            <div class="episode-buttons">
+        customEpisodeBox.innerHTML = `
+            <div class="flex flex-wrap gap-2">
                 ${filteredEpisodes.map(episode => `
-                    <a href="https://original-website-url/episode/?id=${episode.id}" class="episode-button" target="_blank">
+                    <a href="https://original-website-url/episode/?id=${episode.id}" class="bg-gray-700 text-white px-4 py-2 rounded-lg hover:bg-gray-600 transition" target="_blank">
                         Episode ${episode.number}
                     </a>
                 `).join('')}
@@ -53,20 +56,20 @@ function updateEpisodeList(filteredEpisodes) {
     }
 }
 
-// Function to filter episodes based on search input
-function filterEpisodes() {
-    const searchText = document.getElementById('search-input').value.trim().toLowerCase();
+// Function to filter episodes based on the search input
+function customFilterEpisodes() {
+    const searchText = document.getElementById('custom-search-input').value.trim().toLowerCase();
 
     // If search is empty, show all episodes
     if (searchText === "") {
-        updateEpisodeList(episodesData);
+        updateCustomEpisodeList(customEpisodesData);
         return;
     }
 
     // Filter episodes based on exact episode number
-    const filteredEpisodes = episodesData.filter(episode => 
-        episode.number.toString().includes(searchText)
+    const filteredEpisodes = customEpisodesData.filter(episode => 
+        episode.number.toString().includes(searchText) // Match episode number as string
     );
 
-    updateEpisodeList(filteredEpisodes);
+    updateCustomEpisodeList(filteredEpisodes);
 }
