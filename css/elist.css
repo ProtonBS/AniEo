@@ -1,88 +1,56 @@
-/* General container for the episode list */
-.episode-list-container {
-    max-width: 100%;
+/* Container for the episode list section */
+.custom-episode-container {
+    max-width: 1200px;
     margin: 0 auto;
-}
-
-/* Style for the episode list section */
-.episode-list {
-    background-color: #2d2d2d;
     padding: 16px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
 }
 
-/* Heading */
-#episode-heading {
+/* Episode box style */
+.custom-episode-box {
+    background-color: #2d3748;
+    padding: 16px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Episode heading style */
+.custom-episode-heading {
     font-size: 1.25rem;
     font-weight: 600;
-    color: #fff;
     margin-bottom: 16px;
 }
 
-/* Loader */
-.loader {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 3rem;
-    color: white;
-}
-
-/* Search Box */
-.search-box {
+/* Search input style */
+.custom-search-box input {
     width: 100%;
-    padding: 10px;
-    margin-top: 10px;
+    padding: 8px;
     border-radius: 8px;
-    background-color: #3a3a3a;
+    background-color: #4a5568;
     color: white;
-    border: none;
-    font-size: 1rem;
+    placeholder-color: #a0aec0;
     outline: none;
 }
 
-.search-box::placeholder {
-    color: #b3b3b3;
-}
-
-/* Episodes Box */
-#episode-box {
-    margin-top: 20px;
-}
-
-/* Episode buttons container */
-.episode-buttons {
+/* Loader styles */
+#custom-loader {
     display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: start;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
 }
 
-/* Episode button styling */
-.episode-button {
-    background-color: #4a4a4a;
-    padding: 8px 16px;
-    border-radius: 6px;
+/* Episode links styles */
+#custom-episode-box a {
+    display: inline-block;
+    background-color: #2d3748;
     color: white;
+    padding: 8px 16px;
+    border-radius: 8px;
+    margin-bottom: 8px;
     text-decoration: none;
-    text-align: center;
-    font-weight: 500;
-    font-size: 1rem;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s ease;
 }
 
-.episode-button:hover {
-    background-color: #6a6a6a;
-}
-
-/* Error message */
-.error-message {
-    color: #ff5555;
-}
-
-/* No episodes found message */
-.no-episodes {
-    color: #f1c40f;
-    font-size: 1.2rem;
+#custom-episode-box a:hover {
+    background-color: #4a5568;
 }
