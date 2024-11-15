@@ -1,0 +1,88 @@
+/* General container for the episode list */
+.episode-list-container {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+/* Style for the episode list section */
+.episode-list {
+    background-color: #2d2d2d;
+    padding: 16px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Heading */
+#episode-heading {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 16px;
+}
+
+/* Loader */
+.loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    color: white;
+}
+
+/* Search Box */
+.search-box {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 8px;
+    background-color: #3a3a3a;
+    color: white;
+    border: none;
+    font-size: 1rem;
+    outline: none;
+}
+
+.search-box::placeholder {
+    color: #b3b3b3;
+}
+
+/* Episodes Box */
+#episode-box {
+    margin-top: 20px;
+}
+
+/* Episode buttons container */
+.episode-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: start;
+}
+
+/* Episode button styling */
+.episode-button {
+    background-color: #4a4a4a;
+    padding: 8px 16px;
+    border-radius: 6px;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+.episode-button:hover {
+    background-color: #6a6a6a;
+}
+
+/* Error message */
+.error-message {
+    color: #ff5555;
+}
+
+/* No episodes found message */
+.no-episodes {
+    color: #f1c40f;
+    font-size: 1.2rem;
+}
