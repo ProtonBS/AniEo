@@ -11,7 +11,9 @@
     <script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=673480d151224300122167a2&product=sop' async='async'></script>
     <!-- Link to External CSS Of Download Button-->
 <link rel="stylesheet" href="/css/download-section.css">
-    <style>
+<link rel="stylesheet" href="/css/elist.css">   
+	
+	<style>
         /* General styles for the page */
         body {
             font-family: Arial, sans-serif;
@@ -240,6 +242,20 @@
         </div>
     </div>
 
+
+<br>
+<!-- Embed the Episode List div in the desired location -->
+<div class="episode-list-container" id="episode-list-container">
+    <div class="episode-list">
+        <h2 id="episode-heading">Loading Episodes...</h2>
+        <div id="loader" class="loader">🔄</div>
+        <input type="text" id="search-input" class="search-box" placeholder="Search Episode..." oninput="filterEpisodes()">
+        <div id="episode-box" class="episode-box"></div>
+    </div>
+</div>
+</br>
+
+	
 <!--///////////////-->
     <center>
 <!--///////////////-->
@@ -488,7 +504,7 @@
     </script>
 
 <!-- Link to External JavaScript Of Download Button-->
-<script src="/js/download-section.js"></script>    
-
+<script src="/js/download-section.js"></script>
+<script src="/js/elist.js" defer></script>
 </body>
 </html>
