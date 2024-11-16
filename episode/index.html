@@ -200,10 +200,34 @@
 <body>
 
     <!-- Header Section -->
-    <header onclick="window.location='/'">
-    <h1>Ani<span class="dot">.</span>MoM</h1>
-    
+    <header onclick="window.location='/'" style="display: flex; justify-content: center; align-items: center; height: 100px; cursor: pointer;">
+    <h1 style="font-size: 2.5rem; color: white; display: flex; align-items: center; gap: 5px;">
+        Ani
+        <span style="display: inline-block; width: 15px; height: 15px; border-radius: 50%; background: radial-gradient(circle, red, orange, yellow); animation: bounce 1s infinite, flame 1s infinite;"> </span>
+        MoM
+        <style>
+            @keyframes bounce {
+                0%, 100% {
+                    transform: translateY(0) scale(1);
+                }
+                50% {
+                    transform: translateY(-10px) scale(1.2);
+                }
+            }
+
+            @keyframes flame {
+                0%, 100% {
+                    box-shadow: 0 0 10px 5px rgba(255, 69, 0, 0.8), 0 0 20px 10px rgba(255, 165, 0, 0.6);
+                }
+                50% {
+                    box-shadow: 0 0 15px 7px rgba(255, 69, 0, 1), 0 0 25px 15px rgba(255, 165, 0, 0.8);
+                }
+            }
+        </style>
+    </h1>
 </header>
+
+	
 
 	<!-- Search Box Inside Content -->
     <div class="search-box-content">
@@ -231,12 +255,6 @@
     <span style="font-size: 12px;">⚠️</span> Page May Take Some Time To Load Properly ⚠️<br>If Still Not Loading Click On <b>"Any Episode"</b>
 <br><br>[ Wait For 5-7 Sec ]</div>
 <!--==========--></center>
-
-    <!-- Preloader 
-<div id="preloader" class="preloader">
-    <div class="loader"></div>
-</div> -->
-
 
     <!-- Video Player Container -->
     <div class="video-player-container" id="videoContainer" style="display: none;">
