@@ -118,7 +118,7 @@
 
         /* Episode name */
         .episode-name {
-            font-size: 24px;
+            font-size: 12px;
             font-weight: bold;
             color: #39ff14; /* Light neon green color */
             margin-bottom: 20px;
@@ -261,14 +261,16 @@
 
     <!-- Video Player Container -->
     <div class="video-player-container" id="videoContainer" style="display: none;">
-        <!-- Episode Name will be dynamically inserted here -->
-        <div id="episodeName" class="episode-name"></div>
+        
 
 <!-- ShareThis BEGIN --><div class="sharethis-inline-share-buttons"></div><!-- ShareThis END -->
         <br>
         <video id="videoPlayer" controls>
             <!-- Video source will be dynamically added here -->
         </video>
+
+	<!-- Episode Name will be dynamically inserted here -->
+       ▶ <div id="episodeName" class="episode-name"></div>   
 
         <div class="quality-buttons" id="qualityButtons">
             <!-- Quality buttons will be added dynamically -->
