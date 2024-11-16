@@ -270,7 +270,7 @@
         </video>
 
 	<!-- Episode Name will be dynamically inserted here -->
-       <div id="episodeName" class="episode-name">▶</div>   
+       <div id="episodeName" class="episode-name"></div>   
 
         <div class="quality-buttons" id="qualityButtons">
             <!-- Quality buttons will be added dynamically -->
@@ -395,7 +395,7 @@
 
         // Split the episodeQuery to get the anime title and episode number
         const [animeTitle, episodeNum] = episodeQuery.split('-episode-'); 
-        const formattedEpisodeName = `${animeTitle.charAt(0).toUpperCase() + animeTitle.slice(1)} Episode ${episodeNum}`;
+        const formattedEpisodeName = `▶ Watching : ${animeTitle.charAt(0).toUpperCase() + animeTitle.slice(1)} Episode ${episodeNum}`;
 
         // Set the episode name dynamically
         document.getElementById('episodeName').textContent = formattedEpisodeName;
