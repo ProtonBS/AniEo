@@ -1,0 +1,208 @@
+
+        /* General styles for the page */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        /* Header section */
+        header {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 20px;
+            background-color: #1f1f1f;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 24px;
+            color: #fff;
+        }
+
+        /* Search Box Inside Content */
+        .search-box-content {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .search-box-content input {
+            padding: 15px;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            outline: none;
+            background-color: #333;
+            color: #fff;
+            width: 60%;
+            max-width: 500px;
+        }
+
+        .search-box-content button {
+            background-color: transparent;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            color: #fff;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+        }
+
+        .search-box-content button i {
+            font-size: 20px;
+        }
+
+        .search-box-content button:hover {
+            background-color: #333;
+        }
+
+        /* Video player box */
+        .video-player-container {
+            margin: 40px auto;
+            text-align: center;
+            width: 80%;
+            max-width: 800px;
+        }
+
+        video {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+.quality-buttons {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .quality-buttons button {
+            padding: 10px 20px;
+            background-color: #333;
+            border: none;
+            color: #fff;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .quality-buttons button:hover {
+            background-color: #555;
+        }
+
+        /* Episode name */
+        .episode-name {
+            font-size: 24px;
+            font-weight: bold;
+            color: #39ff14; /* Light neon green color */
+            margin-bottom: 20px;
+        }
+
+        /* Preloader styles */
+.preloader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed; /* Make sure it's fixed in place */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8); /* Dark overlay */
+    z-index: 9999; /* Ensure it covers everything else */
+}
+
+/* Loader animation */
+.loader {
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #39ff14; /* Green neon color */
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+
+
+
+        /* Navigation buttons */
+        .navigation-buttons {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .navigation-buttons button {
+            padding: 10px 20px;
+            background-color: #333;
+            border: none;
+            color: #fff;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .navigation-buttons button:hover {
+            background-color: #555;
+        }
+/* Responsiveness for small screens */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .search-box-content input {
+                width: 80%;
+            }
+
+            .video-player-container {
+                width: 95%;
+            }
+        }
+      
+  /* ______ */ 
+      
+  .episode-list-container {
+  display: flex;
+  overflow-x: auto;
+  gap: 10px;
+  padding: 10px;
+  margin-top: 20px;
+  background-color: #1c1c1c;
+  border: 1px solid #18f53a;
+  border-radius: 5px;
+  max-width: 90%;
+  white-space: nowrap;
+}
+
+.episode-list-container button {
+  background-color: #333;
+  color: white;
+  padding: 10px;
+  border: ;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  flex-shrink: 0;
+  min-width: 50px;
+  text-align: center;
+  transition: background-color 0.3s;
+}
+
+.episode-list-container button:hover {
+  background-color: #555;
+}
