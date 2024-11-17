@@ -7,240 +7,176 @@
     <link rel="icon" type="image/x-icon" href="./favicon.ico" />
     <script defer data-domain="ani.mom" src="https://plausible.io/js/script.js"></script>
     <meta name="google-site-verification" content="UIoh-JOgvqutTOTeeKOEOjy6gAZ2RKeFXsHUDCAioNo" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/hls.js@1.0.0/dist/hls.min.js"></script>
-    <!--ShareThis-->
-    <script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=673480d151224300122167a2&product=sop' async='async'></script>
-    <!-- Link to External CSS Of Download Button-->
-<link rel="stylesheet" href="/css/download-section.css">
-<link rel="stylesheet" href="/css/elist.css">   
-	
-	<style>
-        /* General styles for the page */
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #121212;
-            color: #fff;
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden;
-        }
-
-        /* Header section */
-        header {
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-            padding: 20px;
-            background-color: #1f1f1f;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 24px;
-            color: #fff;
-        }
-
-        /* Search Box Inside Content */
-        .search-box-content {
-            margin-top: 30px;
-            text-align: center;
-        }
-
-        .search-box-content input {
-            padding: 15px;
-            font-size: 16px;
-            border: none;
-            border-radius: 8px;
-            outline: none;
-            background-color: #333;
-            color: #fff;
-            width: 60%;
-            max-width: 500px;
-        }
-
-        .search-box-content button {
-            background-color: transparent;
-            border: none;
-            padding: 10px;
-            cursor: pointer;
-            color: #fff;
-            font-size: 16px;
-            display: flex;
-            align-items: center;
-        }
-
-        .search-box-content button i {
-            font-size: 20px;
-        }
-
-        .search-box-content button:hover {
-            background-color: #333;
-        }
-
-        /* Video player box */
-        .video-player-container {
-            margin: 40px auto;
-            text-align: center;
-            width: 80%;
-            max-width: 800px;
-        }
-
-        video {
-            width: 100%;
-            height: auto;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-        }
-
-        .quality-buttons {
-            margin-top: 20px;
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-        }
-
-        .quality-buttons button {
-            padding: 10px 20px;
-            background-color: #333;
-            border: none;
-            color: #fff;
-            border-radius: 8px;
-            cursor: pointer;
-        }
-
-        .quality-buttons button:hover {
-            background-color: #555;
-        }
-
-        /* Episode name */
-        .episode-name {
-            font-size: 16px;
-            font-weight: bold;
-            color: #39ff14; /* Light neon green color */
-            margin-bottom: 20px;
-        }
-
-
-        /* Navigation buttons */
-        .navigation-buttons {
-            margin-top: 20px;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-
-        .navigation-buttons button {
-            padding: 10px 20px;
-            background-color: #333;
-            border: 2px solid #f50202;
-            color: #fff;
-            border-radius: 8px;
-            cursor: pointer;
-        }
-
-        .navigation-buttons button:hover {
-            background-color: #555;
-        }
-
-        /* Responsiveness for small screens */
-        @media (max-width: 768px) {
-            header {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .search-box-content input {
-                width: 80%;
-            }
-
-            .video-player-container {
-                width: 95%;
-            }
-        }
-      
-  /* ______ */ 
-      
-  .episode-list-container {
-  display: flex;
-  overflow-x: auto;
-  gap: 10px;
-  padding: 10px;
-  margin-top: 20px;
-  background-color: #1c1c1c;
-  border: 1px solid #18f53a;
-  border-radius: 5px;
-  max-width: 90%;
-  white-space: nowrap;
-}
-
-.episode-list-container button {
-  background-color: #333;
-  color: white;
-  padding: 10px;
-  border: ;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 14px;
-  flex-shrink: 0;
-  min-width: 50px;
-  text-align: center;
-  transition: background-color 0.3s;
-}
-
-.episode-list-container button:hover {
-  background-color: #555;
-}
-
     
+  <!--ShareThis-->
+    <script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=673480d151224300122167a2&product=sop' async='async'></script>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Plyr CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/plyr@3.7.2/dist/plyr.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/plyr@3.7.2/dist/plyr.polyfilled.js"></script>
+    <style>
+        body {
+            background-color: #121212;
+            color: white;
+        }
+        .header {
+            background-color: #1c1c1c;
+            padding: 1rem;
+            border-bottom: 2px solid #333;
+        }
+        .header h1 {
+            font-size: 1.75rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+            color: #d5eb34;
+        }
+        .search-box {
+            max-width: 150px;  /* Making the search box smaller */
+        }
+        .video-container {
+            max-width: 100%;
+            height: 80vh;
+            margin: 0 auto;
+            text-align: center;
+            padding: 2rem 0;
+        }
+        #player {
+            width: 100%;
+            height: 100%;
+        }
+        .currently-playing {
+            font-size: 0.9rem;
+            color: #aaa;
+            margin-top: 1rem;
+        }
+        .currently-playing strong {
+            color: #d5eb34;
+            font-weight: bold;
+        }
+        .buttons-container {
+            margin-top: 1rem;
+        }
+        .btn-custom {
+            background-color: #333;
+            color: #d5eb34;
+            border: none;
+            width: 120px;
+            margin: 0.5rem;
+        }
+        .btn-custom:hover {
+            background-color: #444;
+            color: #fff;
+        }
+        .btn-outline-custom {
+            border: 2px solid #d5eb34;
+            color: #d5eb34;
+            width: 120px;
+            margin: 0.5rem;
+        }
+        .btn-outline-custom:hover {
+            background-color: #d5eb34;
+            color: #121212;
+        }
+        footer {
+            background-color: #1c1c1c;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 2rem;
+        }
+        /* Style for the scrollable episode box */
+        .scrollable-episodes {
+            display: flex;
+            overflow-x: auto;
+            margin-top: 1rem;
+          
+            padding: 1rem 0;
+            gap: 1rem;
+        }
+        .episode-button {
+            background-color: #333;
+            color: #d5eb34;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            min-width: 100px;
+        }
+        .episode-button:hover {
+            background-color: #444;
+            color: #fff;
+        }
+        .download-button {
+    background-color: #444;
+    color: #d5eb34;
+    border: none;
+    padding: 0.5rem 1rem;
+    margin-top: 0;
+    border-radius: 5px;
+    width: 200px;
+}
+
+        .download-button:hover {
+            background-color: #555;
+            color: #fff;
+        }
+        /* Timer style */
+        #timer {
+            font-size: 0.8rem;
+            color: #fff;
+            margin-top: 1rem;
+        }
+      
+     
+
       
     </style>
 </head>
 <body>
 
-    <!-- Header Section -->
-    <header onclick="window.location='/'" style="display: flex; justify-content: center; align-items: center; height: 25px; cursor: pointer;">
-    <h1 style="font-size: 1.8rem; color: white; display: flex; align-items: center; gap: 5px;">
-        Ani
-        <span style="display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: radial-gradient(circle, red, orange, yellow); animation: bounce 1s infinite, flame 1s infinite; position: relative; top: 3px;"> </span>
-        MoM
-        <style>
-            @keyframes bounce {
-                0%, 100% {
-                    transform: translateY(0) scale(1);
-                }
-                50% {
-                    transform: translateY(-8px) scale(1.2);
-                }
-            }
+   <!-- Header Section -->
+    <header class="header d-flex justify-content-between align-items-center">
+        <h1>Ani.MoM</h1>
+        <!-- Updated search form -->
+        <form action="/search/" method="get" class="search-box">
+            <input type="text" name="q" class="form-control" placeholder="Search..." aria-label="Search" required>
+        </form>
+    </header>
 
-            @keyframes flame {
-                0%, 100% {
-                    box-shadow: 0 0 8px 4px rgba(255, 69, 0, 0.8), 0 0 16px 8px rgba(255, 165, 0, 0.6);
-                }
-                50% {
-                    box-shadow: 0 0 12px 6px rgba(255, 69, 0, 1), 0 0 20px 10px rgba(255, 165, 0, 0.8);
-                }
-            }
-        </style>
-    </h1>
-</header>
+  
+  <center>
+  <div id="frame" style="width: 320px;"><iframe data-aa='2358407' src='//ad.a-ads.com/2358407?size=320x100' style='width:320px; height:100px; border:0px; padding:0; overflow:hidden; background-color: transparent;'></iframe><a style="display: block; text-align: right; font-size: 12px" id="frame-link" href="https://aads.com/campaigns/new/?source_id=2358407&source_type=ad_unit&partner=2358407">Advertise here</a></div>
 
+  </center>
+       
+    <!-- Video Player Section -->
+    <div class="container video-container">
+      <!-- ShareThis BEGIN --><div class="sharethis-inline-share-buttons"></div><!-- ShareThis END -->
+        <video id="player" controls>
+            <source id="video-source" type="application/x-mpegURL" src="">
+        </video>
+        <!-- "Currently Playing" text below the player -->
+        <div class="currently-playing">
+            <p id="currently-playing-text">Currently Playing : <strong></strong></p>
+        </div>
 
-	
+        <!-- Quality buttons -->
+        <div class="buttons-container text-center" id="quality-buttons"></div>
 
-	<!-- Search Box Inside Content -->
-    <div class="search-box-content">
-        <input type="text" placeholder="Search Anime & Press Enter..." id="search-input">
+        <!-- Previous & Next buttons below quality buttons -->
+        <div class="d-flex justify-content-center mt-4">
+            <button id="previous-button" class="btn btn-outline-custom">Previous</button>
+            <button id="next-button" class="btn btn-outline-custom">Next</button>
+        </div>
+      
+      
+      
+
+        <!-- Scrollable episode buttons -->
+        <div class="scrollable-episodes" id="episode-buttons-container"></div>
     </div>
-
-<!--==========-->
-<!--==========-->    
-    <center><br>
-	    <!--==========-->
+  
+  <center>
         <script type="text/javascript">
 	atOptions = {
 		'key' : 'f5944715842e6425397e93e3277a8eab',
@@ -250,266 +186,156 @@
 		'params' : {}
 	};
 </script>
-<script type="text/javascript" src="//www.highperformanceformat.com/f5944715842e6425397e93e3277a8eab/invoke.js"></script>
-    </center>
-<br>
-<!--======𝗔𝗹𝗲𝗿𝘁_𝗕𝗮𝗻𝗻𝗲𝗿====--> <center>
-<div style="background-color: #000; color: #ecfc03; padding: 10px; border-radius: 5px; font-family: Arial, sans-serif; text-align: center; font-size: 12px;">
-    <span style="font-size: 12px;">⚠️</span> Page May Take Some Time To Load Properly ⚠️<br>If Still Not Loading Click On <b>"Episode" Again</b>
-<br><br>[ Wait For 5-7 Sec ]</div>
-<!--==========--></center>
-
-    <!-- Video Player Container -->
-    <div class="video-player-container" id="videoContainer" style="display: none;">
-        
-
-<!-- ShareThis BEGIN --><div class="sharethis-inline-share-buttons"></div><!-- ShareThis END -->
-        <br>
-        <video id="videoPlayer" controls>
-            <!-- Video source will be dynamically added here -->
-        </video>
-
-	<!-- Episode Name will be dynamically inserted here -->
-       <div id="episodeName" class="episode-name"></div>   
-
-        <div class="quality-buttons" id="qualityButtons">
-            <!-- Quality buttons will be added dynamically -->
+<script type="text/javascript" src="//www.highperformanceformat.com/f5944715842e6425397e93e3277a8eab/invoke.js"></script></center><br>
+  
+  
+  <!-- Download This Episode Button -->
+        <div class="d-flex justify-content-center">
+            <button id="download-button" class="download-button">Download This Episode</button>
         </div>
 
-        <!-- Navigation buttons -->
-        <div class="navigation-buttons">
-            <button id="previousButton">⇠Previous</button>
-            <button id="nextButton"><b>Next ➣</b></button>
-        </div>
-    </div>
-	
-<!--///////////////-->
-    <center>
-    <!-- Scrollable episode list box -->
-  <div id="episode-list-container" class="episode-list-container"></div>
-<br>
-      
-      
-<!--///////////////--><center>
-<div id="frame" style="width: 320px;"><iframe data-aa='2358407' src='//ad.a-ads.com/2358407?size=320x100' style='width:320px; height:100px; border:0px; padding:0; overflow:hidden; background-color: transparent;'></iframe><a style="display: block; text-align: right; font-size: 12px" id="frame-link" href="https://aads.com/campaigns/new/?source_id=2358407&source_type=ad_unit&partner=2358407">Advertise here</a></div>
-    <!--==========--><br></center>	    
-<!--///////////////-->
-<!-- Download Section HTML -->
-<!--///////////////--> 
-<div class="download-container">
-    <!-- Download Button -->
-    <button id="download-btn" onclick="redirectToDownload()" class="download-btn">
-      ⬇ Download This Episode ⬇
-    </button>
+        <!-- Timer display -->
+        <div class="text-center" id="timer" style="display: none;">Please Wait - <span id="countdown"></span>
+  
+          <script async="async" data-cfasync="false" src="//pl24130887.profitablecpmrate.com/657db0b8ba53f63b5fb3ba094fe13923/invoke.js"></script>
+<div id="container-657db0b8ba53f63b5fb3ba094fe13923"></div>
+  
+  </div>
+  
 
-    <!-- Preloader (Ripples) -->
-    <l-ripples id="preloader" class="preloader hidden" size="45" speed="2" color="white"></l-ripples>
-</div>
-
-<script type="module" src="https://cdn.jsdelivr.net/npm/ldrs/dist/auto/ripples.js"></script>
-<script>
-    function redirectToDownload() {
-        const urlParams = new URLSearchParams(window.location.search);
-        const id = urlParams.get('id');
-        const button = document.getElementById('download-btn');
-        const preloader = document.getElementById('preloader');
-        
-        if (id) {
-            // Show preloader and hide button
-            button.classList.add('hidden');
-            preloader.classList.remove('hidden'); // Make preloader visible
-            
-            // Wait for 0 seconds before redirect
-            setTimeout(() => {
-                window.location.href = `/dl/?id=${id}`;
-            }, 0000);
-        } else {
-            alert('ID not found in URL');
-        }
-    }
-</script>
-
-<style>
-    .download-container {
-        display: inline-flex; /* Keep it compact and inline with other content */
-        align-items: center; /* Center vertically */
-        justify-content: center; /* Center horizontally */
-        position: relative; /* Necessary for the preloader to be positioned */
-    }
-
-    .download-btn {
-        padding: 10px 20px;
-        background-color: #2d3748; /* Dark button color */
-        color: white;
-        font-weight: 600;
-        border-radius: 8px;
-        transition: background-color 0.3s ease;
-        cursor: pointer;
-        z-index: 10; /* Ensure button is above the preloader */
-    }
-
-    .download-btn:hover {
-        background-color: #4a5568; /* Darker button on hover */
-    }
-
-    .preloader {
-        position: absolute; /* Position it over the button */
-        visibility: visible; /* Ensure it's visible during the waiting period */
-        z-index: 5; /* Ensure preloader is below the button */
-    }
-
-    .hidden {
-        display: none;
-    }
-</style>
-
-<!--///////////////-->
-<!--///////////////-->
-<!--///////////////--></center>  <br>
-
-
-<!--𝗧𝗲𝗹𝗲𝗴𝗿𝗮𝗺--><center>
+    <!--𝗧𝗲𝗹𝗲𝗴𝗿𝗮𝗺--><center><br>
 <script type="text/javascript">(function() {var script=document.createElement("script");script.type="text/javascript";script.async =true;script.src="//telegram.im/widget-button/index.php?id=@zoronewera";document.getElementsByTagName("head")[0].appendChild(script);})();</script>
 <a href="https://telegram.dog/zoronewera" target="_blank" class="telegramim_button telegramim_shadow telegramim_pulse" style="font-size:12px;width:260px;background:#a7f211;box-shadow:1px 1px 5px #a7f211;color:#000000;border-radius:50px;" title=""><i></i> Report A Problem On Telegram</a>
 <!--𝗧𝗲𝗹𝗲𝗴𝗿𝗮𝗺--></center> <br>
-    
+  
+  
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Function to search for anime episode
-        function searchEpisode() {
-            const query = document.getElementById('search-input').value;
-            if (query) {
-                window.location.href = `/search/?q=${encodeURIComponent(query)}`;
-            }
-        }
+        
+      
+    // Get the 'id' parameter from the URL
+    const urlParams = new URLSearchParams(window.location.search);
+    
+    // Extract query and episode number, ensuring the query is properly encoded and parsed
+    const fullId = urlParams.get('id');
+    const query = encodeURIComponent(fullId.split('-episode-')[0]);  // Encode the anime name
+    const episodeNumber = fullId.split('-episode-')[1];  // Extract episode number
 
-        // Add event listener for 'Enter' key press on the search input
-        document.getElementById('search-input').addEventListener('keypress', function(event) {
-            if (event.key === 'Enter') {
-                searchEpisode();  // Trigger search when Enter key is pressed
+    // Dynamically display the "Currently Playing" text based on the query
+    const currentlyPlayingText = document.getElementById('currently-playing-text');
+    const currentlyPlayingStrong = currentlyPlayingText.querySelector('strong');
+    currentlyPlayingStrong.textContent = `${query.charAt(0).toUpperCase() + query.slice(1)} (Episode - ${episodeNumber})`;
+
+    // Set Previous and Next URLs
+    const previousEpisode = parseInt(episodeNumber) - 1;
+    const nextEpisode = parseInt(episodeNumber) + 1;
+    const previousUrl = `https://ani.mom/episode/?id=${query}-episode-${previousEpisode}`;
+    const nextUrl = `https://ani.mom/episode/?id=${query}-episode-${nextEpisode}`;
+
+    document.getElementById('previous-button').onclick = function() {
+        window.location.href = previousUrl;
+    };
+    document.getElementById('next-button').onclick = function() {
+        window.location.href = nextUrl;
+    };
+
+    // Download button functionality with timer
+    const downloadButton = document.getElementById('download-button');
+    downloadButton.onclick = function() {
+        const timerDisplay = document.getElementById('timer');
+        const countdownElement = document.getElementById('countdown');
+        
+        // Hide the download button and show the timer
+        downloadButton.style.display = 'none';
+        timerDisplay.style.display = 'block';
+        
+        let countdown = 9;
+        countdownElement.textContent = countdown;
+        
+        const interval = setInterval(function() {
+            countdown -= 1;
+            countdownElement.textContent = countdown;
+            
+            if (countdown <= 0) {
+                clearInterval(interval);
+                // Redirect to download page after 3 seconds
+                window.location.href = `/dl/?id=${query}-episode-${episodeNumber}`;
             }
+        }, 1000);
+    };
+
+    // Fetch the video URL for the current episode and quality options
+    const videoUrlApi = `https://animetize-api.vercel.app/watch/${query}-episode-${episodeNumber}`;
+    fetch(videoUrlApi)
+        .then(response => response.json())
+        .then(data => {
+            const videoSource = document.getElementById('video-source');
+            const qualityButtonsContainer = document.getElementById('quality-buttons');
+
+            // Set default video source (highest quality)
+            videoSource.src = data.sources.find(source => source.quality === '1080p')?.url || data.sources[0].url;
+
+            // Initialize Plyr player with the default source
+            const player = new Plyr('#player');
+            player.source = {
+                type: 'video',
+                sources: [{
+                    src: videoSource.src,
+                    type: 'video/mp4'
+                }]
+            };
+
+            // Create quality buttons dynamically
+            data.sources.forEach((source) => {
+                const button = document.createElement('button');
+                button.className = 'btn btn-custom';
+                button.textContent = source.quality;
+                button.onclick = function () {
+                    videoSource.src = source.url;  // Set the selected quality
+
+                    // Update Plyr player source when a new quality is selected
+                    player.source = {
+                        type: 'video',
+                        sources: [{
+                            src: videoSource.src,
+                            type: 'video/mp4'
+                        }]
+                    };
+
+                    player.play();  // Restart video with the new source
+                };
+                qualityButtonsContainer.appendChild(button);
+            });
+        })
+        .catch(error => {
+            console.error('Error fetching video source:', error);
+            // Optionally handle errors (e.g., show an error message to the user)
         });
 
-        // Get query from URL
-        const urlParams = new URLSearchParams(window.location.search);
-        const episodeQuery = urlParams.get('id');
-
-        // Split the episodeQuery to get the anime title and episode number
-        const [animeTitle, episodeNum] = episodeQuery.split('-episode-'); 
-        const formattedEpisodeName = `▶ Watching : ${animeTitle.charAt(0).toUpperCase() + animeTitle.slice(1)} Episode ${episodeNum}`;
-
-        // Set the episode name dynamically
-        document.getElementById('episodeName').textContent = formattedEpisodeName;
-
-        // Fetch the video data from the API
-        fetch(`https://animetize-api.vercel.app/watch/${episodeQuery}`)
-            .then(response => response.json())
-            .then(data => {
-          
-          
-          
-               // Function to simulate video loading process (you can replace this with actual video loading check)
-window.onload = function() {
-    // Hide preloader and show video player after 3 seconds (adjust based on your need)
-    setTimeout(() => {
-        document.getElementById('preloader').style.display = 'none'; // Hide preloader
-        document.getElementById('videoContainer').style.display = 'block'; // Show video player container
-    }, 3000); // 3 seconds delay to simulate video load
-}
-
-
-          
-          
-
-                const videoPlayer = document.getElementById('videoPlayer');
-                const qualityButtonsContainer = document.getElementById('qualityButtons');
-
-                // Set the default video source (the highest quality)
-                const defaultSource = data.sources.find(source => source.quality === '1080p')?.url || data.sources[0].url;
-                videoPlayer.src = defaultSource;
-
-                // Create quality buttons
-                data.sources.forEach(source => {
-                    const button = document.createElement('button');
-                    button.textContent = `${source.quality}`;
-                    button.onclick = () => changeVideoSource(source.url);
-                    qualityButtonsContainer.appendChild(button);
-                });
-
-                // Set previous and next episode buttons
-                const episodeNumInt = parseInt(episodeNum, 10);
-                const previousEpisode = episodeNumInt > 1 ? episodeNumInt - 1 : episodeNumInt;
-                const nextEpisode = episodeNumInt + 1;
-
-                document.getElementById('previousButton').onclick = () => navigateToEpisode(animeTitle, previousEpisode);
-                document.getElementById('nextButton').onclick = () => navigateToEpisode(animeTitle, nextEpisode);
-            })
-            .catch(error => console.error('Error fetching video data:', error));
-
-        // Function to change video source based on quality selected
-        function changeVideoSource(url) {
-            const videoPlayer = document.getElementById('videoPlayer');
-            videoPlayer.src = url;
-            videoPlayer.play();
-        }
-
-        // Function to navigate to previous or next episode
-        function navigateToEpisode(animeTitle, episodeNum) {
-            window.location.href = `./?id=${animeTitle}-episode-${episodeNum}`;
-        }
-    </script>
-
-  <script>
-  // Extract the query from the URL
-  const queryParams = new URLSearchParams(window.location.search);
-  let query = queryParams.get('id'); // Get the full "id" from the URL
-
-  // Extract the part before "-episode-" if present
-  if (query && query.includes('-episode-')) {
-    query = query.split('-episode-')[0];
-  }
-
-  if (query) {
-    const apiURL = `https://animetize-api.vercel.app/info/${query}`;
-    const episodeListContainer = document.getElementById('episode-list-container');
-
-    // Fetch episode data
-    fetch(apiURL)
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error('Failed to fetch data');
-        }
-        return response.json();
-      })
-      .then((data) => {
-        const episodes = data.episodes;
-        if (!episodes || episodes.length === 0) {
-          throw new Error('No episodes found');
-        }
-
-        // Clear existing content and generate buttons for each episode
-        episodeListContainer.innerHTML = '';
-        episodes.forEach((episode) => {
-          const episodeButton = document.createElement('button');
-          episodeButton.textContent = `Ep ${episode.number}`;
-          episodeButton.addEventListener('click', () => {
-            window.location.href = `/episode/?id=${episode.id}`; // Redirect to download with episode ID
-          });
-          episodeListContainer.appendChild(episodeButton);
+    // Fetch episode list for scrolling buttons
+    const episodeListApi = `https://animetize-api.vercel.app/info/${query}`;
+    fetch(episodeListApi)
+        .then(response => response.json())
+        .then(data => {
+            const episodeButtonsContainer = document.getElementById('episode-buttons-container');
+            data.episodes.forEach(episode => {
+                const episodeButton = document.createElement('button');
+                episodeButton.className = 'episode-button';
+                episodeButton.textContent = `Ep${episode.number}`;
+                episodeButton.onclick = function() {
+                    window.location.href = `https://ani.mom/episode/?id=${query}-episode-${episode.number}`;
+                };
+                episodeButtonsContainer.appendChild(episodeButton);
+            });
+        })
+        .catch(error => {
+            console.error('Error fetching episode list:', error);
+            // Optionally handle errors (e.g., show an error message to the user)
         });
-      })
-      .catch((error) => {
-        console.error('Error fetching episodes:', error);
-        episodeListContainer.textContent = 'Failed to load episodes. Please try again later.';
-      });
-  } else {
-    console.error('Query parameter "id" is missing.');
-    document.getElementById('episode-list-container').textContent = 'Invalid URL or missing query parameter.';
-  }
 </script>
 
-  
-<!-- Link to External JavaScript Of Download Button-->
-<script src="/js/download-section.js"></script>
-
+   
 </body>
 </html>
