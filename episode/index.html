@@ -141,6 +141,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column; /* Align loader and text vertically */
 }
 
 .loader {
@@ -152,6 +153,21 @@
     animation: spin 0.5s linear infinite;
 }
 
+.loading-text {
+    margin-top: 20px; /* Space between loader and text */
+    font-size: 1.5rem;
+    color: #d5eb34;
+    font-family: Arial, sans-serif;
+    letter-spacing: 2px;
+    display: flex;
+    gap: 5px; /* Space between letters */
+}
+
+.loading-text span {
+    opacity: 0;
+    animation: fade 1.2s infinite;
+}
+
 @keyframes spin {
     0% {
         transform: rotate(0deg);
@@ -161,13 +177,25 @@
     }
 }
 
+@keyframes fade {
+    0%, 80%, 100% {
+        opacity: 0;
+    }
+    40% {
+        opacity: 1;
+    }
+}
+
+
       
     </style>
 </head>
 <body>
 <div id="preloader">
     <div class="loader"></div>
+    <div class="loading-text"></div>
 </div>
+
 
 <!-- Header Section -->
 <header class="header d-flex justify-content-between align-items-center" onclick="window.location='/'">
@@ -378,12 +406,20 @@
             console.error('Error fetching episode list:', error);
             // Optionally handle errors (e.g., show an error message to the user)
         });
-      
-      // Hide the preloader once the page is fully loaded
-window.addEventListener('load', () => {
-    const preloader = document.getElementById('preloader');
-    preloader.style.display = 'none';
+
+	    //Js code of preloader
+      document.addEventListener("DOMContentLoaded", () => {
+    const text = "Loading Episode";
+    const textContainer = document.querySelector(".loading-text");
+
+    text.split("").forEach((char, index) => {
+        const span = document.createElement("span");
+        span.textContent = char;
+        span.style.animationDelay = `${index * 0.1}s`; // Delay for each letter
+        textContainer.appendChild(span);
+    });
 });
+
 
 </script>
 
