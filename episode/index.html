@@ -309,7 +309,7 @@
     };
 
     // Fetch the video URL for the current episode and quality options
-    const videoUrlApi = `https://animetize-api.vercel.app/watch/${query}-episode-${episodeNumber}`;
+    const videoUrlApi = `https://animetixe.vercel.app/watch/${query}-episode-${episodeNumber}`;
     fetch(videoUrlApi)
         .then(response => response.json())
         .then(data => {
@@ -357,7 +357,7 @@
         });
 
     // Fetch episode list for scrolling buttons
-    const episodeListApi = `https://animetize-api.vercel.app/info/${query}`;
+    const episodeListApi = `https://animetixe.vercel.app/info/${query}`;
     fetch(episodeListApi)
         .then(response => response.json())
         .then(data => {
