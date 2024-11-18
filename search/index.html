@@ -214,7 +214,7 @@
         const query = urlParams.get('q');
         
         if (query) {
-            fetch(`https://animetize-api.vercel.app/${encodeURIComponent(query)}`)
+            fetch(`https://animetixe.vercel.app/${encodeURIComponent(query)}`)
                 .then(response => response.json())
                 .then(data => {
                     const searchResultsContainer = document.getElementById('search-results-container');
