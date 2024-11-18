@@ -42,30 +42,11 @@
             text-align: center;
             padding: 2rem 0;
         } 
-	    
-     /*   #player {
+    
+     #player {
             width: 100%;
             height: 100%;
-        } */
-
-#player {
-    width: 100%;
-    height: 100%;
-    position: relative; /* Ensures child elements can be positioned absolutely */
-}
-
-#player-logo {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 6.4px; /* Set logo width */
-    height: 1.4px; /* Set logo height */
-    background-image: url('https://ani.mom/logo.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    z-index: 10; /* Ensure it appears above the player */
-}
-
+        } 
 	    
         .currently-playing {
             font-size: 0.9rem;
@@ -208,7 +189,6 @@
     <div class="container video-container">
       <!-- ShareThis BEGIN --><div class="sharethis-inline-share-buttons"></div><!-- ShareThis END -->
         <video id="player" controls>
-		<div id="player-logo"></div>
             <source id="video-source" type="application/x-mpegURL" src="">
         </video>
         <!-- "Currently Playing" text below the player -->
