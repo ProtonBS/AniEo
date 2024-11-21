@@ -288,8 +288,39 @@
     </section>
 
 <script>
+
+function fetchAnimeData(url, containerId) {
+    fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            const container = document.getElementById(containerId);
+            data.results.forEach(item => {
+                const itemElement = document.createElement('div');
+                itemElement.classList.add(containerId === 'carousel-container' ? 'carousel-item' : 'trending-item');
+                const img = document.createElement('img');
+                img.src = item.image;
+                img.alt = item.title;
+                const title = document.createElement('div');
+                title.classList.add('title');
+                title.innerText = item.title;
+                itemElement.onclick = () => window.location.href = `./anime/?id=${item.id}`;
+                itemElement.appendChild(img);
+                itemElement.appendChild(title);
+                container.appendChild(itemElement);
+            });
+        })
+        .catch(error => console.error(`Error fetching data from ${url}:`, error));
+}
+
+// Fetch Top Airing data
+fetchAnimeData('https://animetixe.vercel.app/popular', 'carousel-container');
+
+// Fetch Trending data
+fetchAnimeData('https://animetixe.vercel.app/top-airing', 'trending-container');
+
+    
     // Fetch Top Airing data
-    fetch('https://animetixe.vercel.app/popular')
+  /*  fetch('https://animetixe.vercel.app/popular')
         .then(response => response.json())
         .then(data => {
             const carouselContainer = document.getElementById('carousel-container');
@@ -346,7 +377,7 @@
         })
         .catch(error => {
             console.error('Error fetching Trending data:', error);
-        });
+        }); */
 
     // Function for the search box to redirect to the search page with the query
     function searchAnime() {
